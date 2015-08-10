@@ -1,1 +1,11 @@
 <h1>이것이 바로 대화창이즘</h1>
+
+<ul>
+
+  <% @lines.each do |line| %>
+  <li>
+    <%= line.content %>
+  </li>
+  <% end %>
+
+</ul>
