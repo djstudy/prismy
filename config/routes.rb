@@ -7,7 +7,11 @@ Rails.application.routes.draw do
       get 'dialogue'
     end
 
-    resources :lines
+    resources :lines do
+      collection do
+        get 'get_next_line', defaults: { format: 'json' }
+      end
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

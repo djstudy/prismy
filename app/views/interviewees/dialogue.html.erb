@@ -1,4 +1,15 @@
 <h1>이것이 바로 대화창이즘</h1>
+<div id="dialogueInfo" data-interviewee-id="<%= @interviewee.id%>" />
+<div id="lines" data-last-sequence="<%= @lines.first.sequence %>">
+  <div class="line">
+    <%= @lines.first.content %>
+  </div>
+</div>
+
+<div id="userActions">
+  <button class="nextLine" data-sequence="0">다음</button>
+</div>
+
 
 <ul>
 
