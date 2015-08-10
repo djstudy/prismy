@@ -1,0 +1,14 @@
+<h1> 대화 상대를 고르시즘 </h1>
+<table>
+  <tr>
+    <th>이름</th>
+    <th>설명</th>
+  </tr>
+  <% @interviewees.each do |interviewee| %>
+  <tr>
+    <td><%= link_to interviewee.name, dialogue_interviewee_path(interviewee) %></td>
+    <td><%= interviewee.description %></td>
+  </tr>
+  <% end %>
+
+</table>
