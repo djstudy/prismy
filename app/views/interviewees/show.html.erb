@@ -1,0 +1,38 @@
+<h1><%= @interviewee.name %></h1>
+
+<table>
+  <tr>
+    <th>순서</th>
+    <th>내용</th>
+    <th>종류</th>
+  </tr>
+
+  <% @interviewee.lines.each do |line| %>
+  <tr>
+    <%= form_for [@interviewee, line] do |f| %>
+    <td>
+      <%= f.text_field :sequence, autofocus: false%>
+    </td>
+    <td>
+      <%= f.text_field :content, autofocus: true%>
+    </td>
+    <td>
+      <%= f.collection_select :line_type, ["normal","question"], :to_s, :to_s, include_blank: false %>
+    </td>
+
+    <td>
+      <%= f.submit "Edit", class: "btn btn-primary "  %>
+    </td>
+
+    <td>
+      <%= link_to "Delete", interviewee_line_path(@interviewee, line), method: "delete", data: { confirm: "정말 삭제하시겠습니까?" }  %>
+    </td>
+
+    <% end %>
+  </tr>
+  <% end %>
+
+</table>
+
+
+<%= link_to "Add Interviewees", interviewee_lines_path(@interviewee), method: "create" %>

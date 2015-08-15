@@ -1,1 +1,19 @@
-index.html.erb
+<h1>Interviewees</h1>
+
+<table>
+  <tr>
+    <th>이름</th>
+    <th>설명</th>
+    <th>생성시간</th>
+  </tr>
+  <% @interviewees.each do |interviewee| %>
+  <tr>
+    <td><%= link_to interviewee.name, interviewee_path(interviewee) %></td>
+    <td><%= interviewee.description %></td>
+    <td><%= interviewee.created_at %></td>
+  </tr>
+  <% end %>
+
+</table>
+
+<%= link_to "Add Interviewees", new_interviewee_path() %>

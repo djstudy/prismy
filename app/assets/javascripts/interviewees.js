@@ -28,7 +28,8 @@ $(document).on('ready page:load', function () {
 
       if(data.line_type === "normal"){
         JQuserActions.empty();
-        JQuserAction.hide()
+        JQuserAction.html('다음')
+                    .hide()
                     .appendTo(JQuserActions)
                     .fadeIn('slow');
       }
