@@ -1,5 +1,7 @@
 class LinesController < ApplicationController
   before_action :get_interviewee
+  http_basic_authenticate_with name: "djstudy", password: ENV['BASIC_AUTH_SECRET'], except: [:get_next_line]
+  
   def index
     @lines = @interviewee.lines
   end
