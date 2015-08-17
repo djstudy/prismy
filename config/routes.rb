@@ -11,6 +11,8 @@ Rails.application.routes.draw do
       collection do
         get 'get_next_line', defaults: { format: 'json' }
       end
+
+      resources :choices 
     end
   end
 

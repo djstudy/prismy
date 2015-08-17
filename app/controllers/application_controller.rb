@@ -26,4 +26,9 @@ protected
 
   end
 
+  def get_interviewee
+    @interviewee = Interviewee.find(params[:interviewee_id])
+  end
+
+
 end

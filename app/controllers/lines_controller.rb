@@ -39,6 +39,14 @@ class LinesController < ApplicationController
   end
 
   def destroy
+    @line = Line.find(params[:id])
+
+    if @line.destroy
+      flash[:success] = "선택지가 성공적으로 삭제되었습니다."
+    else
+      flash[:error] = "선택지 삭제에 실패하였습니다."
+    end
+    redirect_to interviewee_path(@interviewee)
   end
 
   def get_next_line
@@ -66,10 +74,6 @@ class LinesController < ApplicationController
 
 
 private
-  def get_interviewee
-    @interviewee = Interviewee.find(params[:interviewee_id])
-  end
-
   def line_params
     params.require(:line).permit(:content, :line_type, :sequence)
   end
