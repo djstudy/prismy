@@ -1,14 +1,14 @@
 class LinesController < ApplicationController
   before_action :get_interviewee
   http_basic_authenticate_with name: "djstudy", password: ENV['BASIC_AUTH_SECRET'], except: [:get_next_line]
-  
+
   def index
     @lines = @interviewee.lines
   end
 
 
   def create
-    sequence = @interviewee.lines.maximum(:sequence) + 1
+    sequence = (@interviewee.lines.maximum(:sequence) || 0 ) + 1
     @line = Line.new(content: "대사를 입력해주세요.", line_type: "normal", sequence: sequence, interviewee: @interviewee)
 
     if @line.save
@@ -42,7 +42,7 @@ class LinesController < ApplicationController
   end
 
   def get_next_line
-    current_line = Line.find(params[:current_line])
+    current_line = @interviewee.lines.find_by_sequence(params[:current_line])
     user_choice = current_line.choices.find_by_sequence(params[:user_choice])
 
 

@@ -5,15 +5,18 @@
     <th>이름</th>
     <th>설명</th>
     <th>생성시간</th>
+    <th>관리</th>
   </tr>
   <% @interviewees.each do |interviewee| %>
   <tr>
     <td><%= link_to interviewee.name, interviewee_path(interviewee) %></td>
     <td><%= interviewee.description %></td>
     <td><%= interviewee.created_at %></td>
+    <td><%= link_to "삭제", interviewee_path(interviewee), method: "delete" %>
+    <%= link_to "수정", edit_interviewee_path(interviewee) %></td>
   </tr>
   <% end %>
 
 </table>
 
-<%= link_to "Add Interviewees", new_interviewee_path() %>
+<%= link_to "인터뷰 대상 추가", new_interviewee_path()%>

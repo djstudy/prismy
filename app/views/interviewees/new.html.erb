@@ -1,0 +1,8 @@
+<h1>새 인터뷰대상 추가</h1>
+<%= form_for @interviewee do |f| %>
+
+  <%= render partial: "form", locals: {f: f} %>
+  <%= f.submit "저장", class: " "  %>
+  <%= link_to "뒤로", interviewees_path %>
+
+<% end %>
