@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root 'home#index'
+  get 'about', to: 'home#about'
   resources :interviewees do
 
     member do
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
         get 'get_next_line', defaults: { format: 'json' }
       end
 
-      resources :choices 
+      resources :choices
     end
   end
 

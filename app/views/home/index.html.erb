@@ -1,14 +1,18 @@
-<h1> 대화 상대를 고르시즘 </h1>
-<table>
-  <tr>
-    <th>이름</th>
-    <th>설명</th>
-  </tr>
+<div class="row">
+  <h1 class="col-sm-12 heading heading--start">이야기할 상대를 고르세요.</h1>
   <% @interviewees.each do |interviewee| %>
-  <tr>
-    <td><%= link_to interviewee.name, dialogue_interviewee_path(interviewee) %></td>
-    <td><%= interviewee.description %></td>
-  </tr>
+  <div class="col-sm-6 col-md-3">
+    <div class="testimonial testimonial--centered">
+      <%= link_to dialogue_interviewee_path(interviewee) do %>
+      <div class="testimonial__images">
+        <img src="assets/images/avatars/4.jpg" alt="">
+      </div>
+      <p class="testimonial__author"><%= interviewee.name %></p>
+      <p class="testimonial__info">CEO, Themeforest</p>
+      <p class="testimonial__text"><%= interviewee.description %></p>
+      <% end %>
+    </div>
+  </div><!-- end col -->
   <% end %>
 
-</table>
+</div><!-- end row -->
