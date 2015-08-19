@@ -64,7 +64,7 @@ class LinesController < ApplicationController
         render json: current_line.next_line.to_json({:include => :choices}), status: 200
 
       else
-        render json: {content: user_choice.response, sequence: current_line.sequence}, status: 200
+        render json: {content: user_choice.response, sequence: current_line.sequence, choices: current_line.choices, line_type: 'question' }, status: 200
       end
     else
         render json: { error: "개발자에게 문의해주세요!" }, status: 403

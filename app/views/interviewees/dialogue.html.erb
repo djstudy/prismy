@@ -1,12 +1,22 @@
-<h1>이것이 바로 대화창이즘</h1>
-<div id="dialogueInfo" data-interviewee-id="<%= @interviewee.id%>" />
-<div id="lines" data-last-sequence="<%= @lines.first.sequence %>">
-  <div class="line">
-    <%= @lines.first.content %>
+<div id="dialogue-container" class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div id="dialogueInfo" data-interviewee-id="<%= @interviewee.id%>" />
+    <div id="lines" data-last-sequence="<%= @lines.first.sequence %>">
+      <div class="line">
+        <%= @lines.first.content %>
+      </div>
+    </div>
+
+
   </div>
 </div>
 
-<div id="userActions">
-  <button class="nextLine" data-sequence="0">다음</button>
+<div id="userActions-container" class="row">
+  <!-- Colored divider -->
+<div class="divider-color "></div>
+  <div class="col-md-6 col-md-offset-3">
+    <div id="userActions">
+      <button class="nextLine btn btn-info" data-sequence="0">Next</button>
+    </div>
+  </div>
 </div>
-
