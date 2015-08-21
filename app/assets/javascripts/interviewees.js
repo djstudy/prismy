@@ -11,7 +11,11 @@ $(document).on('ready page:load', function () {
     var sendingData = { current_line: currentLineSeq, user_choice: Number(JQthis.data('sequence')) };
     var ajaxUrl = "/interviewees/" + intervieweeID + "/lines/get_next_line"
     var JQuserActions = $('#userActions');
-    var userLine = $("<div/>", {class: "line user"}).append(JQthis.html());
+
+    var JQnextLine = $(".line.interviewee").first().clone();
+    var userLine = $(".line.user").first().clone().removeClass('hide');
+    userLine.find('.prismy-dialog-contents').html(JQthis.html());
+
 
     JQuserActions.empty().hide(400);
 
@@ -21,9 +25,10 @@ $(document).on('ready page:load', function () {
       data: sendingData,
     }).done(function(data) {
       var i;
-      var JQnextLine = $("<div/>", {class: "line"}).append(data.content);
       var JQuserAction = $("<button/>", {class: "nextLine btn btn-info"});
       var JQuserActionTemp;
+
+      JQnextLine.find('.prismy-dialog-contents').html(data.content);
       console.log(data);
       //last_sequence 변경
       $('#lines').data('last-sequence', data.sequence);

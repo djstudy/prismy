@@ -1,3 +1,53 @@
 // Place all the styles related to the lines controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.vertical-align {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  }
+
+.prismy-dialog{
+  display: inline-block;
+  border-radius: 15px;
+  border-color:#006666;
+  border-style:solid;
+  border-width:3px;
+  padding:5px;
+  background-color:#006666;
+  color:white;
+}
+
+.prismy-dialog-contents{
+  display: inline-block;
+  padding:3px 3px;
+}
+
+.prismy-arrow-left {
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 30%;
+  left: 8px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid #006666;
+}
+.prismy-arrow-right {
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 30%;
+  right: 8px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid #006666;
+}
+
+.dialogue-profile-div{
+    height:60px;
+    width:60px;
+    overflow:hidden;
+    border-radius:50%;
+}

@@ -15,10 +15,27 @@
  *= require_tree .
  *= require_self
  */
-
+ .header--thin{
+  min-height: 148px;
+ }
+.logo {
+  float: none;
+}
 .logo img {
     width: initial;
     height: initial;
-    max-height: 46px;
-    /*margin-top: 28px;*/
+    max-height: 120px;
+    margin-top: 12px;
+}
+
+#page-container{
+  padding: 0;
+}
+#userActions{
+  height: 100px;
+}
+@media (max-width: 768px) {
+#userActions{
+  height: inherit;
+  }
 }

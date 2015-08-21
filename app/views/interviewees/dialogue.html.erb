@@ -1,9 +1,39 @@
 <div id="dialogue-container" class="row">
   <div class="col-md-6 col-md-offset-3">
-    <div id="dialogueInfo" data-interviewee-id="<%= @interviewee.id%>" />
+    <div id="dialogueInfo" data-interviewee-id="<%= @interviewee.id%>" ></div>
     <div id="lines" data-last-sequence="<%= @lines.first.sequence %>">
-      <div class="line">
-        <%= @lines.first.content %>
+
+      <div class="line user vertical-align hide">
+        <div class="col-xs-9 col-xs-offset-3 col-md-10 col-md-offset-2">
+          <div class="prismy-arrow-right"></div>
+
+          <div class="prismy-dialog pull-right">
+            <div class="prismy-dialog-contents flow-text">
+              <%= @lines.first.content %>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+
+      <div class="line interviewee vertical-align">
+
+        <div class="col-xs-3 col-md-2 prismy-no_wrap nopadding">
+          <div class="dialogue-profile-div center-block">
+            <img src="/assets/images/avatars/4.jpg" width="60px" ><br>
+          </div>
+        </div>
+        <div class="col-xs-9 col-md-10">
+          <div class="prismy-arrow-left"></div>
+
+          <div class="prismy-dialog ">
+            <div class="prismy-dialog-contents flow-text">
+              <%= @lines.first.content %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -11,12 +41,14 @@
   </div>
 </div>
 
-<div id="userActions-container" class="row">
+<div id="userActions-container" >
   <!-- Colored divider -->
-<div class="divider-color "></div>
+  <div class="divider-color "></div>
+  <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <div id="userActions">
       <button class="nextLine btn btn-info" data-sequence="0">Next</button>
     </div>
+  </div>
   </div>
 </div>

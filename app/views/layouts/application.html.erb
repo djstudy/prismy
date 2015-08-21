@@ -25,66 +25,31 @@
 <body>
   <div class="wrapper" id="top">
 
-    <header class="header header--block header--light">
+    <header class="header header--thin header--light">
       <div class="header-fixed">
-        <div class="header-line waypoint" data-animate-down="header-up" data-animate-up="header-down">
-          <div class="container">
-                <!--  Logo  -->
-            <a class="logo" href="index.html">
-              <%= image_tag image_path("prismy_logo.png") %>
-            </a>
-            <!-- End Logo -->
-          </div>  <!-- end container -->
-        </div>
+      <div class="header-line waypoint" data-animate-down="header-up" data-animate-up="header-down">
 
-        <div class="fixed-top header-down">
-          <div class="container">
+      <div class="fixed-top header-down">
+      <div class="container text-center">
 
-
-            <!-- Navigation section -->
-            <nav class="z-nav">
-                <!-- Toggle for menu mobile view -->
-                <a href="#" class="z-nav__toggle">
-                    <span class="menu-icon"></span>
-                    <span class="menu-text">navigation</span>
-                    <div class="menu-head"></div>
-                </a>
-
-                <ul class="z-nav__list">
-                  <li class="z-nav__item">
-                    <!-- Subsidiary menu toogle button -->
-                      <span class="z-nav__toggle-sub plus"><i class="fa fa-plus"></i><i class="fa fa-minus"></i></span>
-                    <%= link_to "Have some talks", root_path(), class: "z-nav__link" %>
-
-
-                    <!-- Subsidiary menu list-->
-                    <!-- end subsidiary menu list-->
-                  </li>
-                  <li class="z-nav__item">
-                    <!-- Subsidiary menu toogle button -->
-                      <span class="z-nav__toggle-sub plus"><i class="fa fa-plus"></i><i class="fa fa-minus"></i></span>
-                    <%= link_to "What is it?", about_path(), class: "z-nav__link" %>
+        <%= link_to root_path(), class: "logo " do %>
+            <%= image_tag image_path('prismy_logo.png'), class: "logo" %>
+        <% end %>
+        <!-- End Logo -->
 
 
 
-                    <!-- Subsidiary menu list-->
-                    <!-- end subsidiary menu list-->
-                  </li>
-                </ul>
-                <!-- end list menu item -->
-            </nav>
-            <!-- end navigation section -->
-          </div> <!-- end container -->
+      </div> <!-- end container -->
 
-        <!-- Colored divider -->
-          <div class="divider-color">
-          </div>
+      <!-- Colored divider -->
+      <div class="divider-color"></div>
 
-        </div> <!-- end fixed top block -->
+      </div> <!-- end fixed top block -->
 
       </div>
 
-    </header>
+  </header>
+    <!-- end header section -->
 
     <!-- end section show current page and breadcrumb -->
 
