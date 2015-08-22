@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150810052308) do
+ActiveRecord::Schema.define(version: 20150822065805) do
 
   create_table "choices", force: :cascade do |t|
     t.integer  "line_id"
@@ -52,8 +52,9 @@ ActiveRecord::Schema.define(version: 20150810052308) do
     t.integer  "user_id"
     t.integer  "line_id"
     t.integer  "choice_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "interviewee_id"
   end
 
   create_table "users", force: :cascade do |t|

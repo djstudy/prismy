@@ -1,5 +1,6 @@
 class LinesController < ApplicationController
   before_action :get_interviewee
+  before_action :authenticate!
   http_basic_authenticate_with name: "djstudy", password: ENV['BASIC_AUTH_SECRET'], except: [:get_next_line]
 
   def index
@@ -52,13 +53,15 @@ class LinesController < ApplicationController
   def get_next_line
     current_line = @interviewee.lines.find_by_sequence(params[:current_line])
     user_choice = current_line.choices.find_by_sequence(params[:user_choice])
-
+    UserAnswer.create(user: current_user, line: current_line, choice: user_choice, interviewee: @interviewee)
 
     if current_line.line_type == "normal"
 
       render json: current_line.next_line.to_json({:include => :choices}), status: 200
 
     elsif current_line.line_type == "question"
+
+
       if user_choice.correct
 
         render json: current_line.next_line.to_json({:include => :choices}), status: 200
