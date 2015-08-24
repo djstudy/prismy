@@ -8,6 +8,9 @@ $(document).on('ready page:load', function () {
   $("#userActions ").on('click','button.nextLine',function(){
     var JQthis = $(this);
     var currentLineSeq = Number($('#lines').data('last-sequence'));
+    var currentLineType = $('#lines').data('last-line-type');
+
+
     var sendingData = { current_line: currentLineSeq, user_choice: Number(JQthis.data('sequence')) };
     var ajaxUrl = "/interviewees/" + intervieweeID + "/lines/get_next_line"
     var JQuserActions = $('#userActions');
@@ -32,11 +35,17 @@ $(document).on('ready page:load', function () {
       console.log(data);
       //last_sequence 변경
       $('#lines').data('last-sequence', data.sequence);
+      $('#lines').data('last-line-type', data.line_type);
+      console.log(currentLineType);
       //line 추가
-      userLine.hide()
+
+      if( currentLineType === "question"){
+        userLine.hide()
             .appendTo('#lines')
-            .show()
-            .queue( function(){
+            .show();
+      }
+
+      userLine.queue( function(){
 
               JQnextLine.hide()
                 .delay( 1000 )
