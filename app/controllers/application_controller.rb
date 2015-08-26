@@ -33,6 +33,13 @@ protected
     @interviewee = Interviewee.find(params[:interviewee_id])
   end
 
+  def authenticate_interviewee!
+    if session[:interviewee] != @interviewee.id
+      flash[:error] = "잘못된 접근입니다."
+      redirect_to enterance_interviewee_path(@interviewee)
+    end
+  end
+
 
 private
   def current_user

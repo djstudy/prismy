@@ -17,3 +17,27 @@
 .talked{
   background: lightgrey;
 }
+
+.form-sequence{
+  input{
+    width: 80% !important;
+  }
+  max-width: 70px;
+  width: 20%;
+}
+.form-content{
+  textarea{
+    width: 90% !important;
+
+  }
+
+  width: 60%;
+}
+.form-response{
+  textarea{
+    width: 80% !important;
+
+  }
+
+  width: 40%;
+}

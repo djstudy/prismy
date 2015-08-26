@@ -1,62 +1,67 @@
-<h1><%= @interviewee.name %></h1>
+<div  class="row">
+  <div class="col-sm-12 col-md-12">
 
-<table>
-  <tr>
-    <th>순서</th>
-    <th>내용</th>
-    <th>종류</th>
-  </tr>
+  <h1><%= @interviewee.name %>
+    <%= link_to "Edit", edit_interviewee_path(@interviewee), class: "btn btn-info btn-sm" %>
+  </h1>
 
   <% @interviewee.lines.each do |line| %>
-  <tr>
-    <%= form_for [@interviewee, line] do |f| %>
-    <td>
-      <%= f.text_field :sequence, autofocus: false%>
-    </td>
-    <td>
-      <%= f.text_field :content, autofocus: true%>
-    </td>
-    <td>
-      <%= f.collection_select :line_type, ["normal","question"], :to_s, :to_s, include_blank: false %>
-    </td>
 
-    <td>
-      <%= f.submit "Edit", class: " "  %>
+    <%= form_for [@interviewee, line], html: { class: "form-inline" } do |f| %>
+    <div class="form-group form-sequence">
+      <%= f.label "#" %>
+      <%= f.number_field :sequence, autofocus: false, class: "form-control input-sm" %>
+    </div>
+    <div class="form-group form-content">
+      <%= f.label :content %>
+      <%= f.text_area :content, autofocus: true, class: "form-control input-sm" %>
+    </div>
+    <div class="form-group">
+        <%= f.collection_select :line_type, ["normal","question"], :to_s, :to_s, include_blank: false, class: "select-box" %>
+    </div>
 
-      <%= link_to "Delete", interviewee_line_path(@interviewee, line), method: "delete", data: { confirm: "정말 삭제하시겠습니까?" }  %>
-    </td>
+    <%= f.submit "Edit", class: "btn btn-info btn-sm"  %>
+    <%= link_to "Delete", interviewee_line_path(@interviewee, line), method: "delete", data: { confirm: "정말 삭제하시겠습니까?" }, class: "btn btn-danger btn-sm"  %>
 
     <% end %>
-  </tr>
-  <% if line.is_question? %>
-    <% line.choices.each do |choice| %>
-      <%= form_for [@interviewee, line, choice] do |f| %>
-  <tr>
-    <td colspan="4">
-      --
-      <%= f.number_field :sequence, autofocus: false %>
-      <%= f.text_field :content, autofocus: true %>
-      <%= f.text_field :response, autofocus: true %>
-      <%= f.check_box :correct %>
-      <%= f.submit "Edit", class: " "  %>
-      <%= link_to "Delete", interviewee_line_choice_path(@interviewee, line, choice), method: "delete", data: { confirm: "정말 삭제하시겠습니까?" }  %>
-    </td>
 
-  </tr>
+    <% if line.is_question? %>
+    --
+      <% line.choices.each do |choice| %>
+
+        <%= form_for [@interviewee, line, choice], html: { class: "form-inline" } do |f| %>
+          <div class="form-group form-sequence">
+            <%= f.label "#" %>
+            <%= f.number_field :sequence, autofocus: false, class: "form-control input-sm" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :content %>
+            <%= f.text_field :content, autofocus: true,  class: "form-control input-sm" %>
+          </div>
+          <div class="form-group form-response">
+            <%= f.label :response %>
+            <%= f.text_area :response, autofocus: true,  class: "form-control input-sm" %>
+          </div>
+          <div class="form-group">
+            <div class="checkbox" >
+              <%= f.check_box :correct %>
+              <%= f.label :correct, style: "padding-left: 20px;" %>
+            </div>
+          </div>
+
+
+          <%= f.submit "Edit", class: "btn btn-info btn-sm"  %>
+          <%= link_to "Delete", interviewee_line_choice_path(@interviewee, line, choice), method: "delete", data: { confirm: "정말 삭제하시겠습니까?" }, class: "btn btn-danger btn-sm"  %>
+
+        <% end %>
       <% end %>
+
+      <%= link_to "Add Choice", interviewee_line_choices_path(@interviewee, line), method: "POST", class: "btn btn-success btn-sm" %>
+
+
     <% end %>
-  <tr>
-    <td>
-      --
-      <%= link_to "Add Choice", interviewee_line_choices_path(@interviewee, line), method: "POST" %>
-    </td>
-  </tr>
-  <% end %>
-
 
   <% end %>
-
-</table>
-
-
-<%= link_to "Add Line", interviewee_lines_path(@interviewee), method: "POST" %>
+  <%= link_to "Add Line", interviewee_lines_path(@interviewee), method: "POST", class: "btn btn-primary btn-sm" %>
+  </div>
+</div>

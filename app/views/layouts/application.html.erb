@@ -56,10 +56,20 @@
 
 
   <% flash.each do |type, message| %>
-    <div class="alert <%= flash_class(type) %> alert-dismissable fade in">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <%= message %>
-    </div>
+  <div class="alert  alert-<%= flash_class(type) %> alert-visible ">
+  <div class="box-inner">
+    <span class="alert-market">
+      <i class="fa <%=flash_icon(type)%>"></i>
+    </span>
+    <strong><%= type %></strong> <%= message %>
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+      <i class="fa fa-times"></i>
+    </button>
+  </div>
+  </div>
+
+
+
   <% end %>
 
     <section>

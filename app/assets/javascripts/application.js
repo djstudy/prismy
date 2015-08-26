@@ -16,3 +16,16 @@
 //= require_tree "./allec/external"
 //= require_tree "./allec"
 //= require_tree .
+$(document).on('ready page:load', function () {
+  $('.alert--full').one('inview', function (event, visible) {
+    if (visible == true) {
+              $('.alert--full.start-1').addClass('ns-show');
+              $('.alert--full.start-2').addClass('ns-show stage2');
+              $('.alert--full.start-3').addClass('ns-show stage3');
+              $('.alert--full.start-4').addClass('ns-show stage4');
+          }
+  });
+
+  selectBox();
+
+});

@@ -6,6 +6,9 @@ Rails.application.routes.draw do
 
     member do
       get 'dialogue'
+      get 'enterance'
+      post 'log_in'
+      delete 'log_out'
     end
 
     resources :lines do

@@ -1,10 +1,35 @@
 class IntervieweesController < ApplicationController
   before_action :get_interviewee, except: [:index, :create, :new]
   before_action :authenticate!, only: [:dialogue]
-  http_basic_authenticate_with name: "djstudy", password: ENV['BASIC_AUTH_SECRET'], except: [:dialogue]
+  before_action :authenticate_interviewee!, only: [:show, :edit, :update, :destroy]
+  http_basic_authenticate_with name: "djstudy", password: ENV['BASIC_AUTH_SECRET'], except: [:dialogue, :show, :enterance, :log_out, :log_in, :edit, :update, :destroy]
+
 
   def index
     @interviewees = Interviewee.all
+  end
+  def enterance
+    if session[:interviewee] == @interviewee.id
+      redirect_to interviewee_path(@interviewee)
+    end
+  end
+  def log_in
+    if @interviewee.password == params[:password]
+      flash[:success] = "로그인 하셨습니다."
+      session[:interviewee] = @interviewee.id
+      redirect_to interviewee_path(@interviewee)
+    else
+      flash[:error] = "로그인에 실패하였습니다."
+      redirect_to enterance_interviewee_path(@interviewee)
+    end
+  end
+  def log_out
+    session[:interviewee] = nil
+    redirect_to interviewees_path()
+  end
+
+  def show
+
   end
   def new
     @interviewee = Interviewee.new()
@@ -35,7 +60,7 @@ class IntervieweesController < ApplicationController
       flash[:error] = "인터뷰대상 수정에 실패하였습니다."
     end
 
-    redirect_to interviewees_path()
+    redirect_to interviewee_path(@interviewee)
   end
 
   def destroy
@@ -56,10 +81,12 @@ class IntervieweesController < ApplicationController
 
 private
   def interviewee_params
-    params.require(:interviewee).permit(:name, :email, :description)
+    params.require(:interviewee).permit(:name, :password, :password_confirmation, :email, :description)
   end
 
   def get_interviewee
     @interviewee = Interviewee.find(params[:id])
   end
+
+  
 end

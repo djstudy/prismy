@@ -1,8 +1,12 @@
 <h1><%= @interviewee.name %></h1>
 
-<%= form_for @interviewee do |f| %>
+<%= form_for @interviewee, html: {class: "form-horizontal"} do |f| %>
   <%= render partial: "form", locals: {f: f} %>
 
-  <%= f.submit "수정", class: " "  %>
-  <%= link_to "뒤로", interviewees_path %>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit "수정", class: "btn btn-success"  %>
+      <%= link_to "뒤로", interviewee_path(@interviewee), class: "btn btn-info" %>
+    </div>
+  </div>
 <% end %>

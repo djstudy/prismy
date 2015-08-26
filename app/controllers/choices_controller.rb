@@ -1,6 +1,6 @@
 class ChoicesController < ApplicationController
   before_action :get_interviewee
-  http_basic_authenticate_with name: "djstudy", password: ENV['BASIC_AUTH_SECRET'], except: [:get_next_line]
+  before_action :authenticate_interviewee!
 
 
 

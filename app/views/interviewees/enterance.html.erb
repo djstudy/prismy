@@ -1,0 +1,4 @@
+<h1>로그인 비밀번호를 입력하세요.</h1>
+<%= form_tag({controller: :interviewees, action: :log_in}, method: "post") do %>
+  <%= password_field_tag(:password) %>
+<% end %>
