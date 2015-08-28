@@ -1,4 +1,13 @@
+    class Interviewee < ActiveRecord::Base
+      has_many :comments
+      has_many :lines
+      has_many :user_answers
+
+    end
 class InsertTestData < ActiveRecord::Migration
+
+
+
   def change
     user = User.create(email: 'data.journalism.study@gmail.com')
     interviewee = Interviewee.create(email: 'data.journalism.study@gmail.com', name: "설명충", description: "설명충이란? 극혐이다.")
