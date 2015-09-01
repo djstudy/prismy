@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150825121357) do
+ActiveRecord::Schema.define(version: 20150901063714) do
 
   create_table "choices", force: :cascade do |t|
     t.integer  "line_id"
@@ -47,6 +47,39 @@ ActiveRecord::Schema.define(version: 20150825121357) do
     t.integer  "sequence"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "scene_id"
+  end
+
+  create_table "scene_tag_mappers", force: :cascade do |t|
+    t.integer  "scene_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "scenes", force: :cascade do |t|
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "subject_tag_mappers", force: :cascade do |t|
+    t.integer  "subject_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "user_answers", force: :cascade do |t|

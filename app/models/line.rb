@@ -1,6 +1,7 @@
 class Line < ActiveRecord::Base
   has_many :choices
   belongs_to :interviewee
+  belongs_to :scene
 
   LINE_TYPES = ["normal", "question"]
   LINE_TYPES.each  do |type|
