@@ -10,7 +10,9 @@ $(document).on('ready page:load', function () {
     var currentLineSeq = Number($('#lines').data('last-sequence'));
     var currentLineType = $('#lines').data('last-line-type');
 
-
+    //routes have been changed!
+    //"/scenes/:scene_id/lines/get_next_line(.:format)"
+    //Please Implement these code to load next line
     var sendingData = { current_line: currentLineSeq, user_choice: Number(JQthis.data('sequence')) };
     var ajaxUrl = "/interviewees/" + intervieweeID + "/lines/get_next_line"
     var JQuserActions = $('#userActions');

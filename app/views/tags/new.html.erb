@@ -1,0 +1,9 @@
+<%= render partial: "./admin_nav" %>
+<h1>새 태그 추가</h1>
+<%= form_for @tag do |f| %>
+
+  <%= render partial: "form", locals: {f: f} %>
+  <%= f.submit "저장", class: "btn btn-success btn-sm "  %>
+  <%= link_to "뒤로", tags_path, class: "btn btn-info btn-sm" %>
+
+<% end %>

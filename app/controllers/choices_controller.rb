@@ -1,4 +1,5 @@
 class ChoicesController < ApplicationController
+  before_action :get_choice, only: [:edit, :update, :destroy]
   before_action :get_interviewee
   before_action :authenticate_interviewee!
 
@@ -20,7 +21,7 @@ class ChoicesController < ApplicationController
 
   def update
 
-    @choice = Choice.find(params[:id])
+
     if @choice.update(choice_params)
       flash[:success] = "선택지가 성공적으로 수정되었습니다."
     else
@@ -30,7 +31,7 @@ class ChoicesController < ApplicationController
   end
 
   def destroy
-    @choice = Choice.find(params[:id])
+
 
     if @choice.destroy
       flash[:success] = "선택지가 성공적으로 삭제되었습니다."
@@ -45,7 +46,9 @@ private
   def choice_params
     params.require(:choice).permit(:content, :response, :sequence, :correct)
   end
-
+  def get_choice
+    @choice = Choice.find(params[:id])
+  end
 
 
 end

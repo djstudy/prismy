@@ -1,22 +1,26 @@
+<%= render partial: "./admin_nav" %>
 <h1>Interviewees</h1>
+<div class="table-responsive">
+  <table class="table table-bordered table--wide table-present">
+    <thead>
+      <tr>
+        <th>이름</th>
+        <th>설명</th>
+        <th>생성시간</th>
+        <th>관리</th>
+      </tr>
+    </thead>
+    <% @interviewees.each do |interviewee| %>
+    <tr>
+      <td><%= link_to interviewee.name, interviewee_path(interviewee) %></td>
+      <td><%= interviewee.description %></td>
+      <td><%= interviewee.created_at.in_time_zone("Seoul") %></td>
+      <td>
+      <%= link_to "Edit", edit_interviewee_path(interviewee), class: "btn btn-info btn-sm"  %>
+      <%= link_to "Delete", interviewee_path(interviewee), method: "delete", data: { confirm: "정말 삭제하시겠습니까?" }, class: "btn btn-danger btn-sm"  %></td>
+    </tr>
+    <% end %>
 
-<table>
-  <tr>
-    <th>이름</th>
-    <th>설명</th>
-    <th>생성시간</th>
-    <th>관리</th>
-  </tr>
-  <% @interviewees.each do |interviewee| %>
-  <tr>
-    <td><%= link_to interviewee.name, interviewee_path(interviewee) %></td>
-    <td><%= interviewee.description %></td>
-    <td><%= interviewee.created_at %></td>
-    <td><%= link_to "삭제", interviewee_path(interviewee), method: "delete" %>
-    <%= link_to "수정", edit_interviewee_path(interviewee) %></td>
-  </tr>
-  <% end %>
-
-</table>
-
+  </table>
+</div>
 <%= link_to "인터뷰 대상 추가", new_interviewee_path()%>

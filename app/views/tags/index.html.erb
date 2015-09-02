@@ -1,0 +1,26 @@
+<%= render partial: "./admin_nav" %>
+<h1>Tags</h1>
+<div class="table-responsive">
+  <table class="table table-bordered table--wide table-present">
+    <thead>
+      <tr>
+        <th>이름</th>
+        <th>연결된 주제</th>
+        <th>관리</th>
+      </tr>
+    </thead>
+    <% @tags.each do |tag| %>
+    <tr>
+      <td><%= tag.name %></td>
+      <td><%= tag.subjects.map{ |s| "\"#{s.name}\"" }.join(", ") %></td>
+
+      <td>
+      <%= link_to "edit", edit_tag_path(tag), class: "btn btn-info btn-sm" %>
+      <%= link_to "delete", tag_path(tag), method: "delete", data: { confirm: "정말 삭제하시겠습니까?" }, class: "btn btn-danger btn-sm" %>
+    </tr>
+    <% end %>
+
+  </table>
+</div>
+
+<%= link_to "new", new_tag_path(), class: "btn btn-general btn-sm" %>

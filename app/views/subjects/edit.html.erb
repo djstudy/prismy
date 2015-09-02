@@ -1,0 +1,9 @@
+<%= render partial: "./admin_nav" %>
+<h1><%= @subject.name %> 주제 수정</h1>
+<%= form_for @subject do |f| %>
+
+  <%= render partial: "form", locals: {f: f} %>
+  <%= f.submit "수정", class: "btn btn-success btn-sm"  %>
+  <%= link_to "뒤로", subjects_path, class: "btn btn-info btn-sm" %>
+
+<% end %>

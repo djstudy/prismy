@@ -1,0 +1,24 @@
+<div class="form-group">
+  <div class="col-sm-2">
+    <%= f.label :description %>
+  </div>
+  <div class="col-sm-10">
+
+    <%= f.text_field :description, autofocus: false, class: "form-control"%>
+  </div>
+</div>
+
+
+<div class="form-group">
+  <div class="col-sm-2">
+    <%= f.label :tags %>
+  </div>
+  <div class="col-sm-10">
+    <div class="checkbox">
+    <% Tag.all.each do |tag| %>
+      <%= check_box_tag "tag_ids[]", tag.id, @scene.tags.include?(tag), id: tag.id %>
+      <%= label_tag(tag.id, tag.name) %>
+    <% end %>
+    </div>
+  </div>
+</div>

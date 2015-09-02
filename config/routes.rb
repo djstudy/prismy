@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   root 'home#index'
   get 'about', to: 'home#about'
+  resources :tags
+  resources :subjects
+
   resources :interviewees do
 
     member do
@@ -11,13 +14,19 @@ Rails.application.routes.draw do
       delete 'log_out'
     end
 
-    resources :lines do
-      collection do
-        get 'get_next_line', defaults: { format: 'json' }
-      end
 
-      resources :choices
+    resources :scenes, shallow: true do
+
+      resources :lines do
+
+        collection do
+          get 'get_next_line', defaults: { format: 'json' }, as: "get_next"
+        end
+
+        resources :choices
+      end
     end
+
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -30,10 +30,20 @@ protected
   end
 
   def get_interviewee
-    @interviewee = Interviewee.find(params[:interviewee_id])
+    if params[:interviewee_id]
+      @interviewee = Interviewee.find(params[:interviewee_id])
+    elsif params[:scene_id]
+      @interviewee = Scene.find(params[:scene_id]).interviewee
+    elsif params[:line_id]
+      @interviewee = Line.find(params[:line_id]).interviewee
+    else
+      @interviewee = (@scene || @line || @choice.line).interviewee if @scene || @line || @choice
+    end
   end
 
   def authenticate_interviewee!
+
+
     if session[:interviewee] != @interviewee.id
       flash[:error] = "잘못된 접근입니다."
       redirect_to enterance_interviewee_path(@interviewee)

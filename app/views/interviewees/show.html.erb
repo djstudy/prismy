@@ -5,63 +5,84 @@
     <%= link_to "Edit", edit_interviewee_path(@interviewee), class: "btn btn-info btn-sm" %>
   </h1>
 
-  <% @interviewee.lines.each do |line| %>
+  <% @interviewee.scenes.each do |scene| %>
 
-    <%= form_for [@interviewee, line], html: { class: "form-inline" } do |f| %>
-    <div class="form-group form-sequence">
-      <%= f.label "#" %>
-      <%= f.number_field :sequence, autofocus: false, class: "form-control input-sm" %>
-    </div>
-    <div class="form-group form-content">
-      <%= f.label :content %>
-      <%= f.text_area :content, autofocus: true, class: "form-control input-sm" %>
-    </div>
-    <div class="form-group">
-        <%= f.collection_select :line_type, ["normal","question"], :to_s, :to_s, include_blank: false, class: "select-box" %>
-    </div>
+    <h2>
+      <%= scene.description %>
+      <small>
+      Tag : <%= scene.tags.map{|tag| tag.name }.join(", ") %>
+      </small>
+      <%= link_to "Edit", edit_scene_path(scene), class: "btn btn-info btn-sm" %>
+      <%= link_to "Delete", scene_path(scene), method: "delete", data: { confirm: "정말 삭제하시겠습니까?" }, class: "btn btn-danger btn-sm" %>
+    </h2>
 
-    <%= f.submit "Edit", class: "btn btn-info btn-sm"  %>
-    <%= link_to "Delete", interviewee_line_path(@interviewee, line), method: "delete", data: { confirm: "정말 삭제하시겠습니까?" }, class: "btn btn-danger btn-sm"  %>
+    <% scene.lines.each do |line| %>
 
-    <% end %>
+      <%= form_for line, html: { class: "form-inline" } do |f| %>
+      <div class="form-group form-sequence">
+        <%= f.label "#" %>
+        <%= f.number_field :sequence, autofocus: false, class: "form-control input-sm" %>
+      </div>
+      <div class="form-group form-content">
+        <%= f.label :content %>
+        <%= f.text_area :content, autofocus: true, class: "form-control input-sm" %>
+      </div>
+      <div class="form-group">
+          <%= f.collection_select :line_type, ["normal","question"], :to_s, :to_s, include_blank: false, class: "select-box" %>
+      </div>
 
-    <% if line.is_question? %>
-    --
-      <% line.choices.each do |choice| %>
+      <%= f.submit "Edit", class: "btn btn-info btn-sm"  %>
+      <%= link_to "Delete", line_path(line), method: "delete", data: { confirm: "정말 삭제하시겠습니까?" }, class: "btn btn-danger btn-sm"  %>
 
-        <%= form_for [@interviewee, line, choice], html: { class: "form-inline" } do |f| %>
-          <div class="form-group form-sequence">
-            <%= f.label "#" %>
-            <%= f.number_field :sequence, autofocus: false, class: "form-control input-sm" %>
-          </div>
-          <div class="form-group">
-            <%= f.label :content %>
-            <%= f.text_field :content, autofocus: true,  class: "form-control input-sm" %>
-          </div>
-          <div class="form-group form-response">
-            <%= f.label :response %>
-            <%= f.text_area :response, autofocus: true,  class: "form-control input-sm" %>
-          </div>
-          <div class="form-group">
-            <div class="checkbox" >
-              <%= f.check_box :correct %>
-              <%= f.label :correct, style: "padding-left: 20px;" %>
-            </div>
-          </div>
-
-
-          <%= f.submit "Edit", class: "btn btn-info btn-sm"  %>
-          <%= link_to "Delete", interviewee_line_choice_path(@interviewee, line, choice), method: "delete", data: { confirm: "정말 삭제하시겠습니까?" }, class: "btn btn-danger btn-sm"  %>
-
-        <% end %>
       <% end %>
 
-      <%= link_to "Add Choice", interviewee_line_choices_path(@interviewee, line), method: "POST", class: "btn btn-success btn-sm" %>
+      <% if line.is_question? %>
+      <div class="choices-container">
+        <% line.choices.each do |choice| %>
 
+
+          <%= form_for choice, html: { class: "form-inline" } do |f| %>
+            <div class="form-group form-sequence">
+              <%= f.label "#" %>
+              <%= f.number_field :sequence, autofocus: false, class: "form-control input-sm" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :content %>
+              <%= f.text_field :content, autofocus: true,  class: "form-control input-sm" %>
+            </div>
+            <div class="form-group form-response">
+              <%= f.label :response %>
+              <%= f.text_area :response, autofocus: true,  class: "form-control input-sm" %>
+            </div>
+            <div class="form-group">
+              <div class="checkbox" >
+                <%= f.select :correct, [['Correct', true], ['Incorrect', false]] %>
+
+              </div>
+            </div>
+
+
+            <%= f.submit "Edit", class: "btn btn-info btn-sm"  %>
+            <%= link_to "Delete", choice_path(choice), method: "delete", data: { confirm: "정말 삭제하시겠습니까?" }, class: "btn btn-danger btn-sm"  %>
+
+          <% end %>
+
+        <% end %>
+
+        <%= link_to "Add Choice", line_choices_path(line), method: "POST", class: "btn btn-success btn-sm" %>
+
+        </div>
+      <% end %>
 
     <% end %>
+    <%= link_to "Add Line", scene_lines_path(scene), method: "POST", class: "btn btn-general btn-sm" %>
 
+    <div class="divider divider--colored present-divider">
+      <span class="divider-dot"></span>
+    </div>
   <% end %>
-  <%= link_to "Add Line", interviewee_lines_path(@interviewee), method: "POST", class: "btn btn-primary btn-sm" %>
+
+  <%= link_to "Add Scene", new_interviewee_scene_path(@interviewee), class: "btn btn-primary btn-sm" %>
+
   </div>
 </div>

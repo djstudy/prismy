@@ -1,8 +1,8 @@
 class IntervieweesController < ApplicationController
   before_action :get_interviewee, except: [:index, :create, :new]
   before_action :authenticate!, only: [:dialogue]
-  before_action :authenticate_interviewee!, only: [:show, :edit, :update, :destroy]
-  http_basic_authenticate_with name: "djstudy", password: ENV['BASIC_AUTH_SECRET'], except: [:dialogue, :show, :enterance, :log_out, :log_in, :edit, :update, :destroy]
+  before_action :authenticate_interviewee!, only: [:show, :edit, :update ]
+  http_basic_authenticate_with name: "djstudy", password: ENV['BASIC_AUTH_SECRET'], except: [:dialogue, :show, :enterance, :log_out, :log_in, :edit, :update]
 
 
   def index

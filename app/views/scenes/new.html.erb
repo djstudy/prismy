@@ -1,0 +1,8 @@
+<h1>새 장면 추가</h1>
+<%= form_for [@interviewee, @scene] do |f| %>
+
+  <%= render partial: "form", locals: {f: f} %>
+  <%= f.submit "저장", class: "btn btn-success "  %>
+  <%= link_to "뒤로", interviewee_path(@interviewee), class: "btn btn-info " %>
+
+<% end %>

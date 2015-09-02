@@ -1,0 +1,12 @@
+<h1><%= @scene.description %></h1>
+
+<%= form_for @scene, html: {class: "form-horizontal"} do |f| %>
+  <%= render partial: "form", locals: {f: f} %>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit "수정", class: "btn btn-success"  %>
+      <%= link_to "뒤로", interviewee_path(@scene.interviewee), class: "btn btn-info" %>
+    </div>
+  </div>
+<% end %>
