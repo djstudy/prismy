@@ -1,6 +1,6 @@
 class TagsController < ApplicationController
   before_action :get_tag, only: [:edit, :update, :destroy]
-  http_basic_authenticate_with name: "djstudy", password: ENV['BASIC_AUTH_SECRET']
+  http_basic_authenticate_with name: "djstudy", password: ENV['BASIC_AUTH_SECRET'], except:[:dialogue]
   def index
     @tags = Tag.all;
   end
