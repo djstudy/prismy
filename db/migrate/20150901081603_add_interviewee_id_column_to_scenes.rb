@@ -5,6 +5,9 @@ class AddIntervieweeIdColumnToScenes < ActiveRecord::Migration
 
     Interviewee.all.each do |i|
       scene = Scene.create(:description => "#{i.name}의 첫번째 씬", interviewee_id: i.id)
+      SceneTagMapper.create(scene_id: scene.id, tag_id: Tag.first.id)
+
+      scene.update_attribute :interviewee_id, i.id
       i.lines.update_all(scene_id: scene.id)
     end
   end

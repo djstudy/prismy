@@ -23,7 +23,6 @@ class TagsController < ApplicationController
     redirect_to tags_path()
   end
 
-
   def show
 
   end
@@ -53,6 +52,13 @@ class TagsController < ApplicationController
       flash[:error] = "태그 삭제에 실패하였습니다."
     end
     redirect_to tags_path()
+  end
+
+  def dialogue
+    @tag = Tag.find(params[:id])
+    @scenes = @tag.scenes
+    @first_scene = @scenes.first
+    @first_scene_lines = @first_scene.lines
   end
 
 

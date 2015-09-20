@@ -1,5 +1,17 @@
 <div  class="row">
   <h1 class="col-sm-12 heading heading--start">대화상대를 골라주세요 :)</h1>
+  <% @tags.each do |tag| %>
+  <div class="col-sm-6 col-md-3">
+    <div class="testimonial testimonial--centered">
+      <%= link_to dialogue_tag_path(tag) do %>
+      <div class="testimonial__images">
+        <img src="assets/images/avatars/4.jpg" alt="">
+      </div>
+      <p class="testimonial__info"><%= tag.name %></p>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
   <% @interviewees.each do |interviewee| %>
   <div class="col-sm-6 col-md-3">
     <div class="testimonial testimonial--centered <%= talked?(current_user, interviewee) %>">

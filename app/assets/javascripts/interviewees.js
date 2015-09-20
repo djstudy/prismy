@@ -1,6 +1,113 @@
 $(document).on('ready page:load', function () {
+  $("#response_paragraph").fadeIn(2500);
   var intervieweeID = Number($('#dialogueInfo').data('interviewee-id'));
+  var tagID   = Number($('#tag_info').data('interviewee-id'));
+  var sceneID = Number($('#scene_info').data('scene-id'));
 
+  $("#user_answer_div").on("click", "button.user-answer-btn",function(event){
+    var clickedButton = $(this);
+        // Hide not-chosen buttons
+    $(".user-answer-btn").removeClass("chosenAnswer");
+    $(event.target).addClass("chosenAnswer");
+    hideNotChosenButtons();
+    $("#response_paragraph").fadeOut(600, function(){
+
+      $("#response_paragraph").empty();
+
+
+
+      var currentLineSeq = Number($('#line_info').data('last-sequence'));
+      var currentLineType = $('#line_info').data('last-line-type');
+
+      var sendingData =
+      { 
+        current_line: currentLineSeq,
+        user_choice: Number(clickedButton.data('sequence')) 
+      };
+      console.log(sendingData);
+
+      var ajaxUrl = "/scenes/" + sceneID + "/lines/get_next_line"
+
+      $.ajax({
+        method: "GET",
+        url: ajaxUrl,
+        data: sendingData,
+      }).done(function(data){
+        console.log(data);
+        
+        // This should not happen
+        if(!data)
+          alert("에러가 발생하였습니다. 데이터가 없습니다.");
+        $("#response_paragraph").html(data.content);
+        $('#line_info').data('last-sequence', data.sequence);
+        $('#line_info').data('last-line-type', data.line_type);
+        $("#response_paragraph").fadeIn(800, function(){
+          
+        setSelectButtons(data.choices);
+        });
+      });     
+    });
+  });
+
+
+  function setSelectButtons(selectButtonInformation)
+  {
+    clearSelectButtons();
+    $.each(selectButtonInformation, function(i, item){
+      $("#btn" + i).html(selectButtonInformation[i].content)
+      $("#btn" + i).data('sequence', selectButtonInformation[i].sequence)
+    });
+    showSelectButtons();
+  }
+
+  function showSelectButtons()
+  {
+    $(".user-answer-btn").css({
+      visibility:  'visible',
+      transition : 'opacity 1s ease-in-out'
+    });
+  }
+
+  function clearSelectButtons()
+  {
+    $(".user-answer-btn").css({
+      visibility:  'hidden',
+      transition : 'opacity 1s ease-in-out'
+    });
+  }
+
+  function hideNotChosenButtons()
+  {
+    $(".user-answer-btn").not(".chosenAnswer").css({
+      visibility:  'hidden',
+      transition : 'opacity 1s ease-in-out'
+    });
+  }
+
+  function getNextData(clickedButton, _Data)
+  {
+    var currentLineSeq = Number($('#line_info').data('last-sequence'));
+    var currentLineType = $('#line_info').data('last-line-type');
+
+    var sendingData =
+    { 
+      current_line: currentLineSeq,
+      user_choice: Number(clickedButton.data('sequence')) 
+    };
+
+    var ajaxUrl = "/scenes/" + sceneID + "/lines/get_next_line"
+
+    $.ajax({
+      method: "GET",
+      url: ajaxUrl,
+      data: sendingData,
+    }).done(function(data){
+      _Data = data;
+      $('#line_info').data('last-sequence', data.sequence);
+      $('#line_info').data('last-line-type', data.line_type);
+    });
+  }
+  
   function scrollToBottom(){
     $(document).scrollTop($(document).height());
   }
@@ -14,13 +121,12 @@ $(document).on('ready page:load', function () {
     //"/scenes/:scene_id/lines/get_next_line(.:format)"
     //Please Implement these code to load next line
     var sendingData = { current_line: currentLineSeq, user_choice: Number(JQthis.data('sequence')) };
-    var ajaxUrl = "/interviewees/" + intervieweeID + "/lines/get_next_line"
+    var ajaxUrl = "/scenes/" + intervieweeID + "/lines/get_next_line"
     var JQuserActions = $('#userActions');
-
+    console.log(sendingData);
     var JQnextLine = $(".line.interviewee").first().clone();
     var userLine = $(".line.user").first().clone().removeClass('hide');
     userLine.find('.prismy-dialog-contents').html(JQthis.html());
-
 
     JQuserActions.empty().hide(400);
 

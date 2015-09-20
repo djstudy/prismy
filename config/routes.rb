@@ -2,7 +2,12 @@ Rails.application.routes.draw do
 
   root 'home#index'
   get 'about', to: 'home#about'
-  resources :tags
+  resources :tags do
+    member do
+      get 'dialogue'
+    end
+  end
+
   resources :subjects
 
   resources :interviewees do
