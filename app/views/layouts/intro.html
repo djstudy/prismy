@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <!-- Mobile Specific Metas-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="telephone=no" name="format-detection">
+
+  <title>Prismy</title>
+
+  <!-- Open Sans -->
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400italic,600,700italic,400,700,800italic" rel="stylesheet" type="text/css">
+  <!-- VarelaRound -->
+  <link href="http://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" type="text/css">
+  <!-- Icon Font - Font Awesome -->
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+  <%= csrf_meta_tags %>
+</head>
+<body style="background: #34495e; color: white;">
+  <div class="wrapper" id="top">
+
+
+
+
+    <section>
+      <div id="page-container" class="container">
+        <%= yield %>
+      </div>
+    </section>
+
+
+
+  </div>
+
+
+
+
+
+  <script src="/custom.js"></script>
+</body>
+</html>

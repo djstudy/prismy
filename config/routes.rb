@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root 'home#index'
   get 'about', to: 'home#about'
+  get 'enterance', to: 'intro#enterance'
+
   resources :tags do
     member do
       get 'dialogue'
