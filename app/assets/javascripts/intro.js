@@ -1,5 +1,6 @@
 $(document).on('ready page:load', function () {
-
+  var bgAudio = new Audio('/audios/interview_bg_002.mp3');
+  bgAudio.play();
   $('#intro-title').hide();
   $('#intro-projected-by').hide();
   $('#intro-line-container').hide();
@@ -37,6 +38,24 @@ $(document).on('ready page:load', function () {
       },
     });
   });
+
+
+  $('#stopControlSound').on('click',function(){
+
+    if ($(this).data('isOn') === false) {
+      bgAudio.play();
+      $(this).data('isOn', true);
+      $('#stopControlSound').children().first().removeClass("glyphicon-volume-off").addClass("glyphicon-volume-up")
+    }
+    else {
+      bgAudio.pause();
+      $(this).data('isOn', false);
+      $('#stopControlSound').children().first().removeClass("glyphicon-volume-up").addClass("glyphicon-volume-off")
+    }
+
+  })
+
+
 
 
 
