@@ -33,7 +33,7 @@ $(document).on('ready page:load', function () {
       },
       // call when done callback function
       callback: function() {
-        $('#intro-start').fadeIn('slow');
+        $('#intro-start').delay( 1000 ).fadeIn('slow');
       },
     });
   });
