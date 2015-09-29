@@ -1,6 +1,14 @@
+function isEmpty( el ){
+    return !$.trim(el.html())
+}
+
+
 $(document).on('ready page:load', function () {
-  var bgAudio = new Audio('/audios/interview_bg_002.mp3');
-  bgAudio.play();
+  if( !isEmpty($('#stopControlSound')) ){
+    var bgAudio = new Audio('/audios/interview_bg_002.mp3');
+    bgAudio.play();
+  }
+
   $('#intro-title').hide();
   $('#intro-projected-by').hide();
   $('#intro-line-container').hide();
