@@ -9,17 +9,20 @@ $(document).on('ready page:load', function () {
     bgAudio.play();
   }
 
-  $('#intro-title').hide();
+  // $('#intro-title').hide();
   $('#intro-projected-by').hide();
   $('#intro-line-container').hide();
   $('#intro-start').hide();
 
 
-  $('#intro-title').delay( 1000 ).fadeIn( 1000 );
+  $('#intro-title').delay( 1000 ).fadeIn( 500 );
+  d3.select('#logo-rainbow').transition().delay(1500).duration(500).attr("transform", "translate(0,0);");
+
+
   $('#intro-projected-by').delay( 2000 ).fadeIn( 1000 );
 
   $('#intro-projected-by').delay( 1000 ).fadeOut( 1000 );
-  $('#intro-title').delay( 2000 ).fadeOut( 1000 );
+  $('#intro-title').delay( 2500 ).fadeOut( 1000 );
 
   $('#intro-line-container').delay( 6000 ).show().queue(function(){
     var i = 0;
