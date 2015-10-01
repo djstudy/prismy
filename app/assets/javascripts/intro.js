@@ -5,7 +5,7 @@ function isEmpty( el ){
 
 $(document).on('ready page:load', function () {
   if( !isEmpty($('#stopControlSound')) ){
-    var bgAudio = new Audio('/audios/interview_bg_002.mp3');
+    var bgAudio = new Audio('/audios/interview_bg_003.mp3');
     bgAudio.play();
   }
 

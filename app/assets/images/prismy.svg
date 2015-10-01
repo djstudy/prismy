@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="300px" height="200px"
    viewBox="1400 800 800 1200" style="enable-background:new 0 0 3628.4 2721.3;" xml:space="preserve" currentScale="1">
+
+<g id="logo-rainbow" transform="translate(-400, 400)"  >
+  <polygon style="fill:#ED1C24;" points="2339.5,889.3 2403.5,951.3 2148.9,1306.9  "/>
+  <polygon style="fill:#F26522;" points="2403.5,951.3 2500.9,951.3 2148.9,1306.9  "/>
+  <polygon style="fill:#FFDE17;" points="2500.9,951.3 2554,1020 2148.9,1306.9   "/>
+  <polygon style="fill:#00A14B;" points="2554,1020 2642.9,1066.4 2148.9,1306.9  "/>
+  <polygon style="fill:#7D1DD8;" points="2618.4,1176.7 2642.9,1066.4 2148.9,1306.9  "/>
+</g>
+
 <polyline style="display:none;opacity:0.75;fill:#3D666D;" points="2829.3,1908.4 798.3,1908.4 1074.4,1620.6 "/>
 <rect x="798.3" y="814.2" style="display:none;fill:#FFF200;" width="2030.9" height="1094.3"/>
 <path style="fill:#72BDCE;" d="M2426.7,1386.7l-1343.7-235.1l-6.6,28.6l83.6,14.7c15.2,2.7,29.6,6.6,43.2,11.7
@@ -1520,12 +1530,6 @@
 <path style="fill:#FFFFFF;" d="M2240.2,1739.9c3.9-7.6,7.9-16.5,12.1-26.6l91.4-218.8l-64-11.2l-44.5,125.6l-0.8-0.1l-51.9-142.5
   l-67.3-11.8l88.5,219.1l-4.6,10.8c-2.2,5.1-4.3,9.6-6.2,13.5c-1.9,3.8-4.4,6.9-7.3,9.3c-2.9,2.4-6.6,4-11,4.7
   c-4.4,0.7-10.1,0.5-17-0.7c-10-1.7-19.7-5.5-29.1-11.3l-6.3,37.4l106.3,18.4C2233.1,1751.4,2237,1746.1,2240.2,1739.9z"/>
-<g id="logo-rainbow" transform="translate(-400, 400)"  >
-  <polygon style="fill:#ED1C24;" points="2339.5,889.3 2403.5,951.3 2148.9,1306.9  "/>
-  <polygon style="fill:#F26522;" points="2403.5,951.3 2500.9,951.3 2148.9,1306.9  "/>
-  <polygon style="fill:#FFDE17;" points="2500.9,951.3 2554,1020 2148.9,1306.9   "/>
-  <polygon style="fill:#00A14B;" points="2554,1020 2642.9,1066.4 2148.9,1306.9  "/>
-  <polygon style="fill:#7D1DD8;" points="2618.4,1176.7 2642.9,1066.4 2148.9,1306.9  "/>
-</g>
+
 
 </svg>
