@@ -52,8 +52,6 @@ class ScenesController < ApplicationController
     redirect_to interviewee_path(@interviewee)
   end
 
-
-
 private
   def scene_params
     params.require(:scene).permit(:description, :interviewee)

@@ -1,6 +1,6 @@
 class TagsController < ApplicationController
   before_action :get_tag, only: [:edit, :update, :destroy]
-  http_basic_authenticate_with name: "djstudy", password: ENV['BASIC_AUTH_SECRET'], except:[:dialogue]
+  http_basic_authenticate_with name: "djstudy", password: ENV['BASIC_AUTH_SECRET'], except:[:dialogue, :get_next_scene]
   def index
     @tags = Tag.all;
   end
@@ -32,8 +32,6 @@ class TagsController < ApplicationController
   end
 
   def update
-
-
     if @tag.update(tag_params)
       fetch_subjects!
       flash[:success] = "태그가 성공적으로 수정되었습니다."
@@ -44,7 +42,6 @@ class TagsController < ApplicationController
   end
 
   def destroy
-
     @tag.subject_tag_mappers.destroy_all
     if @tag.destroy
       flash[:success] = "태그가 성공적으로 삭제되었습니다."
@@ -59,11 +56,22 @@ class TagsController < ApplicationController
     @scenes = @tag.scenes
     @first_scene = @scenes.first
     @first_scene_lines = @first_scene.lines
+    @first_choices = @first_scene_lines.first.choices
   end
 
-
+  def get_next_scene
+    @tag = Tag.find(params[:tag_id])
+    @scenes = @tag.scenes
+    @next_scene = @scenes[params[:scene_id].to_i + 1]
+    if @next_scene
+      render json: {next_scene_id: @next_scene.id, next_scene_first_line: @next_scene.lines.first.content}, status: 200
+    else
+      render json: {next_scene_id: -1 }, status: 200
+    end
+  end
 
 private
+
   def tag_params
     params.require(:tag).permit(:name)
   end

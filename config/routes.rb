@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :tags do
     member do
       get 'dialogue'
+      get 'get_next_scene', defaults: { format: 'json' }, as: "get_next"
     end
   end
 

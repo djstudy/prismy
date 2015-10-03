@@ -1,20 +1,21 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3" id="dialogue_div">
+    <div id="scene_sequence" data-scene-sequence="0" ></div>
     <div id="tag_info"  data-tag-id="<%= @tag.id %>"></div>
     <div id="scene_info"  data-scene-id="<%= @first_scene.id %>"></div>
     <div id="line_info" data-last-sequence="<%= @first_scene_lines.first.sequence %>" type="<%= @first_scene_lines.first.line_type %>"></div>
     <p id="response_paragraph" style="display:none; padding:10px; text-align:justify">
-    <%= @first_scene_lines.first.content %>
+      <%= @first_scene_lines.first.content %>
     </p>
   </div>
 </div>
 
-<div id="userActions-container">
+<div id="userActions-container" style="display:none;">
   <div class="row">
     <div class="col-md-6 col-md-offset-3" id="user_answer_div">
-      <button type="button" class="btn btn-primary btn-lg btn-block user-answer-btn" id="btn0">선택지 1</button>
-      <button type="button" class="btn btn-primary btn-lg btn-block user-answer-btn" id="btn1">선택지 2</button>
-      <button type="button" class="btn btn-primary btn-lg btn-block user-answer-btn" id="btn2">선택지 3</button>
+      <button type="button" class="btn btn-primary btn-lg btn-block user-answer-btn" id="btn0" style="visibility:hidden;">선택지 1</button>
+      <button type="button" class="btn btn-primary btn-lg btn-block user-answer-btn" id="btn1" >다음</button>
+      <button type="button" class="btn btn-primary btn-lg btn-block user-answer-btn" id="btn2" style="visibility:hidden;">선택지 3</button>
     </div>
   </div>
 </div>
