@@ -19,8 +19,21 @@
  *= require_tree .
  *= require_self
  */
+ @import url(https://cdn.rawgit.com/openhiun/hangul/14c0f6faa2941116bb53001d6a7dcd5e82300c3f/nanumbarungothic.css);
+
+.nanum-font{
+  font-family: 'Nanum Barun Gothic',sans-serif; 
+  font-weight: 300;
+  -webkit-font-smoothing : subpixel-antialiased;
+  word-wrap: break-word;
+  -webkit-line-break: after-white-space;
+}
+.main-message{
+  color: #34495e; 
+  font-size:60px;
+}
  .header--thin{
-  min-height: 148px;
+  min-height: 158px;
  }
 .logo {
   float: none;
@@ -30,6 +43,13 @@
     height: initial;
     max-height: 120px;
     margin-top: 12px;
+    margin-bottom: 12px;
+}
+.djlogo {
+    width: initial;
+    height: initial;
+    max-height: 220px;
+    margin-top: 100px;
 }
 
 #page-container{
@@ -39,6 +59,12 @@
   height: 100px;
 }
 @media (max-width: 768px) {
+.main-message{
+  color: #34495e; 
+  font-size:30px;
+  line-height: 40px;
+}
+
 #userActions{
   height: inherit;
   }

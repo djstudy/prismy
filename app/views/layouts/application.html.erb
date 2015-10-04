@@ -33,7 +33,7 @@
       <div class="container text-center">
 
         <%= link_to root_path(), class: "logo " do %>
-            <%= image_tag image_path('prismy_logo.png'), class: "logo" %>
+            <%= image_tag image_path('prismy_logo_f.png'), class: "logo" %>
         <% end %>
         <!-- End Logo -->
 
@@ -41,8 +41,8 @@
 
       </div> <!-- end container -->
 
-      <!-- Colored divider -->
-      <div class="divider-color"></div>
+
+
 
       </div> <!-- end fixed top block -->
 
@@ -85,7 +85,11 @@
 
 
 
-
+    <script>
+      $(document).ready(function() {
+        isotopeFilters();
+      });
+    </script>
   <script src="/custom.js"></script>
 </body>
 </html>

@@ -2,6 +2,8 @@ function isEmpty( el ){
     return !$.trim(el.html())
 }
 
+$('body').flowtype();
+
 
 $(document).on('ready page:load', function () {
   if( !isEmpty($('#stopControlSound')) ){
@@ -17,14 +19,15 @@ $(document).on('ready page:load', function () {
 
   $('#intro-title').delay( 1000 ).fadeIn( 500 );
   d3.select('#logo-rainbow').transition().delay(1500).duration(500).attr("transform", "translate(0,0);");
+  $('#intro-title').delay( 2000 ).fadeOut( 1000 );
 
+  $('#intro-projected-by').delay( 5500 ).fadeIn( 1000 );
 
-  $('#intro-projected-by').delay( 2000 ).fadeIn( 1000 );
+  $('#intro-projected-by').delay( 2000 ).fadeOut( 1000 );
+  
+  $('#intro-start').delay( 12000 ).fadeIn('slow');
 
-  $('#intro-projected-by').delay( 1000 ).fadeOut( 1000 );
-  $('#intro-title').delay( 2500 ).fadeOut( 1000 );
-
-  $('#intro-line-container').delay( 6000 ).show().queue(function(){
+  $('#intro-line-container').delay( 10000 ).show().queue(function(){
     var i = 0;
     $("#intro-line").typed({
       strings: [ "청와대에서 무지개 색 이런거 안하잖아요. ^1000 <br> 백악관에서는 무지개색을 쓰고 이런거 존나 멋있어요.",
@@ -45,7 +48,7 @@ $(document).on('ready page:load', function () {
       },
       // call when done callback function
       callback: function() {
-        $('#intro-start').delay( 1000 ).fadeIn('slow');
+        
       },
     });
   });

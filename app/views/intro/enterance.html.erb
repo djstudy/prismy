@@ -1,27 +1,30 @@
 <div class="row" >
-  <div class="col-xs-12 col-md-6 col-md-offset-3 text-center">
+  <div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-3 text-center">
     <div id="intro-title" class="text-center" style="color: white; margin-top:100px; display: none;" >
-      <%= render partial: "logo" %>
+      <!-- render partial: "logo" -->
+      <%= image_tag image_path('prismy_logo_f.png'), class: "djlogo" %>
     </div>
-    <h4 id="intro-projected-by" style="color: white;">
-      제작 : Data.Journalism.Study
-    </h4>
-    <div style="display: table; height: 400px; overflow: hidden; width: 100%;">
+    <div>
+      <%= image_tag image_path('djstudy3.png'), class: "djlogo", id: "intro-projected-by", style: "margin-top:180px; margin-left:30px" %>
+    </div>
+    <div style="display: table; height: 600px; overflow: hidden; width: 100%;">
       <div style="display: table-cell; vertical-align: middle;">
-        <h4 id="intro-line-container" style="color: white;">
+        <h4 id="intro-line-container" class="nanum-font main-message" style="font-weight: 200;">
           <span id="intro-line"></span>
         </h4>
       </div>
     </div>
 
-    <h4 id="intro-start" >
-      <%= link_to "Start", root_path(), class: "btn btn-general btn-rect btn-rect" %>
-    </h4>
+
   </div>
 </div>
 
-<div style="position: absolute; bottom: 50px; right: 50px;">
-  <button class="btn btn-danger" id="stopControlSound" >
+<div id="intro-start" class="btn-container btn-container-sm btn-container-primary" style="position: absolute; top: 50px; right: 50px;">
+   <%= link_to "Skip intro", about_path, class: "btn btn-primary btn-sm btn-inverse btn--minimal btn--minimal-sm" %>
+</div>
+
+<div style="position: absolute; top: 50px; left: 50px;">
+  <button class="btn btn-info" id="stopControlSound" >
     <span class="glyphicon glyphicon-volume-off" aria-hidden="true" data-isOn="true"></span>
   </button>
 </div>

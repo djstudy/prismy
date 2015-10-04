@@ -25763,7 +25763,7 @@ body.overlay-layer:after {
     clear: both;
   }
   .btn-sm {
-    margin-bottom: 20px;
+    margin-bottom: 0px;
   }
   .pagination .mobile-small {
     display: none;
