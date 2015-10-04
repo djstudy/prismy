@@ -1,31 +1,24 @@
 <div  class="row">
   <h1 class="col-sm-12 heading heading--start">대화상대를 골라주세요 :)</h1>
+
+  <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
+    <div class="row">
+
   <% @tags.each do |tag| %>
-  <div class="col-sm-6 col-md-3">
-    <div class="testimonial testimonial--centered">
-      <%= link_to dialogue_tag_path(tag) do %>
-      <div class="testimonial__images">
-        <img src="assets/images/avatars/4.jpg" alt="">
-      </div>
-      <p class="testimonial__info"><%= tag.name %></p>
-      <% end %>
+  <article class="post post--table">
+    <%= link_to dialogue_tag_path(tag), class: "image-container image-container--max post__link-area" do %>
+      <%= image_tag image_path('photos/ellenpage.png') %>
+    <% end %>
+
+    <div class="post__detail">
+      <%= link_to dialogue_tag_path(tag), class: "post__link" do %>
+        <h3 class="post__heading"><%= tag.name %></h3>
+        <% end %>
     </div>
-  </div>
+  </article>
+
   <% end %>
-  <% @interviewees.each do |interviewee| %>
-  <div class="col-sm-6 col-md-3">
-    <div class="testimonial testimonial--centered <%= talked?(current_user, interviewee) %>">
-      <%= link_to dialogue_interviewee_path(interviewee) do %>
-      <div class="testimonial__images">
-        <img src="assets/images/avatars/4.jpg" alt="">
-      </div>
-      <p class="testimonial__author"><%= interviewee.name %></p>
-      <p class="testimonial__info"><%= interviewee.description %></p>
-      <p class="testimonial__text"></p>
-      <% end %>
-    </div>
-  </div><!-- end col -->
-  <% end %>
+
 
 </div><!-- end row -->
 <div class="top-scroll"><i class="fa fa-angle-up"></i></div>
