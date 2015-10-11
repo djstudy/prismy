@@ -4,7 +4,6 @@ class ChoicesController < ApplicationController
   before_action :authenticate_interviewee!
 
 
-
   def create
     @line = Line.find(params[:line_id])
     sequence = (@line.choices.maximum(:sequence) || 0 ) + 1
@@ -19,20 +18,19 @@ class ChoicesController < ApplicationController
     redirect_to interviewee_path(@interviewee)
   end
 
+
   def update
-
-
     if @choice.update(choice_params)
       flash[:success] = "선택지가 성공적으로 수정되었습니다."
     else
       flash[:error] = "선택지 수정에 실패하였습니다."
     end
     redirect_to interviewee_path(@interviewee)
+
   end
 
+
   def destroy
-
-
     if @choice.destroy
       flash[:success] = "선택지가 성공적으로 삭제되었습니다."
     else

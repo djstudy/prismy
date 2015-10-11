@@ -59,7 +59,12 @@ class LinesController < ApplicationController
     @scene = Scene.find(params[:scene_id])
     current_line = @scene.lines.find_by_sequence(params[:current_line])
     user_choice = current_line.choices.find_by_sequence(params[:user_choice])
-    UserAnswer.create(user: current_user, line: current_line, choice: user_choice, interviewee: @scene.interviewee)
+    if(params[:answer_from_user] == "")
+      UserAnswer.create(user: current_user, line: current_line, choice: user_choice, interviewee: @scene.interviewee)
+    else
+      UserAnswer.create(user: current_user, line: current_line, choice: user_choice, interviewee: @scene.interviewee, written_answer: params[:answer_from_user])
+    end
+
 
 
     if current_line.next_line
@@ -80,14 +85,13 @@ class LinesController < ApplicationController
 
     elsif current_line.line_type == "question"
 
-
       if user_choice.correct
-
         render json: next_line.to_json({:include => :choices}), status: 200
 
       else
         render json: {content: user_choice.response, sequence: current_line.sequence, choices: current_line.choices, line_type: 'question' }, status: 200
       end
+
     else
         render json: { error: "개발자에게 문의해주세요!" }, status: 403
     end
