@@ -1,21 +1,35 @@
-<div class="row">
-  <div class="col-md-6 col-md-offset-3" id="dialogue_div">
+<div id="dialogue-container" class="row">
+  <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
     <div id="scene_sequence" data-scene-sequence="0" ></div>
     <div id="tag_info"  data-tag-id="<%= @tag.id %>"></div>
     <div id="scene_info"  data-scene-id="<%= @first_scene.id %>"></div>
     <div id="line_info" data-last-sequence="<%= @first_scene_lines.first.sequence %>" type="<%= @first_scene_lines.first.line_type %>"></div>
-    <div id="response_paragraph" style="display:none; padding:10px; text-align:justify">
 
-      <%= auto_html( @first_scene_lines.first.content ) {
-
-        sized_image(:width =>480)
-        youtube(:width => 480, :height => 320, :autoplay => false)
-        link :target => "_blank", :rel => "nofollow"
-        simple_format
-      }  %>
-    </div>
+    <div class="row">
+  <div class="col-xs-4 col-md-4">
+    <%= image_tag image_path('prismy_progress2.png'), :class => "progress_img" %>
+  </div>
+  <div class="col-xs-4 col-md-4 nanum-font" style="text-align: center; padding-right: 10px; margin-bottom:15px; margin-top:-3px">
+    2 대화하기
+  </div>
+  <div class="col-xs-4 col-md-4 nanum-font" style="text-align: right; font-size:10px; margin-bottom:15px; ">
+    나는 호모포비아다.
   </div>
 </div>
+
+
+<blockquote class="blockquote blockquote--empty blockquote--strong" style="padding:10px 10px; margin-top:0px;">
+
+  <small class="blockquote__author" style="float:left"><%= image_tag image_path('interviewee_icon/prismy_icon1.png'), :class => "icon_img" %><br>김또치또치</small>
+
+  <span class="nanum-font dialogue-font" id="response_paragraph" style="display:none; text-align:justify"> <%= auto_html( @first_scene_lines.first.content ) {
+         sized_image(:width =>480)
+        youtube(:width => 480, :height => 320, :autoplay => false)
+  link :target => "_blank", :rel => "nofollow"
+  simple_format
+}  %> </span>
+        
+</blockquote>
 
 <div id="userActions-container" style="display:none;">
   <div class="row">
@@ -49,3 +63,24 @@
     </div>
   </div>
 </div>
+<!--
+
+        <div class="col-md-12 col-xs-12 main-row">
+          User's answer
+        </div>
+        <div class="answers">
+        <div class="col-md-12 col-xs-12 dark-row">
+          1.무반응
+        </div>
+        <div class="col-md-12 col-xs-12 light-row">
+          2.나는 (게이)들을 응원해!
+        </div>
+        <div class="col-md-12 col-xs-12 dark-row">
+          3.(장난반 걱정반) 나는 좋아하지 말아라
+        </div>
+        <div class="col-md-12 col-xs-12 light-row">
+          4.불편한 심기 드러내기
+        </div>
+        </div>
+
+-->
