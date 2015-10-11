@@ -4,9 +4,16 @@
     <div id="tag_info"  data-tag-id="<%= @tag.id %>"></div>
     <div id="scene_info"  data-scene-id="<%= @first_scene.id %>"></div>
     <div id="line_info" data-last-sequence="<%= @first_scene_lines.first.sequence %>" type="<%= @first_scene_lines.first.line_type %>"></div>
-    <p id="response_paragraph" style="display:none; padding:10px; text-align:justify">
-      <%= @first_scene_lines.first.content %>
-    </p>
+    <div id="response_paragraph" style="display:none; padding:10px; text-align:justify">
+
+      <%= auto_html( @first_scene_lines.first.content ) {
+
+        sized_image(:width =>480)
+        youtube(:width => 480, :height => 320, :autoplay => false)
+        link :target => "_blank", :rel => "nofollow"
+        simple_format
+      }  %>
+    </div>
   </div>
 </div>
 

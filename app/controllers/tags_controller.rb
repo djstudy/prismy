@@ -1,4 +1,6 @@
 class TagsController < ApplicationController
+  include AutoHtml
+
   before_action :get_tag, only: [:edit, :update, :destroy]
   http_basic_authenticate_with name: "djstudy", password: ENV['BASIC_AUTH_SECRET'], except:[:dialogue, :get_next_scene]
   def index
@@ -63,8 +65,17 @@ class TagsController < ApplicationController
     @tag = Tag.find(params[:tag_id])
     @scenes = @tag.scenes
     @next_scene = @scenes[params[:scene_id].to_i + 1]
+
+    content = auto_html( @next_scene.lines.first.content ) {
+
+        sized_image(:width =>480)
+        youtube(:width => 480, :height => 320, :autoplay => false)
+        link :target => "_blank", :rel => "nofollow"
+        simple_format
+      }
+
     if @next_scene
-      render json: {next_scene_id: @next_scene.id, next_scene_first_line: @next_scene.lines.first.content}, status: 200
+      render json: {next_scene_id: @next_scene.id, next_scene_first_line: content }, status: 200
     else
       render json: {next_scene_id: -1 }, status: 200
     end

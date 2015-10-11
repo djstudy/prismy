@@ -24,8 +24,11 @@ $(document).on('ready page:load', function () {
   $('#intro-projected-by').delay( 5500 ).fadeIn( 1000 );
 
   $('#intro-projected-by').delay( 2000 ).fadeOut( 1000 );
-  
+
   $('#intro-start').delay( 12000 ).fadeIn('slow');
+  $('#intro-start').on('click', function(){
+    bgAudio.pause();
+  })
 
   $('#intro-line-container').delay( 10000 ).show().queue(function(){
     var i = 0;
@@ -48,7 +51,7 @@ $(document).on('ready page:load', function () {
       },
       // call when done callback function
       callback: function() {
-        
+
       },
     });
   });

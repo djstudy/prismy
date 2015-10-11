@@ -1,4 +1,6 @@
 class LinesController < ApplicationController
+  include AutoHtml
+
   before_action :get_line, only: [:edit, :update, :destroy]
   before_action :get_interviewee
   before_action :authenticate!, only: [:get_next_line]
@@ -59,16 +61,29 @@ class LinesController < ApplicationController
     user_choice = current_line.choices.find_by_sequence(params[:user_choice])
     UserAnswer.create(user: current_user, line: current_line, choice: user_choice, interviewee: @scene.interviewee)
 
+
+    if current_line.next_line
+      next_line = current_line.next_line
+      next_line.content = auto_html( next_line.content ) {
+
+        sized_image(:width =>480)
+        youtube(:width => 480, :height => 320, :autoplay => false)
+        link :target => "_blank", :rel => "nofollow"
+        simple_format
+      }
+    end
+
+
     if current_line.line_type == "normal"
 
-      render json: current_line.next_line.to_json({:include => :choices}), status: 200
+      render json: next_line.to_json({:include => :choices}), status: 200
 
     elsif current_line.line_type == "question"
 
 
       if user_choice.correct
 
-        render json: current_line.next_line.to_json({:include => :choices}), status: 200
+        render json: next_line.to_json({:include => :choices}), status: 200
 
       else
         render json: {content: user_choice.response, sequence: current_line.sequence, choices: current_line.choices, line_type: 'question' }, status: 200
