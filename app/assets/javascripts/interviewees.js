@@ -116,7 +116,7 @@ $(document).on('ready page:load', function () {
   {
     if(selectButtonInformation.length == 0)
     {
-      var buttons = "<button type=\"button\" class=\"btn btn-primary btn-lg btn-block user-answer-btn\" data-sequence=\"0\" id=\"btn1\" style=\"visibility:hidden;\">선택지 1</button><button type=\"button\" class=\"btn btn-primary btn-lg btn-block user-answer-btn\" data-sequence=\"1\" id=\"btn2\">다음</button><button type=\"button\" class=\"btn btn-primary btn-lg btn-block user-answer-btn\" data-sequence=\"2\" id=\"btn3\" style=\"visibility:hidden;\">선택지 2</button>";
+      var buttons = "<button type=\"button\" class=\"btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn\" data-sequence=\"0\" id=\"btn1\" style=\"visibility:hidden;\">선택지 1</button><button type=\"button\" class=\"btn btn-primary btn-lg btn-block user-answer-btn\" data-sequence=\"1\" id=\"btn2\">다음</button><button type=\"button\" class=\"btn btn-primary btn-lg btn-block user-answer-btn\" data-sequence=\"2\" id=\"btn3\" style=\"visibility:hidden;\">선택지 2</button>";
       $('#user_answer_div').append(buttons);
     }
     // 주관식 답에 대해서 form을 만들어줘야 할 때
@@ -124,7 +124,7 @@ $(document).on('ready page:load', function () {
     {
       var textArea = "<div id=\"div_for_user_answer\" class=\"col-md-4 col-md-offset-4\"><textarea class=\"form-control\" rows=\"3\" id=\"answer_from_user\"></textarea>";
       var br = "<br>";
-      var textAreaSubmitButton = "<button type=\"button\" class=\"btn btn-primary btn-lg btn-block user-answer-btn answer-from-user\" data-sequence=\"1\" id=\"btn1\">대답하기</button></div>";
+      var textAreaSubmitButton = "<button type=\"button\" class=\"btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn answer-from-user\" data-sequence=\"1\" id=\"btn1\">대답하기</button></div>";
       $('#user_answer_div').append(textArea + br + textAreaSubmitButton);
     }
 
@@ -133,7 +133,7 @@ $(document).on('ready page:load', function () {
     {
       var buttonString = "";
       $.each(selectButtonInformation, function(i, item){
-        buttonString = buttonString + "<button type=\"button\" class=\"btn btn-primary btn-lg btn-block user-answer-btn\" data-sequence=\"" + (i+1) + "\" id=\"" + i + "\" style=\"visibility:hidden;\">" + selectButtonInformation[i].content + "</button>";
+        buttonString = buttonString + "<button type=\"button\" class=\"btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn\" data-sequence=\"" + (i+1) + "\" id=\"" + i + "\" style=\"visibility:hidden;\">" + selectButtonInformation[i].content + "</button>";
       });
       console.log(buttonString);
       $('#user_answer_div').append(buttonString);

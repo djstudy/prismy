@@ -6,62 +6,82 @@
     <div id="line_info" data-last-sequence="<%= @first_scene_lines.first.sequence %>" type="<%= @first_scene_lines.first.line_type %>"></div>
 
     <div class="row">
-  <div class="col-xs-4 col-md-4">
-    <%= image_tag image_path('prismy_progress2.png'), :class => "progress_img" %>
-  </div>
-  <div class="col-xs-4 col-md-4 nanum-font" style="text-align: center; padding-right: 10px; margin-bottom:15px; margin-top:-3px">
-    2 대화하기
-  </div>
-  <div class="col-xs-4 col-md-4 nanum-font" style="text-align: right; font-size:10px; margin-bottom:15px; ">
-    나는 호모포비아다.
+    <div class="col-xs-4 col-md-4">
+      <%= image_tag image_path('prismy_progress2.png'), :class => "progress_img" %>
+    </div>
+    <div class="col-xs-4 col-md-4 nanum-font" style="text-align: center; padding-right: 10px; margin-bottom:15px; margin-top:-3px">
+      2 대화하기
+    </div>
+    <div class="col-xs-4 col-md-4 nanum-font" style="text-align: right; font-size:10px; margin-bottom:15px; ">
+      나는 호모포비아다.
+    </div>
+    </div>
+
+    <div class="row">
+
+        
+
+      <div class="col-md-4 col-xs-3 main-row" style="text-align:left">
+        
+        <%= image_tag image_path('interviewee_icon/prismy_icon1.png'), :class => "icon_img" %>
+
+        
+      </div>
+
+      <div class="col-md-8 col-xs-9 main-row">
+        <div style="margin-right:20px; text-align:left;">김또치또치</div>
+        <div class="divider present-divider" style="margin-top:12px; margin-bottom:15px;"></div>
+      <span class="nanum-font dialogue-font" id="response_paragraph" style="display:none; text-align:justify"> <%= auto_html( @first_scene_lines.first.content ) {
+           sized_image(:width =>480)
+          youtube(:width => 480, :height => 320, :autoplay => false)
+          link :target => "_blank", :rel => "nofollow"
+          simple_format
+          }  %> </span>
+      </div>
+    </div>
+
   </div>
 </div>
 
 
-<blockquote class="blockquote blockquote--empty blockquote--strong" style="padding:10px 10px; margin-top:0px;">
-
-  <small class="blockquote__author" style="float:left"><%= image_tag image_path('interviewee_icon/prismy_icon1.png'), :class => "icon_img" %><br>김또치또치</small>
-
-  <span class="nanum-font dialogue-font" id="response_paragraph" style="display:none; text-align:justify"> <%= auto_html( @first_scene_lines.first.content ) {
-         sized_image(:width =>480)
-        youtube(:width => 480, :height => 320, :autoplay => false)
-  link :target => "_blank", :rel => "nofollow"
-  simple_format
-}  %> </span>
-        
-</blockquote>
-
 <div id="userActions-container" style="display:none;">
   <div class="row">
-    <div class="col-md-6 col-md-offset-3" id="user_answer_div">
-      <%
-        if(@first_choices.size == 0)
-      %>
-          <button type="button" class="btn btn-primary btn-lg btn-block user-answer-btn" data-sequence="0" id="btn1" style="visibility:hidden;">선택지 1</button>
-          <button type="button" class="btn btn-primary btn-lg btn-block user-answer-btn" data-sequence="1" id="btn2">다음</button>
-          <button type="button" class="btn btn-primary btn-lg btn-block user-answer-btn" data-sequence="2" id="btn3" style="visibility:hidden;">선택지 2</button>
-      <%
-        # Needs form for user answer
-        elsif (@first_choices.size == 1 && @first_choices[0].content == "")
-      %>
-          <div id="div_for_user_answer" class="col-md-4 col-md-offset-4">
-            <textarea class="form-control" rows="3" id="answer_from_user"></textarea>
-            <br>
-            <button type="button" class="btn btn-primary btn-lg btn-block user-answer-btn answer-from-user" data-sequence="1" id="btn1">대답하기</button>
-          </div>
-      <%
-        else
-          counter = 1
-          @first_choices.each do |choice|
-      %>
-            <button type="button" class="btn btn-primary btn-lg btn-block user-answer-btn" data-sequence="<%=counter %>" id="btn<%=counter %>" style><%=choice.content %> </button>
-      <%
-            counter = counter + 1
-          end #end of each loop
-        end # end of if-else statement
-      %>
+  <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1 main-row">
+    <span style="margin-bottom:30px; font-size:18px;">
+            User's answer
+    </span>
+    <br>
+    <div class="row">
+      <div class="col-md-12" id="user_answer_div">
+        <%
+          if(@first_choices.size == 0)
+        %>
+            <button type="button" class="btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn" data-sequence="0" id="btn1" style="visibility:hidden;">선택지 1</button>
+            <button type="button" class="btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn" data-sequence="1" id="btn2">다음</button>
+            <button type="button" class="btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn" data-sequence="2" id="btn3" style="visibility:hidden;">선택지 2</button>
+        <%
+          # Needs form for user answer
+          elsif (@first_choices.size == 1 && @first_choices[0].content == "")
+        %>
+            <div id="div_for_user_answer" class="col-md-6">
+              <textarea class="form-control" rows="3" id="answer_from_user"></textarea>
+              <button type="button" class="btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn answer-from-user" data-sequence="1" id="btn1">대답하기</button>
+            </div>
+        <%
+          else
+            counter = 1
+            @first_choices.each do |choice|
+        %>
+              <button type="button" class="btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn" data-sequence="<%=counter %>" id="btn<%=counter %>"><%=choice.content %> </button>
+        <%
+              counter = counter + 1
+            end #end of each loop
+          end # end of if-else statement
+        %>
+      </div>
     </div>
   </div>
+</div>
 </div>
 <!--
 
