@@ -7,6 +7,6 @@ class HomeController < ApplicationController
     end
   end
   def about
-
+    @tags = Tag.all
   end
 end
