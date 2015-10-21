@@ -1,0 +1,96 @@
+
+ @import url(https://cdn.rawgit.com/openhiun/hangul/14c0f6faa2941116bb53001d6a7dcd5e82300c3f/nanumbarungothic.css);
+
+
+.nanum-font{
+  font-family: 'Nanum Barun Gothic',sans-serif; 
+  font-weight: 300;
+  -webkit-font-smoothing : subpixel-antialiased;
+  word-wrap: break-word;
+  -webkit-line-break: after-white-space;
+}
+.dialogue-font{
+  font-size:18px;
+  line-height: 22px;
+  font-style: normal;
+}
+.main-message{
+  color: #34495e; 
+  font-size:60px;
+}
+ .header--thin{
+  min-height: 158px;
+ }
+.logo {
+  float: none;
+}
+.logo img {
+    width: initial;
+    height: initial;
+    max-height: 120px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+.djlogo {
+    width: initial;
+    height: initial;
+    max-height: 220px;
+    margin-top: 100px;
+}
+.progress_img{
+      width: initial;
+    height: initial;
+    max-height: 20px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+}
+.icon_img{
+    width: initial;
+    height: initial;
+    max-width: 80%;
+    max-height: 80%;
+}
+#page-container{
+  padding: 0;
+}
+#userActions{
+  height: 100px;
+}
+
+@media (max-width: 768px) {
+.progress_img{
+      width: initial;
+    height: initial;
+    max-height: 13px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+}
+.dialogue-font{
+  font-size:14px;
+  line-height: 14px;
+  font-style: normal;
+}
+.logo img {
+    width: initial;
+    height: initial;
+    max-height: 70px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+} 
+.header--thin{
+  min-height: 110px;
+ }
+.main-message{
+  color: #34495e; 
+  font-size:30px;
+  line-height: 40px;
+}
+
+#userActions{
+  height: inherit;
+  }
+}
+
+.admin-nav{
+  margin: 15px 0 0 0;
+}
