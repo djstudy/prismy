@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151011070850) do
+ActiveRecord::Schema.define(version: 20151022053328) do
 
   create_table "choices", force: :cascade do |t|
     t.integer  "line_id"
@@ -79,8 +79,9 @@ ActiveRecord::Schema.define(version: 20151011070850) do
 
   create_table "tags", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.string   "cover_img",  default: "ellenpage.png"
   end
 
   create_table "user_answers", force: :cascade do |t|

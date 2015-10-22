@@ -44,7 +44,7 @@
         <article class="post post--table">
           <%= link_to dialogue_tag_path(tag), class: "image-container image-container--max post__link-area
 " do %>
-          <%= image_tag image_path('photos/ellenpage.png'), class: "post__link" %>
+          <%= image_tag image_path("photos/#{tag.cover_img}"), class: "post__link" %>
           <% end %>
 
             <div class="post__detail">

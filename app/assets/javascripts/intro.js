@@ -3,19 +3,19 @@ function isEmpty( el ){
 }
 
 // $('body').flowtype(); // should
-var bgAudio = document.createElement('audio');
+
 
 $(document).on('ready page:load', function () {
+  var bgAudio = $('#bgmusic')[0];
+
   if( !isEmpty($('#stopControlSound')) ){
 
-    var bgAudio = document.getElementById('bgmusic');
-    
-    
-
-    var bgAudio = new Audio('/audios/interview_bg_003.mp3');    
     bgAudio.play();
-    
   }
+    
+    
+    
+  
 
   // $('#intro-title').hide();
   $('#intro-projected-by').hide();
@@ -50,10 +50,10 @@ $(document).on('ready page:load', function () {
       backDelay: 1000,
       //callback for every typed string
       onStringTyped: function() {
-        console.log(this)
+        
         this.backSpeed = this.strings[i].length*100;
         i+=1;
-        console.log(this)
+        
       },
       // call when done callback function
       callback: function() {
