@@ -2,13 +2,19 @@ function isEmpty( el ){
     return !$.trim(el.html())
 }
 
-$('body').flowtype();
-
+// $('body').flowtype(); // should
+var bgAudio = document.createElement('audio');
 
 $(document).on('ready page:load', function () {
   if( !isEmpty($('#stopControlSound')) ){
-    var bgAudio = new Audio('/audios/interview_bg_003.mp3');
+
+    var bgAudio = document.getElementById('bgmusic');
+    
+    
+
+    var bgAudio = new Audio('/audios/interview_bg_003.mp3');    
     bgAudio.play();
+    
   }
 
   // $('#intro-title').hide();
