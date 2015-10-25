@@ -56,6 +56,7 @@ class LinesController < ApplicationController
   end
 
   def get_next_line
+    
     @scene = Scene.find(params[:scene_id])
     current_line = @scene.lines.find_by_sequence(params[:current_line])
     user_choice = current_line.choices.find_by_sequence(params[:user_choice])

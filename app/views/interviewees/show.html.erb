@@ -21,7 +21,7 @@
       <%= form_for line, html: { class: "form-inline" } do |f| %>
       <div class="form-group form-sequence">
         <%= f.label "#" %>
-        <%= f.number_field :sequence, autofocus: false, class: "form-control input-sm" %>
+        <%= f.number_field :sequence, autofocus: true, class: "form-control input-sm" %>
       </div>
       <div class="form-group form-content">
         <%= f.label :content %>
@@ -44,7 +44,7 @@
           <%= form_for choice, html: { class: "form-inline" } do |f| %>
             <div class="form-group form-sequence">
               <%= f.label "#" %>
-              <%= f.number_field :sequence, autofocus: false, class: "form-control input-sm" %>
+              <%= f.number_field :sequence, autofocus: true, class: "form-control input-sm" %>
             </div>
             <div class="form-group">
               <%= f.label :content %>
@@ -56,7 +56,7 @@
             </div>
             <div class="form-group">
               <div class="checkbox" >
-                <%= f.select :correct, [['Correct', true], ['Incorrect', false]] %>
+                <%= f.select :correct, [['Correct', true], ['Incorrect', false]], selected: true %>
 
               </div>
             </div>

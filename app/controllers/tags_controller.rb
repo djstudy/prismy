@@ -62,6 +62,7 @@ class TagsController < ApplicationController
   end
 
   def get_next_scene
+    
     @tag = Tag.find(params[:tag_id])
     @scenes = @tag.scenes
     @next_scene = @scenes[params[:scene_id].to_i + 1]
@@ -73,7 +74,7 @@ class TagsController < ApplicationController
         link :target => "_blank", :rel => "nofollow"
         simple_format
       }
-
+      
       render json: {next_scene_id: @next_scene.id, next_scene_first_line: content, choices: @next_scene.lines.first.choices }, status: 200
     else
       render json: {next_scene_id: -1 }, status: 200

@@ -29,7 +29,7 @@
       </div>
 
       <div class="col-md-8 col-xs-9 main-row">
-        <div style="margin-right:20px; text-align:left;">김또치또치</div>
+        <div style="margin-right:20px; text-align:left;"><%=@first_scene.interviewee.name %></div>
         <div class="divider present-divider" style="margin-top:12px; margin-bottom:15px;"></div>
       <span class="nanum-font dialogue-font" id="response_paragraph" style="display:none; text-align:justify"> <%= auto_html( @first_scene_lines.first.content ) {
            sized_image(:width =>480)

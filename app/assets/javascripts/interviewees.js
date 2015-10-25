@@ -42,7 +42,7 @@ $(document).on('ready page:load', function () {
         //No more lines in this scene
         if(!data)
         {
-          $('#div_for_user_answer').fadeOut(600, function(){
+          $('#user_answer_div').fadeOut(600, function(){
             nextScene();
           });
         }
@@ -68,6 +68,8 @@ $(document).on('ready page:load', function () {
 
   function nextScene()
   {
+      console.log('nextScene!');
+
       var sceneSequence = Number($('#scene_sequence').data('scene-sequence'));
       var ajaxUrl = "/tags/" + getTagID() + "/get_next_scene";
       var sendingData =
@@ -136,7 +138,10 @@ $(document).on('ready page:load', function () {
         buttonString = buttonString + "<button type=\"button\" class=\"btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn\" data-sequence=\"" + (i+1) + "\" id=\"" + i + "\" style=\"visibility:hidden;\">" + selectButtonInformation[i].content + "</button>";
       });
       console.log(buttonString);
+  
+      $('#user_answer_div').children().remove();
       $('#user_answer_div').append(buttonString);
+      $('#user_answer_div').fadeIn(600);
       showSelectButtons();
     }
 
