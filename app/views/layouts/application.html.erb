@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
   <!-- Mobile Specific Metas-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta content="telephone=no" name="format-detection">
@@ -15,18 +14,11 @@
   <!-- Icon Font - Font Awesome -->
   <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-    
-  
-
-
-
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <link href="/custom.css" rel="stylesheet">
-
-  
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-
   <%= csrf_meta_tags %>
+  <%= raw generate_og_tags %>
 </head>
 <body>
   <div class="wrapper" id="top">
