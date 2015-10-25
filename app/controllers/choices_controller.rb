@@ -7,7 +7,7 @@ class ChoicesController < ApplicationController
   def create
     @line = Line.find(params[:line_id])
     sequence = (@line.choices.maximum(:sequence) || 0 ) + 1
-    @choice = Choice.new(content: "선택지", response: "응답내용 ", sequence: sequence, line: @line, correct: false)
+    @choice = Choice.new(content: "선택지", response: "응답내용 ", sequence: sequence, line: @line, correct: true)
 
     if @choice.save
       flash[:success] = "선택지가 성공적으로 추가되었습니다."
