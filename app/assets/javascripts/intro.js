@@ -7,11 +7,10 @@ function isEmpty( el ){
 
 $(document).on('ready page:load', function () {
   
-  var bgAudio = SC.Widget('sc_background');
-  // var bgAudio = $('#bgmusic')[0];
+  var bgAudio;
 
   if( !isEmpty($('#stopControlSound')) ){
-
+    bgAudio = SC.Widget('sc_background');
     bgAudio.play();
   }
     

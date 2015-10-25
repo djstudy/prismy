@@ -1,4 +1,23 @@
 $(document).on('ready page:load', function () {
+
+  if (!isEmpty($("#scrollAnimate"))){
+    var scrollTo = $("#scrollAnimate").data('scroll-to');
+    var objectID = $("#scrollAnimate").data('recent-object-id');
+
+    if (scrollTo === "scene") {
+      $("html body").animate({
+          scrollTop: $("#" + scrollTo + "_" +objectID).offset().top - 300
+      }, 600);  
+    }
+    else {
+      $("html body").animate({
+        scrollTop: $("#edit_" + scrollTo + "_" +objectID).offset().top - 300
+    }, 600);
+    };
+    
+
+  }
+
   $("#response_paragraph").fadeIn(2000, function(){
     $("#userActions-container").fadeIn(800);
   });
