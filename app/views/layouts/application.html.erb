@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+  
   <!-- Mobile Specific Metas-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta content="telephone=no" name="format-detection">
 
   <title>Prismy</title>
-
+  <%= favicon_link_tag 'favicon.ico' %>
   <!-- Open Sans -->
   <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400italic,600,700italic,400,700,800italic" rel="stylesheet" type="text/css">
   <!-- VarelaRound -->
@@ -19,6 +21,9 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= raw generate_og_tags %>
+
+
+
 </head>
 <body>
   <div class="wrapper" id="top">
