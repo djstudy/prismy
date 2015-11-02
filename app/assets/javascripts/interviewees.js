@@ -104,7 +104,7 @@ $(document).on('ready page:load', function () {
         }
 
         // Scene이 더 이상 없을
-        else if(data.sequence == -1)
+        else if(data.next_scene_id == -1)
         {
           // Go to home?
           alert("끝!");

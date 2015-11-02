@@ -66,9 +66,11 @@ class TagsController < ApplicationController
     @tag = Tag.find(params[:tag_id])
     @scenes = @tag.scenes
     @next_scene = @scenes[params[:scene_id].to_i + 1]
-    @next_scene_interviewee = @next_scene.interviewee
+    
 
     if @next_scene
+      
+
       next_first_line = @next_scene.lines.order(:sequence).first
       content = auto_html( next_first_line.content ) {
         sized_image(:width =>480)
@@ -77,6 +79,7 @@ class TagsController < ApplicationController
         simple_format
       }
       
+      @next_scene_interviewee = @next_scene.interviewee
 
       render json: {next_scene_interviewee_name: @next_scene_interviewee.name,
                    next_scene_id: @next_scene.id, 
@@ -85,7 +88,7 @@ class TagsController < ApplicationController
                    choices: next_first_line.choices }, status: 200
 
     else
-      render json: {next_scene_id: -1 }, status: 200
+      render json: { next_scene_id: -1 }, status: 200
     end
   end
 
