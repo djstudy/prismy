@@ -37,6 +37,7 @@ $(document).on('ready page:load', function () {
     }
 
     $("#response_paragraph").fadeOut(1000, function(){
+      $("#user_choice").fadeOut(500);
 
       $("#response_paragraph").empty();
       var currentLineType = $('#line_info').data('last-line-type');
@@ -119,10 +120,8 @@ $(document).on('ready page:load', function () {
             setSceneID(data.next_scene_id);
             $("#response_paragraph").html(data.next_scene_first_line);
             $("#interviewee_name").html(data.next_scene_interviewee_name);
-
             setLastLineSequence(data.next_scene_first_line_sequence);
-
-            /* $("#interviewee_img").attr("src", data.interviewee_img_src); */
+            $("#interviewee_img").attr("src", data.interviewee_img_src);
             $("#interviewee_info").fadeIn(1500, function(){
               $('#div_for_user_answer').remove();
               setSelectButtons(data.choices);

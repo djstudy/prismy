@@ -1,4 +1,4 @@
-<div class="modal fade " id="modalExplain" aria-hidden="false" style="display: block;">
+<div class="modal fade" id="modalExplain" aria-hidden="false" style="display: block;">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -27,33 +27,30 @@
 
 <div class="row">
   <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
-
-   <div class="row">
+    <div class="row">
      <div class="col-xs-4 col-md-4">
     <%= image_tag image_path('prismy_progress1.png'), :class => "progress_img" %>
      </div>
      <div class="col-xs-4 col-md-4 nanum-font" style="text-align: center; padding-right: 10px; margin-bottom:15px;">1 주제 선택하기
      </div>
-  </div>
-  <div class="row">
-    <div id="blog-random">
-      <% @tags.each do |tag| %>
-      <!-- Standart arcticle with image -->
-        <article class="post post--table">
-          <%= link_to dialogue_tag_path(tag), class: "image-container image-container--max post__link-area
-" do %>
-          <%= image_tag image_path("photos/#{tag.cover_img}"), class: "post__link" %>
-          <% end %>
+    </div><!-- end row-->
+    <div class="row">
+      <div id="blog-random">
+        <% @tags.each do |tag| %>
+          <!-- Standart arcticle with image -->
+          <article class="post post--table">
+            <%= link_to dialogue_tag_path(tag), class: "image-container image-container--max post__link-area" do %>
+            <%= image_tag image_path("photos/#{tag.cover_img}"), class: "post__link" %>
+            <% end %>
 
             <div class="post__detail">
               <%= link_to dialogue_tag_path(tag), class: "post__link" do %>
               <h3 class="post__heading"><%= tag.name %></h3>
               <% end %>
             </div>
-        </article><!-- end article -->
-      <% end %>
-    </div>
-  </div> <!-- end row-->
-
+          </article><!-- end article -->
+        <% end %>
+      </div>
+    </div><!-- end row-->
   </div>
 </div>

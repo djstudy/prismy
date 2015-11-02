@@ -57,17 +57,22 @@ class TagsController < ApplicationController
     @tag = Tag.find(params[:id])
     @scenes = @tag.scenes
     @first_scene = @scenes.first
+    @first_scene_interviewee = @first_scene.interviewee
     @first_scene_lines = @first_scene.lines
     @first_choices = @first_scene_lines.first.choices
   end
 
   def get_next_scene
-    
     @tag = Tag.find(params[:tag_id])
     @scenes = @tag.scenes
     @next_scene = @scenes[params[:scene_id].to_i + 1]
-    
-
+    @next_scene_interviewee = @next_scene.interviewee
+    @next_scene_interviewee_img = ""
+    if @next_scene_interviewee.profile_image
+      @next_scene_interviewee_img = ActionController::Base.helpers.asset_path('interviewee_icon/#{@next_scene_interviewee.profile_image}')
+    else
+      @next_scene_interviewee_img = ActionController::Base.helpers.asset_path('interviewee_icon/Prismy_icon_js.png')
+    end
     if @next_scene
       
 
@@ -87,6 +92,7 @@ class TagsController < ApplicationController
                    next_scene_first_line_sequence: next_first_line.sequence, 
                    choices: next_first_line.choices }, status: 200
 
+      render json: {interviewee_img_src: @next_scene_interviewee_img, next_scene_interviewee_name: @next_scene_interviewee.name, next_scene_id: @next_scene.id, next_scene_first_line: content, choices: next_first_line.choices }, status: 200
     else
       render json: { next_scene_id: -1 }, status: 200
     end

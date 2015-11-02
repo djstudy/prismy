@@ -19,7 +19,7 @@
 
     <div class="row" id= "interviewee_info">
       <div class="col-md-4 col-xs-3 main-row" style="text-align:left">
-        <%= image_tag image_path('interviewee_icon/prismy_icon_ddochi.png'), :class => "icon_img", :id=> "interviewee_img" %>
+        <%= image_tag image_path("interviewee_icon/#{@first_scene_interviewee.profile_image}"), :class => "icon_img", :id=> "interviewee_img" %>
       </div>
 
       <div class="col-md-8 col-xs-9 main-row">
@@ -41,9 +41,7 @@
 <div id="userActions-container" style="display:none;">
   <div class="row">
   <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1 main-row">
-    <span style="margin-bottom:30px; font-size:18px;">
-            User's answer
-    </span>
+    <span id="user_choice" style="margin-bottom:30px; font-size:18px;">당신의 선택</span>
     <br>
     <div class="row">
       <div class="col-md-12" id="user_answer_div">
@@ -62,6 +60,22 @@
               <button type="button" class="btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn answer-from-user" data-sequence="1" id="btn1">대답하기</button>
             </div>
         <%
+          elsif @first_choices.size == 1 || @first_choices.size == 2
+            counter = 1
+            @first_choices.each do |choice|
+        %>
+              <button type="button" class="btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn" data-sequence="<%=counter %>" id="btn<%=counter %>"><%=choice.content %> </button>
+        <%
+              counter = counter + 1
+            end #end of each loop
+
+            while counter <= 3
+              %>
+              <button type="button" class="btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn" data-sequence="<%=counter %>" id="btn<%=counter %>" style="visibility:hidden;">선택지</button>
+              <%
+              counter = counter + 1
+            end
+            
           else
             counter = 1
             @first_choices.each do |choice|
