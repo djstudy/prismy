@@ -18,7 +18,7 @@
       <%= link_to "Delete", scene_path(scene), method: "delete", data: { confirm: "정말 삭제하시겠습니까?" }, class: "btn btn-danger btn-sm" %>
     </h2>
 
-    <% scene.lines.each do |line| %>
+    <% scene.lines.order(:sequence).each do |line| %>
 
       <%= form_for line, html: { class: "form-inline" } do |f| %>
       <div class="form-group form-sequence">
@@ -40,7 +40,7 @@
 
       <% if line.is_question? %>
       <div class="choices-container">
-        <% line.choices.each do |choice| %>
+        <% line.choices.order(:sequence).each do |choice| %>
 
 
           <%= form_for choice, html: { class: "form-inline" } do |f| %>
