@@ -1,29 +1,25 @@
-<div  class="row">
+<div class="row">
   <h1 class="col-sm-12 heading heading--start">대화상대를 골라주세요 :)</h1>
-
-
   <div class="row">
-
   <% @tags.each do |tag| %>
-  <article class="post post--table">
+    <article class="post post--table">
     <%= link_to dialogue_tag_path(tag), class: "image-container image-container--max post__link-area" do %>
       <%= image_tag image_path('photos/ellenpage.png') %>
     <% end %>
 
-    <div class="post__detail">
-      <%= link_to dialogue_tag_path(tag), class: "post__link" do %>
-        <h3 class="post__heading"><%= tag.name %></h3>
-        <% end %>
-    </div>
-  </article>
+      <div class="post__detail">
+        <%= link_to dialogue_tag_path(tag), class: "post__link" do %>
+          <h3 class="post__heading"><%= tag.name %></h3>
+          <% end %>
+      </div>
+    </article>
 
   <% end %>
-
-  </div>
+  </div><!-- end row -->
 </div><!-- end row -->
 <div class="top-scroll"><i class="fa fa-angle-up"></i></div>
 
-
+<!-- modal start -->
 <div class="modal fade " id="modalExplain" aria-hidden="false" style="display: block;">
   <div class="modal-dialog">
     <div class="modal-content">

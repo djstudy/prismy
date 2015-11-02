@@ -66,6 +66,7 @@ class TagsController < ApplicationController
     @tag = Tag.find(params[:tag_id])
     @scenes = @tag.scenes
     @next_scene = @scenes[params[:scene_id].to_i + 1]
+    @next_scene_interviewee = @next_scene.interviewee
 
     if @next_scene
       content = auto_html( @next_scene.lines.first.content ) {
@@ -75,7 +76,7 @@ class TagsController < ApplicationController
         simple_format
       }
       
-      render json: {next_scene_id: @next_scene.id, next_scene_first_line: content, choices: @next_scene.lines.first.choices }, status: 200
+      render json: {next_scene_interviewee_name: @next_scene_interviewee.name, next_scene_id: @next_scene.id, next_scene_first_line: content, choices: @next_scene.lines.first.choices }, status: 200
     else
       render json: {next_scene_id: -1 }, status: 200
     end

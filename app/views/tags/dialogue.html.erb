@@ -6,30 +6,24 @@
     <div id="line_info" data-last-sequence="<%= @first_scene_lines.first.sequence %>" type="<%= @first_scene_lines.first.line_type %>"></div>
 
     <div class="row">
-    <div class="col-xs-4 col-md-4">
-      <%= image_tag image_path('prismy_progress2.png'), :class => "progress_img" %>
-    </div>
-    <div class="col-xs-4 col-md-4 nanum-font" style="text-align: center; padding-right: 10px; margin-bottom:15px; margin-top:-3px">
-      2 대화하기
-    </div>
-    <div class="col-xs-4 col-md-4 nanum-font" style="text-align: right; font-size:10px; margin-bottom:15px; ">
-      나는 호모포비아다.
-    </div>
+      <div class="col-xs-4 col-md-4">
+        <%= image_tag image_path('prismy_progress2.png'), :class => "progress_img" %>
+      </div>
+      <div class="col-xs-4 col-md-4 nanum-font" style="text-align: center; padding-right: 10px; margin-bottom:15px; margin-top:-3px">
+        2 대화하기
+      </div>
+      <div class="col-xs-4 col-md-4 nanum-font" style="text-align: right; font-size:10px; margin-bottom:15px; ">
+        나는 호모포비아다.
+      </div>
     </div>
 
-    <div class="row">
-
-        
-
+    <div class="row" id= "interviewee_info">
       <div class="col-md-4 col-xs-3 main-row" style="text-align:left">
-        
-        <%= image_tag image_path('interviewee_icon/prismy_icon_sample.png'), :class => "icon_img" %>
-
-        
+        <%= image_tag image_path('interviewee_icon/prismy_icon_sample.png'), :class => "icon_img", :id=> "interviewee_img" %>
       </div>
 
       <div class="col-md-8 col-xs-9 main-row">
-        <div style="margin-right:20px; text-align:left;"><%=@first_scene.interviewee.name %></div>
+        <div id="interviewee_name" style="margin-right:20px; text-align:left;"><%=@first_scene.interviewee.name %></div>
         <div class="divider present-divider" style="margin-top:12px; margin-bottom:15px;"></div>
       <span class="nanum-font dialogue-font" id="response_paragraph" style="display:none; text-align:justify"> <%= auto_html( @first_scene_lines.first.content ) {
            sized_image(:width =>480)
@@ -83,24 +77,3 @@
   </div>
 </div>
 </div>
-<!--
-
-        <div class="col-md-12 col-xs-12 main-row">
-          User's answer
-        </div>
-        <div class="answers">
-        <div class="col-md-12 col-xs-12 dark-row">
-          1.무반응
-        </div>
-        <div class="col-md-12 col-xs-12 light-row">
-          2.나는 (게이)들을 응원해!
-        </div>
-        <div class="col-md-12 col-xs-12 dark-row">
-          3.(장난반 걱정반) 나는 좋아하지 말아라
-        </div>
-        <div class="col-md-12 col-xs-12 light-row">
-          4.불편한 심기 드러내기
-        </div>
-        </div>
-
--->

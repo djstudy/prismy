@@ -1,5 +1,9 @@
 $(document).on('ready page:load', function () {
 
+  $("#response_paragraph").fadeIn(2000, function(){
+    $("#userActions-container").fadeIn(800);
+  });
+
   if (!isEmpty($("#scrollAnimate"))){
     var scrollTo = $("#scrollAnimate").data('scroll-to');
     var objectID = $("#scrollAnimate").data('recent-object-id');
@@ -15,12 +19,8 @@ $(document).on('ready page:load', function () {
     }, 600);
     };
     
-
   }
 
-  $("#response_paragraph").fadeIn(2000, function(){
-    $("#userActions-container").fadeIn(800);
-  });
   $("#user_answer_div").on("click", "button.user-answer-btn",function(event){
     var clickedButton = $(this);
     // Hide not-chosen buttons
@@ -28,6 +28,7 @@ $(document).on('ready page:load', function () {
     {
       hideNotChosenButtons();
     }
+
     else
     {
       $(".user-answer-btn").removeClass("chosenAnswer");
@@ -35,7 +36,7 @@ $(document).on('ready page:load', function () {
       hideNotChosenButtons();
     }
 
-    $("#response_paragraph").fadeOut(600, function(){
+    $("#response_paragraph").fadeOut(1000, function(){
 
       $("#response_paragraph").empty();
       var currentLineType = $('#line_info').data('last-line-type');
@@ -56,8 +57,6 @@ $(document).on('ready page:load', function () {
         url: ajaxUrl,
         data: sendingData,
       }).done(function(data){
-        console.log(data);
-        
         //No more lines in this scene
         if(!data)
         {
@@ -70,15 +69,13 @@ $(document).on('ready page:load', function () {
         {
           $('#user_answer_div').children().fadeOut(600, function(){
             $('#user_answer_div').children().remove();
+            $("#response_paragraph").html(data.content);
+            setLastLineSequence(data.sequence);
+            setLastLineType(data.line_type);
+            $("#response_paragraph").fadeIn(800, function(){
+              setSelectButtons(data.choices);
+            });
           });
-
-          $("#response_paragraph").html(data.content);
-          setLastLineSequence(data.sequence);
-          setLastLineType(data.line_type);
-          $("#response_paragraph").fadeIn(800, function(){
-            setSelectButtons(data.choices);
-          });
-
         }
 
       });
@@ -87,8 +84,6 @@ $(document).on('ready page:load', function () {
 
   function nextScene()
   {
-      console.log('nextScene!');
-
       var sceneSequence = Number($('#scene_sequence').data('scene-sequence'));
       var ajaxUrl = "/tags/" + getTagID() + "/get_next_scene";
       var sendingData =
@@ -102,8 +97,6 @@ $(document).on('ready page:load', function () {
         url: ajaxUrl,
         data: sendingData
       }).done(function(data){
-        console.log(data);
-        
         // 일어나면 안됨. get_next_scene 은 항상 return 해줘야함.
         if(!data)
         {
@@ -115,18 +108,23 @@ $(document).on('ready page:load', function () {
         {
           // Go to home?
           alert("끝!");
-          //window.location.replace(data.home_path);
+          window.location.replace(data.home_path);
         }
 
         //새로운 Scene이 시작하는 곳.
         else
         {
-          $('#scene_sequence').data('scene-sequence', sceneSequence + 1);
-          setSceneID(data.next_scene_id);
-          $("#response_paragraph").html(data.next_scene_first_line);
-          $("#response_paragraph").fadeIn(1500, function(){
-            $('#div_for_user_answer').remove();
-            setSelectButtons(data.choices);
+          $("#interviewee_info").fadeOut(2000, function(){
+            $('#scene_sequence').data('scene-sequence', sceneSequence + 1);
+            setSceneID(data.next_scene_id);
+            $("#response_paragraph").html(data.next_scene_first_line);
+            $("#interviewee_name").html(data.next_scene_interviewee_name);
+            /* $("#interviewee_img").attr("src", data.interviewee_img_src); */
+            $("#interviewee_info").fadeIn(1500, function(){
+              $('#div_for_user_answer').remove();
+              setSelectButtons(data.choices);
+              $("#response_paragraph").fadeIn(750);
+            });
           });
         }
 
@@ -156,7 +154,6 @@ $(document).on('ready page:load', function () {
       $.each(selectButtonInformation, function(i, item){
         buttonString = buttonString + "<button type=\"button\" class=\"btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn\" data-sequence=\"" + (i+1) + "\" id=\"" + i + "\" style=\"visibility:hidden;\">" + selectButtonInformation[i].content + "</button>";
       });
-      console.log(buttonString);
   
       $('#user_answer_div').children().remove();
       $('#user_answer_div').append(buttonString);
