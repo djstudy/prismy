@@ -6,7 +6,4 @@ class HomeController < ApplicationController
       new_user
     end
   end
-  def about
-    @tags = Tag.all
-  end
 end
