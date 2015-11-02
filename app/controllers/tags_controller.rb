@@ -69,14 +69,17 @@ class TagsController < ApplicationController
     @next_scene_interviewee = @next_scene.interviewee
 
     if @next_scene
-      content = auto_html( @next_scene.lines.first.content ) {
+      next_first_line = @next_scene.lines.order(:sequence).first
+      content = auto_html( next_first_line.content ) {
         sized_image(:width =>480)
         youtube(:width => 480, :height => 320, :autoplay => false)
         link :target => "_blank", :rel => "nofollow"
         simple_format
       }
       
-      render json: {next_scene_interviewee_name: @next_scene_interviewee.name, next_scene_id: @next_scene.id, next_scene_first_line: content, choices: @next_scene.lines.first.choices }, status: 200
+
+      render json: {next_scene_interviewee_name: @next_scene_interviewee.name, next_scene_id: @next_scene.id, next_scene_first_line: content, choices: next_first_line.choices }, status: 200
+
     else
       render json: {next_scene_id: -1 }, status: 200
     end

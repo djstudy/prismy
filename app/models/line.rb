@@ -11,7 +11,7 @@ class Line < ActiveRecord::Base
   end
 
   def next_line
-    scene.lines.find_by_sequence(sequence+1)
+    scene.lines.where("sequence > ?",sequence).order(:sequence).first
     # Line.where(interviewee: interviewee).where("sequence > #{sequence}").order(sequence: :asc).first
   end
 end
