@@ -96,7 +96,7 @@ class IntervieweesController < ApplicationController
 
 private
   def interviewee_params
-    params.require(:interviewee).permit(:name, :password, :password_confirmation, :email, :description)
+    params.require(:interviewee).permit(:name, :password, :password_confirmation, :email, :description, :profile_image)
   end
 
   def get_interviewee
