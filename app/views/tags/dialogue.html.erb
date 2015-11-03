@@ -24,7 +24,7 @@
 <!-- 원래 태그 있던 곳 -->
       <div class="col-md-10 col-md-offset-1 col-xs-12 main-row">
         <div class="row">
-          <div class="col-md-2 col-xs-3 text-center"><%= image_tag image_path('interviewee_icon/prismy_icon_ddochi.png'), :class => "icon_img", :id=> "interviewee_img" %>
+          <div class="col-md-2 col-xs-3 text-center"><%= image_tag image_path("interviewee_icon/#{@first_scene_interviewee.profile_image}"), :class => "icon_img", :id=> "interviewee_img" %>
             <div class="text-center interviewee_name" id="interviewee_name">
             <%=@first_scene.interviewee.name %>
             </div>
