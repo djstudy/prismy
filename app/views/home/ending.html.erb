@@ -1,0 +1,83 @@
+<!doctype html>
+
+<div class="wrapper" id="top">
+
+  <section class="container">
+    <div class="post post--full">
+        
+      <div class="row">
+        <div class="col-md-12">
+      
+          <div class="text-center">
+
+            <p>여기에 뭔가 사용자가 즐거워 할만한 컨텐츠가 들어가야 좋을 것 같다. 하하
+             
+            </p>
+            <ul class="list">
+              <li><span>유익했는지 안했는지 pull을 하게 할까?</span></li>
+              <li>내가 각 대화에서 어떤 선택을 했었는지 보여줄까?</li>
+              <li>다른 사용자는 어떻게 생각했었는지 보여줄까?</li>
+            </ul>
+            <%= link_to  start_path(), class: "share__item btn btn-info btn--minimal-rect btn-lg-rect-bordered " do %>
+              다른 이야기 계속 하기
+            <% end %>
+        
+            <div class="share share--large share--full share-present">
+              <a href="https://www.facebook.com/sharer/sharer.php?u=&t=" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;" class="share__item share__item--facebook"><i class="fa fa-facebook"></i>Facebook</a>
+             
+            </div>
+          </div>
+
+        </div><!-- end col-->
+      </div><!-- end row-->
+      
+    </div>
+    <div>
+      <h2 class="block-title" id="comment-start">Comments (5)</h2>
+
+
+      <div class="comment">
+        <div class="comment__number">{2}</div>
+        <p class="comment__author">Marjorie Gregory</p>
+        <time datetime="2015-07-14" class="comment__date">July 14, 2015</time>
+        <p class="comment__text">Donec euismod turpis id ullamcorper lobortis. Maecenas faucibus ipsum sem, sed consequat ante consectetur non. Nam at neque dui. Integer id risus sit amet justo varius semper quis ut enim.</p>
+        <a class="btn btn-sm btn-primary comment__btn" href="#">reply</a>
+      </div>
+
+      <div class="comment comment--primary comment--reply">
+        <div class="comment__number">{3} <span class="comment__mark">author</span></div>
+        <p class="comment__author">Brianna Hamilton</p>
+        <time datetime="2015-07-14" class="comment__date">July 14, 2015</time>
+        <p class="comment__text">Maecenas faucibus ipsum sem, sed consequat ante consectetur non. Nam at neque dui. Integer id risus sit amet justo varius semper quis ut enim.</p>
+        <a class="btn btn-sm btn-primary comment__btn" href="#">reply</a>
+      </div>
+
+    </div>
+    <!-- end comment area -->
+
+    <form class="contact comment-form" id="comment-form" name="contact-form" method="post" action="#" novalidate>
+      <p class="sub-header">Leave a Comment:</p>
+      <div class="row">
+        <div class="col-sm-6 col-left">
+          <input class="contact__field" name="contact-name" type="text" placeholder="name">
+        </div>
+        <div class="col-sm-6 col-right">
+            <input class="contact__field" name="contact-email" type="email" placeholder="email">
+        </div>
+      </div>
+          
+      <textarea class="contact__field contact__area" name="" placeholder="message"></textarea>
+      <div class="checkbox">  
+        <input id="check1" type="checkbox" name="check" value="check1" checked="checked">  
+        <label for="check1">notify me about new comments and replies</label>    
+      </div>  
+        <button class="btn btn--decorated btn-warning btn-submit" type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Colored divider -->
+  <div class="divider-color bottom-space"></div>
+
+  <div class="top-scroll"><i class="fa fa-angle-up"></i></div>
+
+</div>

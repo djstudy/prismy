@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'intro#enterance'
   get 'about', to: 'home#about'
   get 'start', to: 'home#index'
+  get 'ending', to: 'home#ending'
   
   resources :tags do
     member do

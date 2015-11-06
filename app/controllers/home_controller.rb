@@ -6,4 +6,7 @@ class HomeController < ApplicationController
       new_user
     end
   end
+  def ending
+    
+  end
 end
