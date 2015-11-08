@@ -11,14 +11,14 @@ $(document).on('ready page:load', function () {
     if (scrollTo === "scene") {
       $("html body").animate({
           scrollTop: $("#" + scrollTo + "_" +objectID).offset().top - 300
-      }, 600);  
+      }, 600);
     }
     else {
       $("html body").animate({
         scrollTop: $("#edit_" + scrollTo + "_" +objectID).offset().top - 300
     }, 600);
     };
-    
+
   }
 
   $("#user_answer_div").on("click", "button.user-answer-btn",function(event){
@@ -45,7 +45,7 @@ $(document).on('ready page:load', function () {
       if($('#answer_from_user'))
         answerFromUser = $('#answer_from_user').val();
       var sendingData =
-      { 
+      {
         current_line: getLastLineSequence(),
         user_choice: Number(clickedButton.data('sequence')),
         answer_from_user: answerFromUser
@@ -88,7 +88,7 @@ $(document).on('ready page:load', function () {
       var sceneSequence = Number($('#scene_sequence').data('scene-sequence'));
       var ajaxUrl = "/tags/" + getTagID() + "/get_next_scene";
       var sendingData =
-      { 
+      {
         tag_id: getTagID(),
         scene_id: sceneSequence
       };
@@ -107,9 +107,8 @@ $(document).on('ready page:load', function () {
         // Scene이 더 이상 없을
         else if(data.next_scene_id == -1)
         {
-          // Go to home?
-          alert("끝!");
-          window.location.replace(data.home_path);
+          // Go to ending page
+          window.location.replace(data.ending_path);
         }
 
         //새로운 Scene이 시작하는 곳.
@@ -156,7 +155,7 @@ $(document).on('ready page:load', function () {
       $.each(selectButtonInformation, function(i, item){
         buttonString = buttonString + "<button type=\"button\" class=\"btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn\" data-sequence=\"" + (i+1) + "\" id=\"" + i + "\" style=\"visibility:hidden;\">" + selectButtonInformation[i].content + "</button>";
       });
-  
+
       $('#user_answer_div').children().remove();
       $('#user_answer_div').append(buttonString);
       $('#user_answer_div').fadeIn(600);
@@ -170,9 +169,9 @@ $(document).on('ready page:load', function () {
     var currentLineType = $('#line_info').data('last-line-type');
 
     var sendingData =
-    { 
+    {
       current_line: getLastLineSequence(),
-      user_choice: Number(clickedButton.data('sequence')) 
+      user_choice: Number(clickedButton.data('sequence'))
     };
 
     var ajaxUrl = "/scenes/" + getSceneID() + "/lines/get_next_line"

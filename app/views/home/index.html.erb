@@ -1,30 +1,4 @@
-<div class="user-info" data-isFirst="<%=current_user.is_first?%>"/>
-<div class="modal fade" id="modalExplain" aria-hidden="false" style="display: block;">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i></button>
-        <h4 class="modal-title nanum-font" style="font-weight:600;">Prismy가 뭐죠?</h4>
-      </div>
-      <div class="modal-body nanum-font" style="padding-bottom:40px;">
-        <p>
-        프리즈미는 성소수자들과 실제로 대화 하는 것처럼 그들의 이야기를 들어볼 수 있는 웹페이지입니다. 대화의 내용은 프리즈미를 제작한 사람들이 직접 성소수자들과 만나 인터뷰한 내용을 토대로 재구성 되었습니다.
-        </p>
-        <p>
-        총 10개의 주제 중에서 그들과 이야기를 나눠보고 싶은 주제를 선택해보세요. 대화창이 열리면서 2~3명의 성소수자들이 주제와 관련된 그들의 지식이나 의견을 들려줄 것입니다. 원하는 대답/추임새를 중간중간 선택하면서 대화하는 것처럼 이야기를 이어나가보세요!!
-        </p>
-        <p>
-        </p>
-        <div style="text-align:right;">
-        <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" style="float: none; padding: 6px 17px 7px;">시작하기</button>
-      </div>
-      </div>
 
-    </div>
-    <!-- /.modal-content -->
-  </div>
-  <!-- /.modal-dialog -->
-</div>
 
 <div class="row">
   <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
@@ -54,4 +28,32 @@
       </div>
     </div><!-- end row-->
   </div>
+</div>
+
+<div id="user-info" data-is-first="<%=current_user.is_first?%>"/>
+<div class="modal fade " id="modalExplain" aria-hidden="false" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i></button>
+        <h4 class="modal-title nanum-font" style="font-weight:600;">Prismy가 뭐죠?</h4>
+      </div>
+      <div class="modal-body nanum-font" style="padding-bottom:40px;">
+        <p>
+        프리즈미는 성소수자들과 실제로 대화 하는 것처럼 그들의 이야기를 들어볼 수 있는 웹페이지입니다. 대화의 내용은 프리즈미를 제작한 사람들이 직접 성소수자들과 만나 인터뷰한 내용을 토대로 재구성 되었습니다.
+        </p>
+        <p>
+        총 10개의 주제 중에서 그들과 이야기를 나눠보고 싶은 주제를 선택해보세요. 대화창이 열리면서 2~3명의 성소수자들이 주제와 관련된 그들의 지식이나 의견을 들려줄 것입니다. 원하는 대답/추임새를 중간중간 선택하면서 대화하는 것처럼 이야기를 이어나가보세요!!
+        </p>
+        <p>
+        </p>
+        <div style="text-align:right;">
+        <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" style="float: none; padding: 6px 17px 7px;">시작하기</button>
+      </div>
+      </div>
+
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
 </div>
