@@ -1,5 +1,13 @@
 $(document).on('ready page:load', function () {
-
+  $('.flow-text').wordBreakKeepAll();
+  $('.flow-text').css('font-size',function(){
+    var responsiveFontSize = $(this).width() / 33;
+    if( responsiveFontSize < 14 )
+      return 14
+    else
+      return responsiveFontSize
+  });
+  
   $("#response_paragraph").fadeIn(2000, function(){
     $("#userActions-container").fadeIn(800);
   });
