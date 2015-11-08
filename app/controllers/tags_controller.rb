@@ -88,13 +88,12 @@ class TagsController < ApplicationController
 
       @next_scene_interviewee = @next_scene.interviewee
 
-      render json: {next_scene_interviewee_name: @next_scene_interviewee.name,
-                   next_scene_id: @next_scene.id,
-                   next_scene_first_line: content,
-                   next_scene_first_line_sequence: next_first_line.sequence,
-                   choices: next_first_line.choices }, status: 200
 
-      render json: {interviewee_img_src: @next_scene_interviewee_img, next_scene_interviewee_name: @next_scene_interviewee.name, next_scene_id: @next_scene.id, next_scene_first_line: content, choices: next_first_line.choices }, status: 200
+      render json: {interviewee_img_src: @next_scene_interviewee_img,
+                    next_scene_interviewee_name: @next_scene_interviewee.name,
+                    next_scene_id: @next_scene.id,
+                    next_scene_first_line: content,
+                    choices: next_first_line.choices }, status: 200
     else
       render json: { next_scene_id: -1, ending_path: ending_url() }, status: 200
     end
