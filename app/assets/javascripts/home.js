@@ -1,5 +1,7 @@
 $(document).on('ready page:load', function () {
-  $('#modalExplain').modal();
-  
+
+  if ($('#user-info').data('isFirst')===true) {
+    $('#modalExplain').modal();
+  };
 
 });
