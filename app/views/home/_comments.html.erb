@@ -1,0 +1,39 @@
+<div>
+  <h2 class="block-title" id="comment-start">직접 물어보기</h2>
+
+  <%= form_for @comment, html: {class: "contact comment-form"} do |f| %>
+
+    <%= f.text_area :content, autofocus: false, class: "contact__field contact__area", placeholder: "궁금한 것을 직접 여기에 적어 물어보세요." %>
+
+    <div class="pull-right">
+      <%= f.submit "입력", class: "btn btn-success btn-sm"  %>
+    </div>
+    <div class="clearfix">
+    </div>
+  <% end %>
+
+
+  <% comments.each do |comment| %>
+
+  <div class="comment">
+    <div class="comment__number">{<%= comment.id %>}</div>
+    <p class="comment__author"><%= comment.user.name %></p>
+    <time datetime="<%= comment.updated_at %>" class="comment__date"><%= comment.updated_at %></time>
+    <p class="comment__text"><%= comment.content %></p>
+    <div class="clearfix prismy_comment_btn_container">
+      <% if current_user == comment.user %>
+        <%= link_to "삭제", comment_path(comment), method: "delete", data: { confirm: "정말 삭제하시겠습니까?" }, class: "btn btn-danger btn-sm" %>
+      <% end %>
+    </div>
+  </div>
+
+  <% end %>
+  <!-- <div class="comment comment--primary comment--reply">
+    <div class="comment__number">{3} <span class="comment__mark">author</span></div>
+    <p class="comment__author">Brianna Hamilton</p>
+    <time datetime="2015-07-14" class="comment__date">July 14, 2015</time>
+    <p class="comment__text">Maecenas faucibus ipsum sem, sed consequat ante consectetur non. Nam at neque dui. Integer id risus sit amet justo varius semper quis ut enim.</p>
+    <a class="btn btn-sm btn-primary comment__btn" href="#">reply</a>
+  </div> -->
+
+</div>

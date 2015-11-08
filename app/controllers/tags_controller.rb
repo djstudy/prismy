@@ -2,6 +2,8 @@ class TagsController < ApplicationController
   include AutoHtml
 
   before_action :get_tag, only: [:edit, :update, :destroy]
+  before_action :authenticate!, only: [:dialogue, :get_next_scene]
+
   http_basic_authenticate_with name: "djstudy", password: ENV['BASIC_AUTH_SECRET'], except:[:dialogue, :get_next_scene]
   def index
     @tags = Tag.all;
@@ -74,7 +76,7 @@ class TagsController < ApplicationController
       @next_scene_interviewee_img = ActionController::Base.helpers.asset_path('interviewee_icon/Prismy_icon_js.png')
     end
     if @next_scene
-      
+
 
       next_first_line = @next_scene.lines.order(:sequence).first
       content = auto_html( next_first_line.content ) {
@@ -83,13 +85,13 @@ class TagsController < ApplicationController
         link :target => "_blank", :rel => "nofollow"
         simple_format
       }
-      
+
       @next_scene_interviewee = @next_scene.interviewee
 
       render json: {next_scene_interviewee_name: @next_scene_interviewee.name,
-                   next_scene_id: @next_scene.id, 
-                   next_scene_first_line: content, 
-                   next_scene_first_line_sequence: next_first_line.sequence, 
+                   next_scene_id: @next_scene.id,
+                   next_scene_first_line: content,
+                   next_scene_first_line_sequence: next_first_line.sequence,
                    choices: next_first_line.choices }, status: 200
 
       render json: {interviewee_img_src: @next_scene_interviewee_img, next_scene_interviewee_name: @next_scene_interviewee.name, next_scene_id: @next_scene.id, next_scene_first_line: content, choices: next_first_line.choices }, status: 200

@@ -7,6 +7,7 @@ class HomeController < ApplicationController
     end
   end
   def ending
-    
+    @comment    = Comment.new()
+    @comments    = Comment.all.order(updated_at: :desc)
   end
 end

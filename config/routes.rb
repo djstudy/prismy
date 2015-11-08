@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get 'about', to: 'home#about'
   get 'start', to: 'home#index'
   get 'ending', to: 'home#ending'
-  
+
+  resources :comments, only: [:create, :update, :destroy]
   resources :tags do
     member do
       get 'dialogue'

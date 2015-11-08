@@ -29,20 +29,20 @@ class IntervieweesController < ApplicationController
   end
 
   def show
-    
-    
+
+
     # raise @line.inspect
     if flash[:success] and !flash[:success].include?("삭제")
-      
+
       if flash[:success].include?("대사")
         @scroll_animate = "line"
-        @recent = @interviewee.lines.order(updated_at: :desc).first        
+        @recent = @interviewee.lines.order(updated_at: :desc).first
       elsif flash[:success].include?("장면")
         @scroll_animate = "scene"
-        @recent = @interviewee.scenes.order(updated_at: :desc).first        
+        @recent = @interviewee.scenes.order(updated_at: :desc).first
       elsif flash[:success].include?("선택지")
         @scroll_animate = "choice"
-        @recent = @interviewee.choices.order(updated_at: :desc).first    
+        @recent = @interviewee.choices.order(updated_at: :desc).first
       end
     end
   end
@@ -103,5 +103,5 @@ private
     @interviewee = Interviewee.find(params[:id])
   end
 
-  
+
 end
