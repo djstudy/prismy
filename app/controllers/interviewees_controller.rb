@@ -72,7 +72,7 @@ class IntervieweesController < ApplicationController
     if @interviewee.update(interviewee_params)
       flash[:success] = "인터뷰대상이가 성공적으로 수정되었습니다."
     else
-      flash[:error] = "인터뷰대상 수정에 실패하였습니다."
+      flash[:error] = "인터뷰대상 수정에 실패하였습니다. </br> #{@interviewee.errors.full_messages.join("\n")}"
     end
 
     redirect_to interviewee_path(@interviewee)
