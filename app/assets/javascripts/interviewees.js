@@ -1,5 +1,5 @@
 $(document).on('ready page:load', function () {
-  $('#modal-ending').modal();
+
   $('.flow-text').wordBreakKeepAll();
   $('.flow-text').css('font-size',function(){
     var responsiveFontSize = $(this).width() / 33;
@@ -118,7 +118,7 @@ $(document).on('ready page:load', function () {
         {
 
           // Should show the ending modal
-          // $('#modal-ending').modal();
+          $('#modal-ending').modal();
           // window.location.replace(data.ending_path);
         }
 
