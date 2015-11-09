@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
       flash[:error] = "코멘트 추가에 실패하였습니다."
     end
 
-    redirect_to ending_path()
+    redirect_to asking_path()
   end
 
 
@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
       flash[:error] = "코멘트 수정에 실패하였습니다."
     end
 
-    redirect_to ending_path()
+    redirect_to asking_path()
   end
 
   def destroy
@@ -34,7 +34,7 @@ class CommentsController < ApplicationController
       flash[:error] = "코멘트 삭제에 실패하였습니다."
     end
 
-    redirect_to ending_path()
+    redirect_to asking_path()
   end
 
 private

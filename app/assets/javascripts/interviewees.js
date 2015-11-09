@@ -106,7 +106,7 @@ $(document).on('ready page:load', function () {
         method: "GET",
         url: ajaxUrl,
         data: sendingData
-      }).done(function(data){
+      }).done(function( data, textStatus, jqXHR ) {
         // 일어나면 안됨. get_next_scene 은 항상 return 해줘야함.
         if(!data)
         {
@@ -114,11 +114,13 @@ $(document).on('ready page:load', function () {
         }
 
         // Scene이 더 이상 없을
-        else if(data.next_scene_id == -1)
+        else if(typeof(data)==="string")
         {
 
           // Should show the ending modal
+          $('#modal-ending-wrapper').html(data);
           $('#modal-ending').modal();
+
           // window.location.replace(data.ending_path);
         }
 

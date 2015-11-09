@@ -96,7 +96,8 @@ class TagsController < ApplicationController
                     next_scene_first_line_sequence: next_first_line.sequence,
                     choices: next_first_line.choices }, status: 200
     else
-      render json: { next_scene_id: -1, ending_path: asking_url() }, status: 200
+
+      render partial: "ending_modal.html", status: 200
     end
   end
 
