@@ -25,9 +25,6 @@
             </span>
           </div>
           <% end %>
-
-
-
         </div>
         <% end %>
         <p>
@@ -36,23 +33,25 @@
         <p>
           그리고 다른 이야기를 하고싶으시다면 <strong class="font-danger">"다른 대화 하기"</strong>를! 혹은 직접 물어보고 싶은게 있다면, <strong class="font-success">"직접 물어보기"</strong>를 눌러서 진행해주세요!
         </p>
+
         <div class="row">
-          <div class=" col-xs-12">
+          <div class=" col-sm-4 col-xs-12 text-center">
 
-            <div class="pull-right">
-              <button type="button" class="btn btn-general btn-sm" data-dismiss="modal" style="float: none; padding: 6px 17px 7px;">공유하기</button>
-            </div>
-
-            <div class="pull-left">
-              <%= link_to "직접 물어보기", asking_path(), class: "btn btn-success btn-sm", style: "float: none; padding: 6px 17px 7px;" %>
-            </div>
-
-            <div class="clearfix text-center">
-              <%= link_to "다른 대화 하기", start_path(), class: "btn btn-danger btn-sm", style: "float: none; padding: 6px 17px 7px;" %>
-
-            </div>
+            <%= link_to "직접 물어보기", asking_path(), class: "btn btn-success btn-sm", style: "float: none; padding: 6px 17px 7px;" %>
           </div>
+
+          <div class=" col-sm-4 col-xs-12 text-center">
+            <%= link_to "다른 대화 하기", start_path(), class: "btn btn-danger btn-sm", style: "float: none; padding: 6px 17px 7px;" %>
+          </div>
+
+
+          <div class=" col-sm-4 col-xs-12 text-center">
+            <button type="button" class="btn btn-general btn-sm" data-dismiss="modal" style="float: none; padding: 6px 17px 7px;">공유하기</button>
+
+          </div>
+
         </div>
+
       </div>
 
     </div>
