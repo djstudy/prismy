@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+  <!-- Mobile Specific Metas-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="telephone=no" name="format-detection">
+
+  <title>Prismy</title>
+  <%= favicon_link_tag 'favicon.ico' %>
+  <!-- Open Sans -->
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400italic,600,700italic,400,700,800italic" rel="stylesheet" type="text/css">
+  <!-- VarelaRound -->
+  <link href="http://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" type="text/css">
+  <!-- Icon Font - Font Awesome -->
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link href="/custom.css" rel="stylesheet">
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <%= raw generate_og_tags %>
+
+
+
+</head>
+<body>
+  <div class="wrapper" id="top">
+
+    <header class="header header--thin header--light prismy-header--thin">
+      <div class="header-fixed">
+      <div class="header-line waypoint" data-animate-down="header-up" data-animate-up="header-down">
+
+      <div class="fixed-top header-down">
+      <div class="container text-center">
+
+        <%= link_to start_path(), class: "logo " do %>
+            <%= image_tag image_path('small_logo.png'), class: "prsimy-small-logo" %>
+        <% end %>
+        <!-- End Logo -->
+
+
+
+      </div> <!-- end container -->
+
+
+
+
+      </div> <!-- end fixed top block -->
+
+      </div>
+
+  </header>
+    <!-- end header section -->
+
+    <!-- end section show current page and breadcrumb -->
+
+
+
+  <% flash.each do |type, message| %>
+  <div class="alert  alert-<%= flash_class(type) %> alert-visible ">
+  <div class="box-inner">
+    <span class="alert-market">
+      <i class="fa <%=flash_icon(type)%>"></i>
+    </span>
+    <strong><%= type %></strong>
+    <%= raw(message) %>
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+      <i class="fa fa-times"></i>
+    </button>
+  </div>
+  </div>
+
+
+
+  <% end %>
+
+    <section>
+      <div id="page-container" class="container">
+        <%= yield %>
+      </div>
+    </section>
+
+
+
+  </div>
+
+
+
+
+    <script>
+      $(document).ready(function() {
+        isotopeFilters();
+      });
+    </script>
+  <script src="/custom.js"></script>
+</body>
+</html>

@@ -1,4 +1,5 @@
 class TagsController < ApplicationController
+  layout 'dialogue_layout', only: [:dialogue]
   include AutoHtml
 
   before_action :get_tag, only: [:edit, :update, :destroy]
