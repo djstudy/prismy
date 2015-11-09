@@ -6,7 +6,7 @@ class HomeController < ApplicationController
       new_user
     end
   end
-  def ending
+  def asking
     @comment    = Comment.new()
     @comments    = Comment.all.order(updated_at: :desc)
   end

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'intro#enterance'
   get 'about', to: 'home#about'
   get 'start', to: 'home#index'
-  get 'ending', to: 'home#ending'
+  get 'asking', to: 'home#asking'
 
   resources :comments, only: [:create, :update, :destroy]
   resources :tags do

@@ -1,4 +1,5 @@
 $(document).on('ready page:load', function () {
+  $('#modal-ending').modal();
   $('.flow-text').wordBreakKeepAll();
   $('.flow-text').css('font-size',function(){
     var responsiveFontSize = $(this).width() / 33;
@@ -7,7 +8,7 @@ $(document).on('ready page:load', function () {
     else
       return responsiveFontSize
   });
-  
+
   $("#response_paragraph").fadeIn(2000, function(){
     $("#userActions-container").fadeIn(800);
   });
@@ -115,8 +116,10 @@ $(document).on('ready page:load', function () {
         // Scene이 더 이상 없을
         else if(data.next_scene_id == -1)
         {
-          // Go to ending page
-          window.location.replace(data.ending_path);
+
+          // Should show the ending modal
+          // $('#modal-ending').modal();
+          // window.location.replace(data.ending_path);
         }
 
         //새로운 Scene이 시작하는 곳.
