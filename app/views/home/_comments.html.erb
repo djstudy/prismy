@@ -1,33 +1,62 @@
-<div>
+<div class="row">
+<div class="col-md-8 col-md-offset-2">
+  <!--<div class="col-md-4 col-md-offset-2">
   <h2 class="block-title" id="comment-start">직접 물어보기</h2>
+  </div>-->
 
+
+
+<div class="row">
+<div class="blog-random">
+<article class="post post_comment">
   <%= form_for @comment, html: {class: "contact comment-form"} do |f| %>
-
-    <%= f.text_area :content, autofocus: false, class: "contact__field contact__area", placeholder: "궁금한 것을 직접 여기에 적어 물어보세요." %>
-
-    <div class="pull-right">
-      <%= f.submit "입력", class: "btn btn-success btn-sm"  %>
+  <p class="nanum-font text-center" style="font-size:28px; font-weight:bold; color:#34495e;">질문을 던져 보세요!</p>
+  <div class="row">
+    <div class="col-md-12" style="padding-left:10px;">
+    <%= f.text_area :content, autofocus: false, class: "contact__field contact__area", placeholder: "궁금한 것을 직접 여기에 적어 물어보세요.", style: "border-radius:0px; font-style:normal;"%>
+    
+    <div class="text-center">
+      <%= f.submit "입력", class: "btn btn-primary btn-lg-rect btn-rect"  %>
     </div>
-    <div class="clearfix">
-    </div>
-  <% end %>
-
-
-  <% comments.each do |comment| %>
-
-  <div class="comment">
-    <div class="comment__number">{<%= comment.id %>}</div>
-    <p class="comment__author"><%= comment.user.name %></p>
-    <time datetime="<%= comment.updated_at %>" class="comment__date"><%= comment.updated_at %></time>
-    <p class="comment__text"><%= comment.content %></p>
-    <div class="clearfix prismy_comment_btn_container">
-      <% if current_user == comment.user %>
-        <%= link_to "삭제", comment_path(comment), method: "delete", data: { confirm: "정말 삭제하시겠습니까?" }, class: "btn btn-danger btn-sm" %>
-      <% end %>
     </div>
   </div>
 
   <% end %>
+</article>
+  <% comments.each do |comment| %>
+
+
+    <!--<% if comment.id%2 == 0 %>
+    <div class="col-md-5 col-xs-10 col-xs-offset-1 custom_comment">
+    <% else %>
+    <div class="col-md-5 col-md-offset-1 col-xs-10 col-xs-offset-1">
+    <% end %>-->
+
+
+      <article class="post post_comment comment" style="background-color:transparent;">
+
+        <!--<div class="comment__number">{<%= comment.id %>}</div>
+        <p class="comment__author"><%= comment.user.name %></p>
+        <time datetime="<%= comment.updated_at %>" class="comment__date"><%= comment.updated_at %></time>-->
+        <div class="testimonial testimonial--string custom-testimonial" style="border-top: 3px solid #85d6de; background-color:#d9edf7; text-style:normal; padding-top:38px; padding-bottom:51px;">
+                  <div class="clearfix prismy_comment_btn_container" style="margin-bottom:35px;">
+          <% if current_user == comment.user %>
+            <%= link_to "X", comment_path(comment), method: "delete", data: { confirm: "정말 삭제하시겠습니까?" } %>
+          <% end %>
+        </div>
+              <p class="testimonial__text nanum-font" style="font-size:30px; font-style:normal;"><%= comment.content %></p>
+            <p class="pull-left nanum-font" style="color:white; font-style:italic; font-weight:600; font-size:18px;">Prismy.net</p>
+
+        </div>
+      </article>
+    <!--</div>-->
+
+
+
+
+  <% end %>
+  </div>
+</div>
   <!-- <div class="comment comment--primary comment--reply">
     <div class="comment__number">{3} <span class="comment__mark">author</span></div>
     <p class="comment__author">Brianna Hamilton</p>
@@ -35,5 +64,5 @@
     <p class="comment__text">Maecenas faucibus ipsum sem, sed consequat ante consectetur non. Nam at neque dui. Integer id risus sit amet justo varius semper quis ut enim.</p>
     <a class="btn btn-sm btn-primary comment__btn" href="#">reply</a>
   </div> -->
-
+</div>
 </div>

@@ -900,7 +900,7 @@ function isotopeFilters() {
 
 					/* ------------------- Isotope filters --------------------------*/
 
-					var $container = $('#blog-random');
+					var $container = $('.blog-random');
 			 		$container.isotope({
 					  itemSelector : '.post',
 					    masonry: {
@@ -968,7 +968,6 @@ function isotopeFilters() {
 					});
 }
 //end function
-
 
 //Start function
 function isotopeGallery() {

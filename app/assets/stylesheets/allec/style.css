@@ -20673,7 +20673,7 @@ html#ecwid_html body#ecwid_body .ecwid-productBrowser.ecwid-productBrowser-Searc
   background-color: #fed37f;
 }
 .testimonial--string:before {
-  content: "“";
+  content: " ";
   position: absolute;
   top: 0px;
   left: 30px;
@@ -20684,7 +20684,7 @@ html#ecwid_html body#ecwid_body .ecwid-productBrowser.ecwid-productBrowser-Searc
 }
 .testimonial--string .testimonial__text {
   font-size: 16px;
-  line-height: 18px;
+  line-height: 48px;
   padding: 4px 0;
 }
 .testimonial--string .testimonial__author {

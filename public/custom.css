@@ -68,6 +68,24 @@
     margin-right: 10px;
 }
 
+.custom_comment{
+  margin-left: 10px;
+  margin-bottom: 25px;
+}
+.post_comment {
+  float: left;
+  width: 50%;
+  padding: 0px 15px;
+  margin-bottom: 30px;
+}
+@media(max-width:480px){
+.post_comment {
+  float: left;
+  width: 100%;
+  padding: 0px 15px;
+  margin-bottom: 30px;
+}
+}
 @media (max-width: 768px) {
 .progress_img{
       width: initial;
