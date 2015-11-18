@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery.easing
 //= require_tree "./allec/external"
 //= require_tree "./allec"
 //= require_tree .

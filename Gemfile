@@ -31,6 +31,8 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'jquery-easing-rails'
+
 
 gem 'auto_html', '~> 1.6.4'
 

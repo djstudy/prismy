@@ -13,6 +13,7 @@
   font-size:16px;
   line-height: 28px;
   font-style: normal;
+  color: red;
 }
 .main-message{
   color: #34495e; 
@@ -59,6 +60,10 @@
 
 .interviewee_name{
   margin-top: 10px;
+}
+
+.response_paragraph{
+
 }
 
 .list_img{

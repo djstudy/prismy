@@ -5,9 +5,9 @@
     <div id="scene_info"  data-scene-id="<%= @first_scene.id %>"></div>
     <div id="line_info" data-last-sequence="<%= @first_scene_lines.first.sequence %>" type="<%= @first_scene_lines.first.line_type %>"></div>
 
-    <div class="row">
+    <div class="row" id="dialogue-info">
       <div class="col-xs-4 col-md-4">
-        <%= image_tag image_path('prismy_progress2.png'), :class => "progress_img" %>
+        <%= image_tag image_path('prismy_progress2.png'), :class => "progress_img", :id => "progress_ani" %>
       </div>
       <div class="col-xs-4 col-md-4 nanum-font" style="text-align: center; padding-right: 10px; margin-bottom:15px; margin-top:-3px">
         2 대화하기
@@ -32,12 +32,12 @@
           <div class="col-md-10 col-xs-9">
             <!--<div class="divider present-divider" style="margin-top:12px; margin-bottom:15px;">
             </div>-->
-            <span class="nanum-font dialogue-font flow-text" id="response_paragraph" style="text-align: left; padding-top:100px;">  <%= auto_html( @first_scene_lines.first.content ) {
+            <span class="nanum-font dialogue-font flow-text" id="response_paragraph" style="text-align: right; padding-top:100px;"><%= auto_html( @first_scene_lines.first.content ) {
            sized_image(:width =>480)
           youtube(:width => 480, :height => 320, :autoplay => false)
           link :target => "_blank", :rel => "nofollow"
           simple_format
-          }  %> </span>
+          }  %></span>
           </div>
         </div>
 
@@ -45,19 +45,19 @@
     </div>
 
   </div>
-<!--</div>
+<!--</div>-->
 
 
-<div id="userActions-container" style="display:none;">-->
-  <div class="row">
+
+  <div class="row" id="userActions-container">
   <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1 main-row">
 
     <!--준희오빠 태그<span id="user_choice" style="margin-bottom:30px; font-size:18px;">당신의 선택</span>-->
 
 
-    <span style="margin-bottom:60px; font-size:18px;">
+    <!--<span style="margin-bottom:60px; font-size:18px;" id="user_choice">
             <%= image_tag image_path('prismy_list.png'), :class => "list_img" %>당신의 선택
-    </span>
+    </span>-->
 
     <br>
     <div class="row" style="margin-top:25px;">
@@ -108,6 +108,7 @@
   </div>
 </div>
 </div>
+
 
 <div id="modal-ending-wrapper">
 </div>

@@ -4,7 +4,7 @@
     <div id="tag_info"  data-tag-id="<%= @tag.id %>"></div>
     <div id="scene_info"  data-scene-id="<%= @first_scene.id %>"></div>
     <div id="line_info" data-last-sequence="<%= @first_scene_lines.first.sequence %>" type="<%= @first_scene_lines.first.line_type %>"></div>
-    <div id="response_paragraph" style="display:none; padding:10px; text-align:justify">
+    <div class="response_paragraph" style="display:none; padding:10px; text-align:justify">
 
       <%= auto_html( @first_scene_lines.first.content ) {
 
@@ -23,9 +23,9 @@
       <%
         if(@first_choices.size == 0)
       %>
-          <button type="button" class="btn btn-primary btn-lg btn-block user-answer-btn" data-sequence="0" id="btn1" style="visibility:hidden;">선택지 1</button>
-          <button type="button" class="btn btn-primary btn-lg btn-block user-answer-btn" data-sequence="1" id="btn2">다음</button>
-          <button type="button" class="btn btn-primary btn-lg btn-block user-answer-btn" data-sequence="2" id="btn3" style="visibility:hidden;">선택지 2</button>
+          <button type="button" class="btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn" data-sequence="0" id="btn1" style="visibility:hidden;">선택지 1</button>
+          <button type="button" class="btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn" data-sequence="1" id="btn2">다음</button>
+          <button type="button" class="btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn" data-sequence="2" id="btn3" style="visibility:hidden;">선택지 2</button>
       <%
         # Needs form for user answer
         elsif (@first_choices.size == 1 && @first_choices[0].content == "")
@@ -33,14 +33,14 @@
           <div id="div_for_user_answer" class="col-md-4 col-md-offset-4">
             <textarea class="form-control" rows="3" id="answer_from_user"></textarea>
             <br>
-            <button type="button" class="btn btn-primary btn-lg btn-block user-answer-btn answer-from-user" data-sequence="1" id="btn1">대답하기</button>
+            <button type="button" class="btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn answer-from-user" data-sequence="1" id="btn1">대답하기</button>
           </div>
       <%
         else
           counter = 1
           @first_choices.each do |choice|
       %>
-            <button type="button" class="btn btn-primary btn-lg btn-block user-answer-btn" data-sequence="<%=counter %>" id="btn<%=counter %>" style><%=choice.content %> </button>
+            <button type="button" class="btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn" data-sequence="<%=counter %>" id="btn<%=counter %>" style><%=choice.content %> </button>
       <%
             counter = counter + 1
           end #end of each loop

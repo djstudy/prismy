@@ -1,4 +1,6 @@
+
 $(document).on('ready page:load', function () {
+  $('#dialogue-container').css('display','inline');
 
   $('.flow-text').wordBreakKeepAll();
   $('.flow-text').css('font-size',function(){
@@ -8,10 +10,16 @@ $(document).on('ready page:load', function () {
     else
       return responsiveFontSize
   });
+  $("#dialogue-info").hide().delay(100).fadeIn(700, 'easeInQuad');
+  $("#interviewee_name").hide().delay(500).fadeIn(3000, 'easeInQuad');
+  $("#interviewee_img").hide().delay(500).fadeIn(3000, 'easeInQuad');
 
-  $("#response_paragraph").fadeIn(2000, function(){
-    $("#userActions-container").fadeIn(800);
+  $("#userActions-container").hide()
+  $("#response_paragraph").children().hide().delay(1500).fadeIn(2500, 'easeInOutQuad', function(){
+    $("#userActions-container").delay(500).fadeIn(1500, 'easeInQuad');
   });
+
+  
 
   if (!isEmpty($("#scrollAnimate"))){
     var scrollTo = $("#scrollAnimate").data('scroll-to');
@@ -40,13 +48,14 @@ $(document).on('ready page:load', function () {
 
     else
     {
-      $(".user-answer-btn").removeClass("chosenAnswer");
-      $(event.target).addClass("chosenAnswer");
-      hideNotChosenButtons();
+        $(".user-answer-btn").removeClass("chosenAnswer");
+        $(event.target).addClass("chosenAnswer");
+        hideNotChosenButtons();
+      
     }
 
-    $("#response_paragraph").fadeOut(1000, function(){
-      $("#user_choice").fadeOut(500);
+    $("#response_paragraph").fadeOut(1200, 'easeOutQuad', function(){
+      $("#user_choice").fadeOut(1200, 'easeOutQuad');
 
       $("#response_paragraph").empty();
       var currentLineType = $('#line_info').data('last-line-type');
@@ -70,19 +79,19 @@ $(document).on('ready page:load', function () {
         //No more lines in this scene
         if(!data)
         {
-          $('#user_answer_div').fadeOut(600, function(){
+          $('#user_answer_div').fadeOut(1000, 'easeInQuad', function(){
             nextScene();
           });
         }
 
         else
         {
-          $('#user_answer_div').children().fadeOut(600, function(){
+          $('#user_answer_div').children().fadeOut(1000, 'easeOutQuad', function(){
             $('#user_answer_div').children().remove();
             $("#response_paragraph").html(data.content);
             setLastLineSequence(data.sequence);
             setLastLineType(data.line_type);
-            $("#response_paragraph").fadeIn(800, function(){
+            $("#response_paragraph").hide().delay(500).fadeIn(1000, 'easeInQuad', function(){
               setSelectButtons(data.choices);
             });
           });
@@ -127,17 +136,17 @@ $(document).on('ready page:load', function () {
         //새로운 Scene이 시작하는 곳.
         else
         {
-          $("#interviewee_info").fadeOut(2000, function(){
+          $("#interviewee_info").fadeOut(2000, 'easeOutQuad', function(){
             $('#scene_sequence').data('scene-sequence', sceneSequence + 1);
             setSceneID(data.next_scene_id);
             $("#response_paragraph").html(data.next_scene_first_line);
             $("#interviewee_name").html(data.next_scene_interviewee_name);
             setLastLineSequence(data.next_scene_first_line_sequence);
             $("#interviewee_img").attr("src", data.interviewee_img_src);
-            $("#interviewee_info").fadeIn(1500, function(){
+            $("#interviewee_info").hide().fadeIn(1500, 'easeInQuad', function(){
               $('#div_for_user_answer').remove();
               setSelectButtons(data.choices);
-              $("#response_paragraph").fadeIn(750);
+              $("#response_paragraph").hide().delay(300).fadeIn(750, 'easeInQuad');
             });
           });
         }
@@ -168,11 +177,18 @@ $(document).on('ready page:load', function () {
       $.each(selectButtonInformation, function(i, item){
         buttonString = buttonString + "<button type=\"button\" class=\"btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn\" data-sequence=\"" + (i+1) + "\" id=\"" + i + "\" style=\"visibility:hidden;\">" + selectButtonInformation[i].content + "</button>";
       });
+      
+      $('#user_answer_div').fadeOut(3000, function(){
+        $('#user_answer_div').children().remove();
+        $('#user_answer_div').append(buttonString);
+        $('#userActions-container').hide().delay(300).fadeIn(1000, 'easeInQuad', function(){
+        $('#user_answer_div').delay(300).fadeIn(800, 'easeInQuad');
+        });
+        showSelectButtons();
+      });   
+      
+      
 
-      $('#user_answer_div').children().remove();
-      $('#user_answer_div').append(buttonString);
-      $('#user_answer_div').fadeIn(600);
-      showSelectButtons();
     }
 
   }
