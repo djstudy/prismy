@@ -97,7 +97,7 @@ $(document).on('ready page:load', function () {
 
         else
         {
-          $('#user_answer_div').delay(500).fadeOut(800, 'easeOutQuad', function(){
+          $('#user_answer_div').children().delay(500).fadeOut(800, 'easeOutQuad', function(){
             $('#user_answer_div').children().remove();
             $("#response_paragraph").html(data.content);
             setLastLineSequence(data.sequence);
