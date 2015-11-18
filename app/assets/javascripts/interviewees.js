@@ -63,7 +63,7 @@ $(document).on('ready page:load', function () {
       
     }
 
-    $("#response_paragraph").fadeOut(1200, 'easeOutQuad', function(){
+    $("#response_paragraph").fadeOut(400, 'easeOutQuad', function(){
       $("#user_choice").delay(500).fadeOut(1200, 'easeOutQuad');
 
       $("#response_paragraph").empty();
@@ -89,8 +89,9 @@ $(document).on('ready page:load', function () {
         if(!data)
         {
           $('#user_answer_div').fadeOut(1000, 'easeInQuad', function(){
+            nextScene();
             $("#interviewee_info").fadeOut(1000, 'easeOutQuad', function(){
-              nextScene();
+              
             });         
           });
 
@@ -103,7 +104,7 @@ $(document).on('ready page:load', function () {
             $("#response_paragraph").html(data.content);
             setLastLineSequence(data.sequence);
             setLastLineType(data.line_type);
-            $("#response_paragraph").hide().delay(100).fadeIn(800, 'easeInQuad', function(){
+            $("#response_paragraph").delay(100).fadeIn(800, 'easeInQuad', function(){
               setSelectButtons(data.choices);
             });
           });
@@ -148,8 +149,7 @@ $(document).on('ready page:load', function () {
         //새로운 Scene이 시작하는 곳.
         else
         { 
-            $(".next-indicator").hide().fadeIn(2000, 'easeInBack')
-            $(".next-indicator").delay(2000).fadeOut(2000, 'easeOutBack', function(){
+
 
             $('#scene_sequence').data('scene-sequence', sceneSequence + 1);
             setSceneID(data.next_scene_id);
@@ -162,7 +162,7 @@ $(document).on('ready page:load', function () {
               setSelectButtons(data.choices);
               $("#response_paragraph").hide().delay(300).fadeIn(750, 'easeInQuad');
             });
-          });
+
 
 
         }
