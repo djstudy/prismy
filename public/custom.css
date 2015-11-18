@@ -13,7 +13,7 @@
   font-size:16px;
   line-height: 28px;
   font-style: normal;
-  color: red;
+
 }
 .main-message{
   color: #34495e; 
@@ -83,6 +83,11 @@
   padding: 0px 15px;
   margin-bottom: 30px;
 }
+
+.next-indicator{
+  display: none;
+}
+
 @media(max-width:480px){
 .post_comment {
   float: left;

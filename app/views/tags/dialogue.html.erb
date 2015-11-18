@@ -7,7 +7,7 @@
 
     <div class="row" id="dialogue-info">
       <div class="col-xs-4 col-md-4">
-        <%= image_tag image_path('prismy_progress2.png'), :class => "progress_img", :id => "progress_ani" %>
+        <%= image_tag image_path('prismy_progress2.png'), :class => "progress_img" %>
       </div>
       <div class="col-xs-4 col-md-4 nanum-font" style="text-align: center; padding-right: 10px; margin-bottom:15px; margin-top:-3px">
         2 대화하기
@@ -17,12 +17,15 @@
       </div>
     </div>
 
+    <div class="text-center next-indicator nanum-font" id="go-to-next" style="font-size:30px;">Next Scene</div>
+
     <div class="row" id= "interviewee_info">
 
 
 
 <!-- 원래 태그 있던 곳 -->
       <div class="col-md-10 col-md-offset-1 col-xs-12 main-row">
+
         <div class="row">
           <div class="col-md-2 col-xs-3 text-center"><%= image_tag image_path("interviewee_icon/#{@first_scene_interviewee.profile_image}"), :class => "icon_img", :id=> "interviewee_img" %>
             <div class="text-center interviewee_name" id="interviewee_name">
