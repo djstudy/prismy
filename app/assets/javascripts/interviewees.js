@@ -1,6 +1,7 @@
 
 $(document).on('ready page:load', function () {
   $('#dialogue-container').css('display','inline');
+  $('#prismy-sm-logo').css('display','inline');
 
   $('.flow-text').wordBreakKeepAll();
   $('.flow-text').css('font-size',function(){
@@ -10,17 +11,18 @@ $(document).on('ready page:load', function () {
     else
       return responsiveFontSize
   });
-  $("#interviewee_name").hide()
-  $("#interviewee_img").hide()
-  $("#userActions-container").hide()
-  $("#response_paragraph").children().hide()
-  $("#dialogue-info").hide().delay(800).fadeIn(800, 'easeInQuad',function(){
-     $("#interviewee_name").delay(1300).fadeIn(1500, 'easeInQuad');
+  $("#prismy-sm-logo").hide().delay(100).fadeIn(1000, 'easeInCubic');
+  $("#interviewee_name").hide();
+  $("#interviewee_img").hide();
+  $("#userActions-container").hide();
+  $("#response_paragraph").children().hide();
+  $("#dialogue-info").hide().delay(1000).fadeIn(800, 'easeInQuad',function(){
+     $("#interviewee_name").delay(1300).fadeIn(1000, 'easeInQuad');
 
-      $("#interviewee_img").delay(1500).fadeIn(1500, 'easeInQuad',function(){
+      $("#interviewee_img").delay(1500).fadeIn(1000, 'easeInQuad',function(){
           
-          $("#response_paragraph").children().hide().delay(500).fadeIn(2500, 'easeInOutQuad', function(){
-          $("#userActions-container").delay(650).fadeIn(1500, 'easeInQuad');
+          $("#response_paragraph").children().hide().delay(200).fadeIn(1500, 'easeInOutQuad', function(){
+          $("#userActions-container").delay(500).fadeIn(1000, 'easeInQuad');
   });
       });
   });
@@ -194,7 +196,7 @@ $(document).on('ready page:load', function () {
         buttonString = buttonString + "<button type=\"button\" class=\"btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn\" data-sequence=\"" + (i+1) + "\" id=\"" + i + "\" style=\"visibility:hidden;\">" + selectButtonInformation[i].content + "</button>";
       });
       
-      $('#user_answer_div').delay(500).fadeOut(1000, function(){
+      $('#user_answer_div').delay(400).fadeOut(600, function(){
         $('#user_answer_div').children().remove();
         $('#user_answer_div').append(buttonString);
         $('#userActions-container').hide().delay(100).fadeIn(1000, 'easeInQuad', function(){

@@ -6556,12 +6556,11 @@ ol {
 }
 .modal .modal-header {
   padding: 31px 0 34px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Nanum Barun Gothic', sans-serif;
   font-size: 22px;
   color: #34495e;
-  background: #f3f7f7;
+  background: #ffffff;
   border: none;
-  border-radius: 3px 3px 0 0;
 }
 .modal .close {
   display: block;
