@@ -129,8 +129,10 @@
 .prismy-modal-choices{
   background-color : #34495e;
   border-radius : 2px;
-  color: white;
+  color: white !important;
   font-family: 'Nanum Barun Gothic', sans-serif;
+  padding-top: 20px;
+  padding-down: 20px;
 }
 .prismy-modal-choice-title{
   font-size:16px;

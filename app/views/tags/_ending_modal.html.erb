@@ -8,7 +8,7 @@
       <div class="modal-body nanum-font" style="padding-bottom:40px;">
 
         <h4 class="nanum-font prismy-modal-sub-title" style="margin: 0 0 10px 0;">"<%= @tag.name %>" </h4>
-
+        <div class="row">
         <% @tag.scenes.each do |scene| %>
         <div class="col-sm-6 col-xs-12" style="padding-left:0px !important!; padding-right:0px !important; margin-bottom:30px;">
           <blockquote class="prsimy-blockquote">
@@ -27,21 +27,29 @@
           <% end %>
         </div>
         <% end %>
+        </div>
+        <br>
 
+      <div class="row">
+        <%= link_to start_path() do %>
         <div class="col-sm-12 prismy-modal-choices" style="margin-top:20px;">
           <p class="prismy-modal-choice-title">다른 대화하기</p>
           <p class="prismy-modal-choice-content">다른 주제로 또 한번 대화를 나누고 싶으시다면!</p>
         </div>
-
+        <% end %>
+        <%= link_to asking_path() do %>
         <div class="col-sm-12 prismy-modal-choices" style="margin-top:20px;">
           <p class="prismy-modal-choice-title">직접 물어보기</p>
           <p class="prismy-modal-choice-content">대화를 나누다보니 직접 물어보고 싶은 것이 생기셨나요?</p>
         </div>
-
+        <% end %>
+        <%= link_to start_path() do %>
         <div class="col-sm-12 prismy-modal-choices" style="margin-top:20px;">
           <p class="prismy-modal-choice-title">공유하기</p>
           <p class="prismy-modal-choice-content">유익한 대화를 나누셨나요? 친구와 지인들에게 공유해보세요!</p>
         </div>
+        <% end %>
+      </div>
 
 
 
