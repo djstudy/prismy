@@ -71,7 +71,7 @@
 }
 .prismy-modal-content{
   padding-top: 70px;
-  font-size: 12px;
+
 }
 
 @media (max-width: 768px) {
@@ -98,7 +98,7 @@
 
 .prsimy-blockquote{
   font-style: italic;
-  font-size:14px;
+  font-size:11px;
   margin: 0;
 }
 
@@ -126,10 +126,15 @@
   min-height: 80px !important;
 }
 @media (max-width: 480px) {
+.prismy-modal-title{
+  font-size: 15px;
+}
 .prismy-modal-sub-title{
-  font-size: 17px;
+  font-size: 14px;
 }
 .prismy-modal-content{
   padding-top: 170px;
+  font-size: 12px;
+  line-height: 22px;
 }
 }

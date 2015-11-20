@@ -6586,10 +6586,10 @@ ol {
   text-transform: capitalize;
 }
 .modal .modal-body {
-  padding-top: 45px;
+  padding-top: 40px;
   padding-bottom: 10px;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 .modal .modal-footer {
   background: #f3f7f7;
