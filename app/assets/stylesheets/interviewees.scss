@@ -125,6 +125,21 @@
 .prismy-header--thin{
   min-height: 80px !important;
 }
+
+.prismy-modal-choices{
+  background color : #34495e;
+  border-radius : 2px;
+  color: white;
+  font-family: 'Nanum Barun Gothic', sans-serif;
+}
+.prismy-modal-choice-title{
+  font-size:16px;
+  font-weight:500;
+  font-style:italic;
+}
+.prismy-modal-choice-content{
+  font-size:12px;
+}
 @media (max-width: 480px) {
 .prismy-modal-title{
   font-size: 15px;

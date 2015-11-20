@@ -27,32 +27,26 @@
           <% end %>
         </div>
         <% end %>
-        <div class="col-sm-12" style="margin-top:30px;">
-        <p class="prismy-modal-content">
-          대화를 잘 나누셨나요? 처음 선택하셨던 답변과 다른 생각이 드시나요? 아니면 생각이 변하지 않으셨나요? 유익한 대화를 나누셨다고 생각이 되시면 친구와 지인들에게 <strong class="font-general">공유</strong>해보세요~!
-        </p>
-        <p>
-          그리고 다른 이야기를 하고싶으시다면 <strong class="font-danger">"다른 대화 하기"</strong>를! 혹은 직접 물어보고 싶은게 있다면, <strong class="font-success">"직접 물어보기"</strong>를 눌러서 진행해주세요!
-        </p>
+        <%= link_to start_path() do %>
+        <div class="col-sm-12 prismy-modal-choices" style="margin-top:20px;">
+          <p class="prismy-modal-choice-title">다른 대화하기</p>
+          <p class="prismy-modal-choice-content">다른 주제로 또 한번 대화를 나누고 싶으시다면!</p>
         </div>
-
-        <div class="row">
-          <div class=" col-sm-4 col-xs-12 text-center">
-
-            <%= link_to "직접 물어보기", asking_path(), class: "btn btn-success btn-sm", style: "float: none; padding: 6px 17px 7px;" %>
-          </div>
-
-          <div class=" col-sm-4 col-xs-12 text-center">
-            <%= link_to "다른 대화 하기", start_path(), class: "btn btn-danger btn-sm", style: "float: none; padding: 6px 17px 7px;" %>
-          </div>
-
-
-          <div class=" col-sm-4 col-xs-12 text-center">
-            <button type="button" class="btn btn-general btn-sm" data-dismiss="modal" style="float: none; padding: 6px 17px 7px;">공유하기</button>
-
-          </div>
-
+        <% end %>
+        <%= link_to asking_path() do %>
+        <div class="col-sm-12 prismy-modal-choices" style="margin-top:20px;">
+          <p class="prismy-modal-choice-title">직접 물어보기</p>
+          <p class="prismy-modal-choice-content">대화를 나누다보니 직접 물어보고 싶은 것이 생기셨나요?</p>
         </div>
+        <% end %>
+        <%= link_to start_path(), {'data-dismiss' => 'modal'} do %>
+        <div class="col-sm-12 prismy-modal-choices" style="margin-top:20px;">
+          <p class="prismy-modal-choice-title">공유하기</p>
+          <p class="prismy-modal-choice-content">유익한 대화를 나누셨나요? 친구와 지인들에게 공유해보세요!</p>
+        </div>
+        <% end %>
+
+
 
       </div>
 
