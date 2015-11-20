@@ -7,10 +7,10 @@
       </div>
       <div class="modal-body nanum-font" style="padding-bottom:40px;">
 
-        <h4 class="nanum-font" style="margin: 0 0 10px 0;">"<%= @tag.name %>" </h4>
+        <h4 class="nanum-font prismy-modal-sub-title" style="margin: 0 0 10px 0;">"<%= @tag.name %>" </h4>
 
         <% @tag.scenes.each do |scene| %>
-        <div class="col-sm-6 col-xs-12">
+        <div class="col-sm-6 col-xs-12" style="padding-left:0px !important!; padding-right:0px !important;">
           <blockquote class="prsimy-blockquote">
             <%= scene.lines.first.content %>
             <footer><%= scene.interviewee.name %></footer>
@@ -28,10 +28,10 @@
         </div>
         <% end %>
         <div style="margin-top:30px;">
-        <p>
+        <p class="prismy-modal-content">
           대화를 잘 나누셨나요? 처음 선택하셨던 답변과 다른 생각이 드시나요? 아니면 생각이 변하지 않으셨나요? 유익한 대화를 나누셨다고 생각이 되시면 친구와 지인들에게 <strong class="font-general">공유</strong>해보세요~!
         </p>
-        <p>
+        <p class="prismy-modal-content">
           그리고 다른 이야기를 하고싶으시다면 <strong class="font-danger">"다른 대화 하기"</strong>를! 혹은 직접 물어보고 싶은게 있다면, <strong class="font-success">"직접 물어보기"</strong>를 눌러서 진행해주세요!
         </p>
         </div>

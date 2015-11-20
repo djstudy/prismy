@@ -6648,6 +6648,13 @@ ol {
   .modal--media .modal-body {
     padding: 20px;
   }
+
+  .modal .modal-body {
+  padding-top: 40px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
   .modal--media iframe {
     min-height: 240px;
   }
