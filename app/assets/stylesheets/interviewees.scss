@@ -134,6 +134,27 @@
   padding-top: 20px;
   padding-bottom: 20px;
 }
+.prismy-modal-choice-morechat{
+  background-image : url(asset-path('morechat.png'));
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: -2% 10%;
+  background-size: 100px;
+}
+.prismy-modal-choice-share{
+  background-image : url(asset-path('share.png'));
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: -2% 10%;
+  background-size: 100px;
+}
+.prismy-modal-choice-ask{
+  background-image : url(asset-path('ask.png'));
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: -2% 10%;
+  background-size: 100px;
+}
 .prismy-modal-choice-title{
   font-size:18px;
   font-weight:600;

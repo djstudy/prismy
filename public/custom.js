@@ -15,7 +15,7 @@ Modernizr.load({
 				};
 			});
 
-			$(".animationload").delay(1000).fadeOut("slow");
+			$(".animationload").delay(1000).fadeOut("easeInOutQuad");
 		}
 		else{
 			//initDesc
@@ -1816,7 +1816,7 @@ function tooltips() {
 //Start function
 function preloader() {
 	$(window).load(function() {
-		$(".animationload").delay(600).fadeOut("slow");
+		$(".animationload").delay(2500).fadeOut("easeInOutQuad");
 	});
 }
 //end function
