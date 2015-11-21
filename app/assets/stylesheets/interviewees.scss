@@ -135,24 +135,24 @@
   padding-bottom: 20px;
 }
 .prismy-modal-choice-morechat{
-  background-image : url(asset-path('morechat.png'));
+  background-image : url(image_path('morechat.png'));
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: -2% 10%;
+  background-position: 50% 10%;
   background-size: 100px;
 }
 .prismy-modal-choice-share{
-  background-image : url(asset-path('share.png'));
+  background-image : url(image_path('share.png'));
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: -2% 10%;
+  background-position: 50% 10%;
   background-size: 100px;
 }
 .prismy-modal-choice-ask{
-  background-image : url(asset-path('ask.png'));
-  background-repeat: no-repeat;
+  background-image : url(image_path('ask.png'));
+  background-repeat: repeat-x;
   background-attachment: fixed;
-  background-position: -2% 10%;
+  background-position: 50% 10%;
   background-size: 100px;
 }
 .prismy-modal-choice-title{
