@@ -16,7 +16,7 @@ $(document).on('ready page:load', function () {
   $("#prismy_main_logo").hide().delay(200).fadeIn(800, 'easeInCubic');
   $("#dialogue-info-last").hide().delay(1000).fadeIn(800, 'easeInCubic');
   $("#prismy-comment-form").hide().delay(800).fadeIn(800, 'easeInCubic');
-  
+
   $("#prismy-sm-logo").hide().delay(100).fadeIn(1000, 'easeInCubic');
   $("#interviewee_name").hide();
   $("#interviewee_img").hide();
@@ -26,17 +26,17 @@ $(document).on('ready page:load', function () {
      $("#interviewee_name").delay(1300).fadeIn(1000, 'easeInQuad');
 
       $("#interviewee_img").delay(1500).fadeIn(1000, 'easeInQuad',function(){
-          
+
           $("#response_paragraph").children().hide().delay(200).fadeIn(1500, 'easeInOutQuad', function(){
           $("#userActions-container").delay(500).fadeIn(1000, 'easeInQuad');
   });
       });
   });
- 
 
 
 
-  
+
+
 
   if (!isEmpty($("#scrollAnimate"))){
     var scrollTo = $("#scrollAnimate").data('scroll-to');
@@ -68,7 +68,7 @@ $(document).on('ready page:load', function () {
         $(".user-answer-btn").removeClass("chosenAnswer");
         $(event.target).addClass("chosenAnswer");
         hideNotChosenButtons();
-      
+
     }
 
     $("#response_paragraph").fadeOut(400, 'easeOutQuad', function(){
@@ -98,7 +98,7 @@ $(document).on('ready page:load', function () {
         {
           $('#user_answer_div').fadeOut(1000, 'easeInQuad', function(){
             nextScene();
-     
+
           });
 
         }
@@ -154,7 +154,7 @@ $(document).on('ready page:load', function () {
 
         //새로운 Scene이 시작하는 곳.
         else
-        { 
+        {
             $("#interviewee_info").fadeOut(1000, 'easeOutQuad', function(){
                           $('#scene_sequence').data('scene-sequence', sceneSequence + 1);
             setSceneID(data.next_scene_id);
@@ -167,7 +167,7 @@ $(document).on('ready page:load', function () {
               setSelectButtons(data.choices);
               $("#response_paragraph").hide().delay(300).fadeIn(750, 'easeInQuad');
             });
-            });    
+            });
 
 
 
@@ -201,7 +201,7 @@ $(document).on('ready page:load', function () {
       $.each(selectButtonInformation, function(i, item){
         buttonString = buttonString + "<button type=\"button\" class=\"btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn\" data-sequence=\"" + (i+1) + "\" id=\"" + i + "\" style=\"visibility:hidden;\">" + selectButtonInformation[i].content + "</button>";
       });
-      
+
       $('#user_answer_div').delay(400).fadeOut(600, function(){
         $('#user_answer_div').children().remove();
         $('#user_answer_div').append(buttonString);
@@ -209,9 +209,9 @@ $(document).on('ready page:load', function () {
         $('#user_answer_div').delay(300).fadeIn(800, 'easeInQuad');
         });
         showSelectButtons();
-      });   
-      
-      
+      });
+
+
 
     }
 

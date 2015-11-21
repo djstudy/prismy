@@ -74,9 +74,9 @@ class TagsController < ApplicationController
       @next_scene_interviewee = @next_scene.interviewee
       @next_scene_interviewee_img = ""
       if @next_scene_interviewee.profile_image
-        @next_scene_interviewee_img = ActionController::Base.helpers.asset_path('interviewee_icon/#{@next_scene_interviewee.profile_image}')
+        @next_scene_interviewee_img = ActionController::Base.helpers.asset_path("interviewee_icon/#{@next_scene_interviewee.profile_image}")
       else
-        @next_scene_interviewee_img = ActionController::Base.helpers.asset_path('interviewee_icon/Prismy_icon_js.png')
+        @next_scene_interviewee_img = ActionController::Base.helpers.asset_path("interviewee_icon/Prismy_icon_js.png")
       end
 
       next_first_line = @next_scene.lines.order(:sequence).first
