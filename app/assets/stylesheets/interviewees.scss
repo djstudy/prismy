@@ -137,23 +137,20 @@
 .prismy-modal-choice-morechat{
   background-image : url(image_path('morechat.png'));
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: 50% 10%;
-  background-size: 100px;
+  background-position: 95% 10%;
+  background-size: 70px;
 }
 .prismy-modal-choice-share{
   background-image : url(image_path('share.png'));
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: 50% 10%;
-  background-size: 100px;
+  background-position: 95% 10%;
+  background-size: 70px;
 }
 .prismy-modal-choice-ask{
   background-image : url(image_path('ask.png'));
-  background-repeat: repeat-x;
-  background-attachment: fixed;
-  background-position: 50% 10%;
-  background-size: 100px;
+  background-repeat: no-repeat;
+  background-position: 95% 10%;
+  background-size: 70px;
 }
 .prismy-modal-choice-title{
   font-size:18px;
