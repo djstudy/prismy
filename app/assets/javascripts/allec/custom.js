@@ -1816,7 +1816,7 @@ function tooltips() {
 
 //Start function
 function preloader() {
-	$(window).load(function() {
+	$(document).ready(function() {
 		$(".animationload").delay(2500).fadeOut("easeInOutQuad");
 	});
 }

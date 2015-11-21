@@ -36,7 +36,7 @@
       <div class="container text-center">
 
         <%= link_to start_path(), class: "logo " do %>
-            <%= image_tag image_path('prismy_logo_f.png'), class: "logo" %>
+            <%= image_tag image_path('prismy_logo_f.png'), class: "logo", id:"prismy_main_logo" %>
         <% end %>
         <!-- End Logo -->
 
@@ -93,7 +93,12 @@
       $(document).ready(function() {
         isotopeFilters();
       });
+
+            $(document).ready(function() {
+             preloader();
+             });
     </script>
+
   <script src="/custom.js"></script>
 </body>
 </html>

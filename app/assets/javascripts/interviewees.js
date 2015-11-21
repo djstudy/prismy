@@ -1,7 +1,9 @@
 
 $(document).on('ready page:load', function () {
   $('#dialogue-container').css('display','inline');
+  $('#prismy_main_logo').css('display','inline');
   $('#prismy-sm-logo').css('display','inline');
+  $('#last_progress_img').css('display','inline');
 
   $('.flow-text').wordBreakKeepAll();
   $('.flow-text').css('font-size',function(){
@@ -11,6 +13,10 @@ $(document).on('ready page:load', function () {
     else
       return responsiveFontSize
   });
+  $("#prismy_main_logo").hide().delay(200).fadeIn(800, 'easeInCubic');
+  $("#dialogue-info-last").hide().delay(1000).fadeIn(800, 'easeInCubic');
+  $("#prismy-comment-form").hide().delay(800).fadeIn(800, 'easeInCubic');
+  
   $("#prismy-sm-logo").hide().delay(100).fadeIn(1000, 'easeInCubic');
   $("#interviewee_name").hide();
   $("#interviewee_img").hide();
