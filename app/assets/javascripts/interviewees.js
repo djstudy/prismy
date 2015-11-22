@@ -144,6 +144,7 @@ $(document).on('ready page:load', function () {
         // Scene이 더 이상 없을
         else if(typeof(data)==="string")
         {
+
           // Should show the ending modal
           $('#modal-ending-wrapper').html(data);
           $('#modal-ending').modal();
