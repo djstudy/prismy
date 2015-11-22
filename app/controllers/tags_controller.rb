@@ -67,7 +67,7 @@ class TagsController < ApplicationController
 
   def get_next_scene
     @tag = Tag.find(params[:tag_id])
-    @scenes = @tag.scenes
+    @scenes = @tag.scenes.order(:scene_id)
     @next_scene = @scenes[params[:scene_id].to_i + 1]
 
     if @next_scene

@@ -154,8 +154,8 @@ $(document).on('ready page:load', function () {
         //새로운 Scene이 시작하는 곳.
         else
         {
-            $("#interviewee_info").fadeOut(1000, 'easeOutQuad', function(){
-                          $('#scene_sequence').data('scene-sequence', sceneSequence + 1);
+          $("#interviewee_info").fadeOut(1000, 'easeOutQuad', function(){
+            $('#scene_sequence').data('scene-sequence', sceneSequence + 1);
             setSceneID(data.next_scene_id);
             $("#response_paragraph").html(data.next_scene_first_line);
             $("div#interviewee_name").html(data.next_scene_interviewee_name);
@@ -166,12 +166,7 @@ $(document).on('ready page:load', function () {
               setSelectButtons(data.choices);
               $("#response_paragraph").hide().delay(300).fadeIn(750, 'easeInQuad');
             });
-            });
-
-
-
-
-
+          });
         }
 
       });
