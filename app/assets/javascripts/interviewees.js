@@ -144,7 +144,6 @@ $(document).on('ready page:load', function () {
         // Scene이 더 이상 없을
         else if(typeof(data)==="string")
         {
-          console.log(data);
           // Should show the ending modal
           $('#modal-ending-wrapper').html(data);
           $('#modal-ending').modal();
@@ -155,7 +154,6 @@ $(document).on('ready page:load', function () {
         //새로운 Scene이 시작하는 곳.
         else
         {
-            console.log(data);
             $("#interviewee_info").fadeOut(1000, 'easeOutQuad', function(){
                           $('#scene_sequence').data('scene-sequence', sceneSequence + 1);
             setSceneID(data.next_scene_id);
