@@ -18,12 +18,12 @@ $(document).on('ready page:load', function () {
   $("#prismy-comment-form").hide().delay(800).fadeIn(800, 'easeInCubic');
 
   $("#prismy-sm-logo").hide().delay(100).fadeIn(1000, 'easeInCubic');
-  $("#interviewee_name").hide();
+  $("div#interviewee_name").hide();
   $("#interviewee_img").hide();
   $("#userActions-container").hide();
   $("#response_paragraph").children().hide();
   $("#dialogue-info").hide().delay(1000).fadeIn(800, 'easeInQuad',function(){
-     $("#interviewee_name").delay(1300).fadeIn(1000, 'easeInQuad');
+     $("div#interviewee_name").delay(1300).fadeIn(1000, 'easeInQuad');
 
       $("#interviewee_img").delay(1500).fadeIn(1000, 'easeInQuad',function(){
 
@@ -159,7 +159,7 @@ $(document).on('ready page:load', function () {
                           $('#scene_sequence').data('scene-sequence', sceneSequence + 1);
             setSceneID(data.next_scene_id);
             $("#response_paragraph").html(data.next_scene_first_line);
-            $("#interviewee_name").html(data.next_scene_interviewee_name);
+            $("div#interviewee_name").html(data.next_scene_interviewee_name);
             setLastLineSequence(data.next_scene_first_line_sequence);
             $("#interviewee_img").attr("src", data.interviewee_img_src);
             $("#interviewee_info").hide().delay(300).fadeIn(1500, 'easeInQuad', function(){
