@@ -37,6 +37,8 @@ Rails.application.configure do
   config.assets.raise_runtime_errors = true
 
   ENV['BASIC_AUTH_SECRET'] = 'djstudy1234'
+  ENV['FACEBOOK_APP_ID'] = '1634359313484527'
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end

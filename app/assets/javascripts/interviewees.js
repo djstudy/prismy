@@ -148,7 +148,12 @@ $(document).on('ready page:load', function () {
           // Should show the ending modal
           $('#modal-ending-wrapper').html(data);
           $('#modal-ending').modal();
-
+          $('#fb-share').on("click",function(){
+            FB.ui({
+              method: 'share',
+              href: 'http://localhost:3000/',
+            }, function(response){});
+          })
           // window.location.replace(data.ending_path);
         }
 
