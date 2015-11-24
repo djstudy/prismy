@@ -151,7 +151,7 @@ $(document).on('ready page:load', function () {
           $('#fb-share').on("click",function(){
             FB.ui({
               method: 'share',
-              href: 'http://localhost:3000/',
+              href: this.location.hostname,
             }, function(response){});
           })
           // window.location.replace(data.ending_path);
