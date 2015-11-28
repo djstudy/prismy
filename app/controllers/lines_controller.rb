@@ -38,8 +38,13 @@ class LinesController < ApplicationController
     @line = Line.find(params[:id])
     if @line.update(line_params)
       if @line.is_question?
-        new_choice = Choice.create(content: "선택지", line_id: @line.id, sequence: 1, correct: true)
-        new_choice.save
+        if @line.choices && @line.choices.count > 0
+          #do nothing.
+        else
+          new_choice = Choice.create(content: "선택지", line_id: @line.id, sequence: 1, correct: true)
+          new_choice.save         
+        end
+
       end
       flash[:success] = "대사가 성공적으로 수정되었습니다."
     else
