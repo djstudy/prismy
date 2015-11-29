@@ -10,14 +10,14 @@ class IntervieweesController < ApplicationController
   end
   def enterance
     if session[:interviewee] == @interviewee.id
-      redirect_to interviewee_path(@interviewee)
+      redirect_to show_scene_list_interviewee_path(@interviewee)
     end
   end
   def log_in
     if @interviewee.password == params[:password]
       flash[:success] = "로그인 하셨습니다."
       session[:interviewee] = @interviewee.id
-      redirect_to interviewee_path(@interviewee)
+      redirect_to show_scene_list_interviewee_path(@interviewee)
     else
       flash[:error] = "로그인에 실패하였습니다."
       redirect_to enterance_interviewee_path(@interviewee)
