@@ -28,6 +28,10 @@ class IntervieweesController < ApplicationController
     redirect_to interviewees_path()
   end
 
+  def show_scene_list
+    @scenes = @interviewee.scenes
+  end
+
   def show
 
 

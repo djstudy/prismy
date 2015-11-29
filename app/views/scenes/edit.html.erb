@@ -1,4 +1,8 @@
-<h1><%= @scene.description %></h1>
+<% scene = @scene %>
+<h1>
+  <%= @scene.description %>
+  <%= link_to "Delete", scene_path(scene), method: "delete", data: { confirm: "정말 삭제하시겠습니까?" }, class: "btn btn-danger btn-sm" %>
+</h1>
 
 <%= form_for @scene, html: {class: "form-horizontal"} do |f| %>
   <%= render partial: "form", locals: {f: f} %>
@@ -10,3 +14,61 @@
     </div>
   </div>
 <% end %>
+
+
+<br>
+
+<% scene.lines.order(:sequence).each do |line| %>
+
+  <%= form_for line, html: { class: "form-inline" } do |f| %>
+  <div class="prismy-vertical-align-top form-group form-sequence">
+    <%= f.label "#" %>
+    <%= f.number_field :sequence, autofocus: true, class: "form-control input-sm prismy-numfield" %>
+  </div>
+  <div class="form-group form-content">
+
+    <%= f.text_area :content, autofocus: true, class: "form-control input-sm prismy-textarea" %>
+  </div>
+  <div class="form-group">
+      <%= f.collection_select :line_type, ["normal","question"], :to_s, :to_s, include_blank: false, class: "select-box" %>
+  </div>
+
+  <%= f.submit "Edit", class: "btn btn-info btn-sm"  %>
+  <%= link_to "Delete", line_path(line), method: "delete", data: { confirm: "정말 삭제하시겠습니까?" }, class: "btn btn-danger btn-sm"  %>
+
+  <% end %>
+
+  <% if line.is_question? %>
+  <div class="choices-container">
+    <% line.choices.order(:sequence).each do |choice| %>
+
+
+      <%= form_for choice, html: { class: "form-inline" } do |f| %>
+        <div class="form-group form-sequence prismy-vertical-align-top">
+          <%= f.label "#" %>
+          <%= f.number_field :sequence, autofocus: true, class: "form-control input-sm prismy-numfield" %>
+        </div>
+        <div class="form-group form-content">
+
+          <%= f.text_area :content, autofocus: true,  class: "form-control input-sm prismy-textarea" %>
+        </div>
+
+
+        <%= f.submit "Edit", class: "btn btn-info btn-sm"  %>
+        <%= link_to "Delete", choice_path(choice), method: "delete", data: { confirm: "정말 삭제하시겠습니까?" }, class: "btn btn-danger btn-sm"  %>
+
+      <% end %>
+
+    <% end %>
+
+    <%= link_to "Add Choice", line_choices_path(line), method: "POST", class: "btn btn-success btn-sm" %>
+
+    </div>
+  <% end %>
+
+<% end %>
+<%= link_to "Add Line", scene_lines_path(scene), method: "POST", class: "btn btn-general btn-sm" %>
+
+<div class="divider divider--colored present-divider">
+  <span class="divider-dot"></span>
+</div>

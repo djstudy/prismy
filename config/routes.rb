@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     member do
       get 'dialogue'
       get 'enterance'
+      get 'show_scene_list'
       post 'log_in'
       delete 'log_out'
     end
