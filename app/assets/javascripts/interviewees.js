@@ -71,8 +71,8 @@ $(document).on('ready page:load', function () {
 
     }
 
-    $("#response_paragraph").stop().fadeOut(400, 'easeOutQuad', function(){
-      $("#user_choice").delay(200).stop().fadeOut(1200, 'easeOutQuad');
+    $("#response_paragraph").fadeOut(700, 'easeOutQuad', function(){
+      $("#user_choice").delay(200).fadeOut(1200, 'easeOutQuad');
 
       $("#response_paragraph").empty();
       var currentLineType = $('#line_info').data('last-line-type');
@@ -96,7 +96,7 @@ $(document).on('ready page:load', function () {
         //No more lines in this scene
         if(!data)
         {
-          $('#user_answer_div').stop().fadeOut(1000, 'easeInQuad', function(){
+          $('#user_answer_div').fadeOut(1000, 'easeInQuad', function(){
             nextScene();
 
           });
@@ -105,7 +105,7 @@ $(document).on('ready page:load', function () {
 
         else
         {
-          $('#user_answer_div').delay(500).stop().fadeOut(800, 'easeOutQuad', function(){
+          $('#user_answer_div').delay(500).fadeOut(1100, 'easeOutQuad', function(){
 
             $('#user_answer_div').children().remove();
             $("#response_paragraph").html(data.content);
@@ -163,7 +163,7 @@ $(document).on('ready page:load', function () {
         //새로운 Scene이 시작하는 곳.
         else
         {
-          $("#interviewee_info").stop().fadeOut(1000, 'easeOutQuad', function(){
+          $("#interviewee_info").fadeOut(1000, 'easeOutQuad', function(){
             $('#scene_sequence').data('scene-sequence', sceneSequence + 1);
             setSceneID(data.next_scene_id);
             $("#response_paragraph").html(data.next_scene_first_line);
@@ -205,8 +205,8 @@ $(document).on('ready page:load', function () {
         buttonString = buttonString + "<button type=\"button\" class=\"btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn\" data-sequence=\"" + (i+1) + "\" id=\"" + i + "\" style=\"visibility:hidden;\">" + selectButtonInformation[i].content + "</button>";
       });
 
-      $('#user_answer_div').delay(100).stop().fadeOut(600, function(){
-        $('#user_answer_div').children().stop().remove();
+      $('#user_answer_div').delay(100).fadeOut(1000, function(){
+        $('#user_answer_div').children().remove();
         $('#user_answer_div').append(buttonString);
         $('#userActions-container').hide().delay(100).fadeIn(1200, 'easeInQuad', function(){
         $('#user_answer_div').delay(100).fadeIn(500, 'easeInQuad');
