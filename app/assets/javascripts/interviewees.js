@@ -71,8 +71,8 @@ $(document).on('ready page:load', function () {
 
     }
 
-    $("#response_paragraph").fadeOut(400, 'easeOutQuad', function(){
-      $("#user_choice").delay(500).fadeOut(1200, 'easeOutQuad');
+    $("#response_paragraph").stop().fadeOut(400, 'easeOutQuad', function(){
+      $("#user_choice").delay(200).stop().fadeOut(1200, 'easeOutQuad');
 
       $("#response_paragraph").empty();
       var currentLineType = $('#line_info').data('last-line-type');
@@ -96,7 +96,7 @@ $(document).on('ready page:load', function () {
         //No more lines in this scene
         if(!data)
         {
-          $('#user_answer_div').fadeOut(1000, 'easeInQuad', function(){
+          $('#user_answer_div').stop().fadeOut(1000, 'easeInQuad', function(){
             nextScene();
 
           });
@@ -105,15 +105,18 @@ $(document).on('ready page:load', function () {
 
         else
         {
-          $('#user_answer_div').children().delay(500).fadeOut(800, 'easeOutQuad', function(){
+          $('#user_answer_div').delay(500).stop().fadeOut(800, 'easeOutQuad', function(){
+
             $('#user_answer_div').children().remove();
             $("#response_paragraph").html(data.content);
             setLastLineSequence(data.sequence);
             setLastLineType(data.line_type);
-            $("#response_paragraph").delay(100).fadeIn(600, 'easeInQuad', function(){
+            $("#response_paragraph").delay(100).fadeIn(400, 'easeInQuad', function(){
               setSelectButtons(data.choices);
             });
           });
+
+          
         }
 
       });
@@ -160,14 +163,14 @@ $(document).on('ready page:load', function () {
         //새로운 Scene이 시작하는 곳.
         else
         {
-          $("#interviewee_info").fadeOut(1000, 'easeOutQuad', function(){
+          $("#interviewee_info").stop().fadeOut(1000, 'easeOutQuad', function(){
             $('#scene_sequence').data('scene-sequence', sceneSequence + 1);
             setSceneID(data.next_scene_id);
             $("#response_paragraph").html(data.next_scene_first_line);
             $("div#interviewee_name").html(data.next_scene_interviewee_name);
             setLastLineSequence(data.next_scene_first_line_sequence);
             $("#interviewee_img").attr("src", data.interviewee_img_src);
-            $("#interviewee_info").hide().delay(100).fadeIn(1000, 'easeInQuad', function(){
+            $("#interviewee_info").hide().delay(100).fadeIn(800, 'easeInQuad', function(){
               $('#div_for_user_answer').remove();
               setSelectButtons(data.choices);
               $("#response_paragraph").hide().delay(200).fadeIn(750, 'easeInQuad');
@@ -202,11 +205,11 @@ $(document).on('ready page:load', function () {
         buttonString = buttonString + "<button type=\"button\" class=\"btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn\" data-sequence=\"" + (i+1) + "\" id=\"" + i + "\" style=\"visibility:hidden;\">" + selectButtonInformation[i].content + "</button>";
       });
 
-      $('#user_answer_div').delay(100).fadeOut(600, function(){
-        $('#user_answer_div').children().remove();
+      $('#user_answer_div').delay(100).stop().fadeOut(600, function(){
+        $('#user_answer_div').children().stop().remove();
         $('#user_answer_div').append(buttonString);
-        $('#userActions-container').hide().delay(100).fadeIn(1500, 'easeInQuad', function(){
-        $('#user_answer_div').delay(200).fadeIn(500, 'easeInQuad');
+        $('#userActions-container').hide().delay(100).fadeIn(1200, 'easeInQuad', function(){
+        $('#user_answer_div').delay(100).fadeIn(500, 'easeInQuad');
         });
         showSelectButtons();
       });
