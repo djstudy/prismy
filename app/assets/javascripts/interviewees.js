@@ -205,7 +205,7 @@ $(document).on('ready page:load', function () {
       $('#user_answer_div').delay(100).fadeOut(600, function(){
         $('#user_answer_div').children().remove();
         $('#user_answer_div').append(buttonString);
-        $('#userActions-container').hide().delay(100).fadeIn(1700, 'easeInQuad', function(){
+        $('#userActions-container').hide().delay(100).fadeIn(1500, 'easeInQuad', function(){
         $('#user_answer_div').delay(200).fadeIn(500, 'easeInQuad');
         });
         showSelectButtons();
