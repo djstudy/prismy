@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151102015108) do
+ActiveRecord::Schema.define(version: 20151205023131) do
 
   create_table "choices", force: :cascade do |t|
     t.integer  "line_id"
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 20151102015108) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.integer  "scene_id"
+    t.string   "link_name"
+    t.text     "link_content"
   end
 
   create_table "scene_tag_mappers", force: :cascade do |t|

@@ -30,15 +30,13 @@ class ScenesController < ApplicationController
   end
 
   def update
-
-
     if @scene.update(scene_params)
       fetch_tags!
       flash[:success] = "장면이 성공적으로 수정되었습니다."
     else
       flash[:error] = "장면 수정에 실패하였습니다."
     end
-    redirect_to interviewee_path(@scene.interviewee)
+    redirect_to scene_edit_path(@scene)
   end
 
   def destroy

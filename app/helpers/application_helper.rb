@@ -31,4 +31,5 @@ module ApplicationHelper
     meta_app_id = "<meta property=\"fb:app_id\" content=\"\" />"
     meta_title + meta_site_name + meta_url + meta_image + meta_description + meta_app_id + meta_type
   end
+  
 end

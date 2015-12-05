@@ -21,17 +21,28 @@
 <% scene.lines.order(:sequence).each do |line| %>
 
   <%= form_for line, html: { class: "form-inline" } do |f| %>
+  <!-- sequence form starts -->
   <div class="prismy-vertical-align-top form-group form-sequence">
     <%= f.label "#" %>
     <%= f.number_field :sequence, autofocus: true, class: "form-control input-sm prismy-numfield" %>
   </div>
-  <div class="form-group form-content">
 
+  <!-- content form starts -->
+  <div class="form-group form-content">
     <%= f.text_area :content, autofocus: true, class: "form-control input-sm prismy-textarea" %>
   </div>
+
+  <!-- question group form starts -->
   <div class="form-group">
       <%= f.collection_select :line_type, ["normal","question"], :to_s, :to_s, include_blank: false, class: "select-box" %>
   </div>
+
+  <!-- link_name and link_content group form starts -->
+  <div class="form-group">
+    <%= f.text_area :link_name, autofocus: true, class: "form-control input-sm prismy-textarea", placeholder: "스피드웨건 링크의 이름 " %>
+    <%= f.text_area :link_content, autofocus: true, class: "form-control input-sm prismy-textarea", placeholder: "스피드웨건 링크의 내용(auto_html 됨요)" %>
+  </div>
+
 
   <%= f.submit "Edit", class: "btn btn-info btn-sm"  %>
   <%= link_to "Delete", line_path(line), method: "delete", data: { confirm: "정말 삭제하시겠습니까?" }, class: "btn btn-danger btn-sm"  %>
