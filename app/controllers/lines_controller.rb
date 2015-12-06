@@ -88,7 +88,7 @@ class LinesController < ApplicationController
     end
 
 
-    if current_line.line_type == "normal" || elsif current_line.line_type == "question"
+    if current_line.line_type == "normal" || current_line.line_type == "question"
       render json: next_line.to_json({:include => :choices}), status: 200
 
     else
