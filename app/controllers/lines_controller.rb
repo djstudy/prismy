@@ -22,7 +22,7 @@ class LinesController < ApplicationController
       flash[:error] = "대사 추가에 실패하였습니다."
     end
 
-    redirect_to interviewee_path(@scene.interviewee)
+    redirect_to edit_scene_path(@scene)
   end
 
 
@@ -88,18 +88,8 @@ class LinesController < ApplicationController
     end
 
 
-    if current_line.line_type == "normal"
-
+    if current_line.line_type == "normal" || elsif current_line.line_type == "question"
       render json: next_line.to_json({:include => :choices}), status: 200
-
-    elsif current_line.line_type == "question"
-
-      if user_choice.correct
-        render json: next_line.to_json({:include => :choices}), status: 200
-
-      else
-        render json: {content: user_choice.response, sequence: current_line.sequence, choices: current_line.choices, line_type: 'question' }, status: 200
-      end
 
     else
         render json: { error: "개발자에게 문의해주세요!" }, status: 403
@@ -109,33 +99,10 @@ class LinesController < ApplicationController
 
 
 private
-  def make_auto_html(contents, width = 480, height = 320)
-    return auto_html(contents){
-      sized_image(:width =>width)
-      youtube(:width => width, :height => height, :autoplay => false)
-      link :target => "_blank", :rel => "nofollow"
-      simple_format
-    }
-  end
-
-  def call_speed_wagon(link_name, contents)
-    if link_name == nil || contents == nil
-      return ""
-    end
-    if link_name.strip.length == 0 || contents.strip.length == 0
-      return ""
-    end
-
-    link_open  = " <a class=\"btn btn-primary\" role=\"button\" data-toggle=\"collapse\" href=\"#speedWagonContents\" aria-expanded=\"false\" aria-controls=\"speedWagonContents\">"
-    link_close = "</a>"
-    contents_open  = "<div class=\"collapse\" id=\"speedWagonContents\"><div class=\"well\">"
-    contents_close = "</div></div>"
-    return link_open + link_name + link_close + contents_open + make_auto_html(contents, 480, 320) + contents_close
-  end
-
   def line_params
     params.require(:line).permit(:content, :line_type, :sequence, :scene, :link_name, :link_content)
   end
+
   def get_line
     @line = Line.find(params[:id])
   end

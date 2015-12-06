@@ -4,6 +4,30 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :current_user
+public
+  def make_auto_html(contents, width = 480, height = 320)
+    return auto_html(contents){
+      sized_image(:width =>width)
+      youtube(:width => width, :height => height, :autoplay => false)
+      link :target => "_blank", :rel => "nofollow"
+      simple_format
+    }
+  end
+
+  def call_speed_wagon(link_name, contents)
+    if link_name == nil || contents == nil
+      return ""
+    end
+    if link_name.strip.length == 0 || contents.strip.length == 0
+      return ""
+    end
+
+    link_open  = " <a class=\"btn btn-primary\" role=\"button\" data-toggle=\"collapse\" href=\"#speedWagonContents\" aria-expanded=\"false\" aria-controls=\"speedWagonContents\">"
+    link_close = "</a>"
+    contents_open  = "<div class=\"collapse\" id=\"speedWagonContents\"><div class=\"well\">"
+    contents_close = "</div></div>"
+    return link_open + link_name + link_close + contents_open + make_auto_html(contents, 480, 320) + contents_close
+  end
 
 protected
   def authenticate!
