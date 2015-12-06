@@ -12,7 +12,7 @@ class Interviewee < ActiveRecord::Base
   end
 
   def pretty_interviewee_info
-    name + " <a href='#' class='tooltip-link tooltip--secondary' data-toggle='tooltip' data-placement='right' title='' data-original-title='#{description}'><span class='glyphicon glyphicon-info-sign' aria-hidden='true'></span></a>"
+    name + " <a href='#' class='tooltip-link tooltip--primary' data-toggle='tooltip' data-placement='right' title='' data-original-title='#{description}' ><span class='glyphicon glyphicon-info-sign' aria-hidden='true'></span></a>"
   end
 
 end

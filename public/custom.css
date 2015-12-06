@@ -9,7 +9,7 @@ padding-right: 0px !important;
 }
 
 .nanum-font{
-  font-family: 'Nanum Barun Gothic',sans-serif; 
+  font-family: 'Nanum Barun Gothic',sans-serif;
   font-weight: 300;
   -webkit-font-smoothing : subpixel-antialiased;
   word-wrap: break-word;
@@ -22,7 +22,7 @@ padding-right: 0px !important;
 
 }
 .main-message{
-  color: #34495e; 
+  color: #34495e;
   font-size:60px;
 }
  .header--thin{
@@ -128,12 +128,12 @@ padding-right: 0px !important;
     max-height: 70px;
     margin-top: 12px;
     margin-bottom: 12px;
-} 
+}
 .header--thin{
   min-height: 110px;
  }
 .main-message{
-  color: #34495e; 
+  color: #34495e;
   font-size:30px;
   line-height: 40px;
 }
@@ -145,4 +145,7 @@ padding-right: 0px !important;
 
 .admin-nav{
   margin: 15px 0 0 0;
+}
+.tooltip{
+  min-width: 150px;
 }

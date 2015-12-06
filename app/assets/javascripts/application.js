@@ -28,7 +28,7 @@ $(document).on('ready page:load', function () {
   });
 
   selectBox();
-  $('.tooltip-link').tooltip();
+  $('.tooltip-link').tooltip({html: true});
 
 });
 
