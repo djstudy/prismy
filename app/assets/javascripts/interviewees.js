@@ -170,6 +170,8 @@ $(document).on('ready page:load', function () {
             $("#response_paragraph").html(data.next_scene_first_line);
             $("#response_paragraph").children().addClass("triangle-right left");
             $("div#interviewee_name").html(data.next_scene_interviewee_name);
+            $('.tooltip-link').tooltip();
+            
             setLastLineSequence(data.next_scene_first_line_sequence);
             $("#interviewee_img").attr("src", data.interviewee_img_src);
             $("#interviewee_info").hide().delay(100).fadeIn(800, 'easeInQuad', function(){
