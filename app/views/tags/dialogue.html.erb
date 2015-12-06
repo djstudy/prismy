@@ -37,8 +37,9 @@
           </div>
           <div class="col-md-10 col-xs-9">
             <!--<div class="divider present-divider" style="margin-top:12px; margin-bottom:15px;">
-            </div>-->
-            <span class="nanum-font dialogue-font flow-text" id="response_paragraph" style="text-align: left; padding-top:100px;"><%= auto_html( @first_scene_lines.first.content ) {
+            </div> -->
+
+            <span class="nanum-font dialogue-font flow-text" id="response_paragraph"><%= auto_html( content_tag(:p, @first_scene_lines.first.content, :class => "triangle-right left") ) {
            sized_image(:width =>480)
           youtube(:width => 480, :height => 320, :autoplay => false)
           link :target => "_blank", :rel => "nofollow"
@@ -67,7 +68,7 @@
 
     <br>
     <div class="row" style="margin-top:25px;">
-      <div class="col-md-12" id="user_answer_div">
+      <div class="col-md-10 col-xs-10 col-xs-offset-1" id="user_answer_div">
         <%
           if(@first_choices.size == 0)
         %>
@@ -78,7 +79,7 @@
           # Needs form for user answer
           elsif (@first_choices.size == 1 && @first_choices[0].content == "")
         %>
-            <div id="div_for_user_answer" class="col-md-6">
+            <div id="div_for_user_answer" class="col-md-8">
               <textarea class="form-control" rows="3" id="answer_from_user"></textarea>
               <button type="button" class="btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn answer-from-user" data-sequence="1" id="btn1">대답하기</button>
             </div>
