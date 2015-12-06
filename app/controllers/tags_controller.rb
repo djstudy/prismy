@@ -91,7 +91,7 @@ class TagsController < ApplicationController
 
 
       render json: {interviewee_img_src: @next_scene_interviewee_img,
-                    next_scene_interviewee_name: @next_scene_interviewee.name,
+                    next_scene_interviewee_name: @next_scene.interviewee.pretty_interviewee_info,
                     next_scene_id: @next_scene.id,
                     next_scene_first_line: content,
                     next_scene_first_line_sequence: next_first_line.sequence,

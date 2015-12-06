@@ -1,5 +1,5 @@
 <div id="dialogue-container" class="row">
-  <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
+  <div class="col-md-8 col-md-offset-2 col-xs-12 ">
     <div id="scene_sequence" data-scene-sequence="0" ></div>
     <div id="tag_info"  data-tag-id="<%= @tag.id %>"></div>
     <div id="scene_info"  data-scene-id="<%= @first_scene.id %>"></div>
@@ -26,9 +26,13 @@
       <div class="col-md-10 col-md-offset-1 col-xs-12 main-row">
 
         <div class="row">
-          <div class="col-md-2 col-xs-3 text-center"><%= image_tag image_path("interviewee_icon/#{@first_scene_interviewee.profile_image}"), :class => "icon_img", :id=> "interviewee_img" %>
+          <div class="col-md-2 col-xs-3 text-center">
+            <%= image_tag image_path("interviewee_icon/#{@first_scene_interviewee.profile_image}"), :class => "icon_img", :id=> "interviewee_img" %>
             <div class="text-center interviewee_name" id="interviewee_name">
-            <%=@first_scene.interviewee.name %>
+
+
+              <%= raw @first_scene.interviewee.pretty_interviewee_info %>
+
             </div>
           </div>
           <div class="col-md-10 col-xs-9">
@@ -52,7 +56,7 @@
 
 
   <div class="row" id="userActions-container">
-  <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1 main-row">
+  <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12  main-row">
 
     <!--준희오빠 태그<span id="user_choice" style="margin-bottom:30px; font-size:18px;">당신의 선택</span>-->
 
