@@ -95,7 +95,7 @@ class TagsController < ApplicationController
                     next_scene_id: @next_scene.id,
                     next_scene_first_line: content,
                     next_scene_first_line_sequence: next_first_line.sequence,
-                    choices: next_first_line.choices }, status: 200
+                    choices: next_first_line.choices.order(:sequence) }, status: 200
     else
 
       render partial: "ending_modal.html", status: 200

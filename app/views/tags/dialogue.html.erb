@@ -69,47 +69,27 @@
     <br>
     <div class="row" style="margin-top:25px;">
       <div class="col-md-10 col-xs-10 col-xs-offset-1" id="user_answer_div">
-        <%
-          if(@first_choices.size == 0)
-        %>
+        <% if(@first_choices.size == 0)%>
+
             <button type="button" class="btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn" data-sequence="0" id="btn1" style="visibility:hidden;">선택지 1</button>
             <button type="button" class="btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn" data-sequence="1" id="btn2">다음</button>
             <button type="button" class="btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn" data-sequence="2" id="btn3" style="visibility:hidden;">선택지 2</button>
-        <%
-          # Needs form for user answer
-          elsif (@first_choices.size == 1 && @first_choices[0].content == "")
-        %>
+
+        <% elsif (@first_choices.size == 1 && @first_choices[0].content == "") %>
             <div id="div_for_user_answer" class="col-md-8">
               <textarea class="form-control" rows="3" id="answer_from_user"></textarea>
               <button type="button" class="btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn answer-from-user" data-sequence="1" id="btn1">대답하기</button>
             </div>
-        <%
-          elsif @first_choices.size == 1 || @first_choices.size == 2
-            counter = 1
-            @first_choices.each do |choice|
-        %>
-              <button type="button" class="btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn" data-sequence="<%=counter %>" id="btn<%=counter %>"><%=choice.content %> </button>
-        <%
-              counter = counter + 1
-            end #end of each loop
+        <% else %>
+          <% @first_choices.order(:sequence).each_with_index do |choice, index| %>
 
-            while counter <= 3
-              %>
-              <button type="button" class="btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn" data-sequence="<%=counter %>" id="btn<%=counter %>" style="visibility:hidden;">선택지</button>
-              <%
-              counter = counter + 1
-            end
+            <button type="button" class="btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn" data-sequence="<%=choice.sequence %>" id="btn<%=index %>"><%=choice.content %> </button>
 
-          else
-            counter = 1
-            @first_choices.each do |choice|
-        %>
-              <button type="button" class="btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn" data-sequence="<%=counter %>" id="btn<%=counter %>"><%=choice.content %> </button>
-        <%
-              counter = counter + 1
-            end #end of each loop
-          end # end of if-else statement
-        %>
+          <% end %>
+          <% for i in [@first_choices.size..3] %>
+            <button type="button" class="btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn" data-sequence="" id="btn<%=i %>" style="visibility:hidden;">선택지</button>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>

@@ -221,7 +221,7 @@ $(document).on('ready page:load', function () {
     {
       var buttonString = "";
       $.each(selectButtonInformation, function(i, item){
-        buttonString = buttonString + "<button type=\"button\" class=\"btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn\" data-sequence=\"" + (i+1) + "\" id=\"" + i + "\" style=\"visibility:hidden;\">" + selectButtonInformation[i].content + "</button>";
+        buttonString = buttonString + "<button type=\"button\" class=\"btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn\" data-sequence=\"" + item.sequence + "\" id=\"" + i + "\" style=\"visibility:hidden;\">" + item.content + "</button>";
       });
 
       $('#user_answer_div').delay(100).fadeOut(1000, function(){
