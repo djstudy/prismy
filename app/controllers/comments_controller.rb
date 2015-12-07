@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.user = current_user
     if @comment.save
-      flash[:success] = "코멘트가가 성공적으로 추가되었습니다."
+      flash[:success] = "코멘트가 성공적으로 추가되었습니다."
     else
       flash[:error] = "코멘트 추가에 실패하였습니다."
     end
@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
   def update
 
     if @comment.update(comment_params)
-      flash[:success] = "코멘트가가 성공적으로 추가되었습니다."
+      flash[:success] = "코멘트가 성공적으로 추가되었습니다."
     else
       flash[:error] = "코멘트 수정에 실패하였습니다."
     end
