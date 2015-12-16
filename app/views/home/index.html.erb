@@ -19,6 +19,17 @@
       <!-- end row-->
     <div class="row">
       <div class="blog-random">
+        <article class="post post--table">
+          <%= link_to about_path, class: "image-container image-container--max post__link-area" do %>
+          <%= image_tag image_path("photos/ellenpage.png"), class: "post__link" %>
+          <% end %>
+
+          <div class="post__detail">
+            <%= link_to about_path, class: "post__link" do %>
+            <h3 class="post__heading">프리즈미는 어떤 프로젝트인가요?</h3>
+            <% end %>
+          </div>
+        </article><!-- end article -->
         <% @tags.each do |tag| %>
           <!-- Standart arcticle with image -->
           <article class="post post--table">
