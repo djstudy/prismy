@@ -14,8 +14,7 @@ class ChoicesController < ApplicationController
     else
       flash[:error] = "선택지 추가에 실패하였습니다."
     end
-
-    redirect_to interviewee_path(@interviewee)
+    redirect_to edit_scene_path(@line.scene)
   end
 
 
@@ -25,7 +24,7 @@ class ChoicesController < ApplicationController
     else
       flash[:error] = "선택지 수정에 실패하였습니다."
     end
-    redirect_to interviewee_path(@interviewee)
+    redirect_to edit_scene_path(@choice.line.scene)
 
   end
 
@@ -36,7 +35,7 @@ class ChoicesController < ApplicationController
     else
       flash[:error] = "선택지 삭제에 실패하였습니다."
     end
-    redirect_to interviewee_path(@interviewee)
+    redirect_to edit_scene_path(@choice.line.scene)
   end
 
 
