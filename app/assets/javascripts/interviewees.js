@@ -190,7 +190,7 @@ $(document).on('ready page:load', function () {
     if(selectButtonInformation.length == 0)
     {
       var buttons = "<button type=\"button\" class=\"btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn\" data-sequence=\"0\" id=\"btn1\" style=\"visibility:hidden;\">선택지 1</button>"
-                    + "<button type=\"button\" class=\"btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn\" data-sequence=\"1\" id=\"btn2\">다음</button>"
+                    + "<button type=\"button\" class=\"btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn\" data-sequence=\"1\" id=\"btn2\">이야기 잘 들었어요!</button>"
                     + "<button type=\"button\" class=\"btn btn-primary btn-lg-rect btn-rect btn-block user-answer-btn\" data-sequence=\"2\" id=\"btn3\" style=\"visibility:hidden;\">선택지 2</button>";
 
       $('#user_answer_div').delay(100).fadeOut(1000, function(){
