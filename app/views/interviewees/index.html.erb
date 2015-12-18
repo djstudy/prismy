@@ -1,5 +1,5 @@
 <%= render partial: "./admin_nav" %>
-<h1>Interviewees</h1>
+<h1>Interviewees&nbsp; &nbsp;<%= link_to "인터뷰 대상 추가", new_interviewee_path(), class: "btn btn-info btn-rect btn-rect" %></h1>
 <div class="table-responsive">
   <table class="table table-bordered table--wide table-present">
     <thead>
@@ -25,4 +25,3 @@
 
   </table>
 </div>
-<%= link_to "인터뷰 대상 추가", new_interviewee_path()%>

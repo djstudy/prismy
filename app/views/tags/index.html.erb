@@ -1,26 +1,25 @@
 <%= render partial: "./admin_nav" %>
-<h1>Tags</h1>
+<h1>Tags&nbsp;&nbsp;<%= link_to "새로운 태그 추가", new_tag_path(), class: "btn btn-success btn-rect btn-rect" %></h1>
 <div class="table-responsive">
   <table class="table table-bordered table--wide table-present">
     <thead>
       <tr>
-        <th>이름</th>
-        <th>연결된 주제</th>
-        <th>관리</th>
+        <th>태그 이름</th>
+        <th>태그 관리</th>
       </tr>
     </thead>
     <% @tags.each do |tag| %>
-    <tr>
-      <td><%= tag.name %></td>
-      <td><%= tag.subjects.map{ |s| "\"#{s.name}\"" }.join(", ") %></td>
-
-      <td>
-      <%= link_to "edit", edit_tag_path(tag), class: "btn btn-info btn-sm" %>
-      <%= link_to "delete", tag_path(tag), method: "delete", data: { confirm: "정말 삭제하시겠습니까?" }, class: "btn btn-danger btn-sm" %>
-    </tr>
+      <tr>
+        <td>
+          <%= link_to "#{tag.name}", tag_path(tag) %>
+        </td>
+        <td>
+          <%= link_to "edit", edit_tag_path(tag), class: "btn btn-info btn-sm" %>
+          <%= link_to "delete", tag_path(tag), method: "delete", data: { confirm: "정말 삭제하시겠습니까?" }, class: "btn btn-danger btn-sm" %>
+        </td>
+      </tr>
     <% end %>
 
   </table>
 </div>
 
-<%= link_to "new", new_tag_path(), class: "btn btn-general btn-sm" %>
