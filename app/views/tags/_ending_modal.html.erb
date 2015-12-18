@@ -21,7 +21,7 @@
           <% if(scene.lines.first.is_question?) %>
           <div style="font-size: 12px; font-style: italic; font-color: gray; margin: 10px 0 10px 15px;">
             <span>
-             "<%= scene.lines.first.user_answers.where(user: current_user).last.choice.content %>" 라고 답하셨습니다.
+              <strong>"<%= scene.lines.first.user_answers.where(user: current_user).last.choice.content %>"</strong> 라고 답하셨습니다.
             </span>
           </div>
           <% end %>
