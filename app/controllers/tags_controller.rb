@@ -3,9 +3,9 @@ class TagsController < ApplicationController
   include AutoHtml
 
   before_action :get_tag, only: [:edit, :update, :destroy]
-  before_action :authenticate!, only: [:dialogue, :get_next_scene]
+  before_action :authenticate!, only: [:dialogue, :get_next_scene, :ending]
 
-  http_basic_authenticate_with name: "djstudy", password: ENV['BASIC_AUTH_SECRET'], except:[:dialogue, :get_next_scene]
+  http_basic_authenticate_with name: "djstudy", password: ENV['BASIC_AUTH_SECRET'], except:[:dialogue, :get_next_scene, :ending]
   def index
     @tags = Tag.all;
   end
