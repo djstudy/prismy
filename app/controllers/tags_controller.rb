@@ -67,6 +67,10 @@ class TagsController < ApplicationController
     @first_choices = @first_scene_lines.first.choices
   end
 
+  def ending
+    @tag = Tag.find(params[:id])
+  end
+
   def get_next_scene
     @tag = Tag.find(params[:tag_id])
     @scenes = @tag.scenes.order(:id)
@@ -120,5 +124,10 @@ private
       SubjectTagMapper.create(subject_id: subject_id, tag_id: @tag.id)
     end if params[:subject_ids]
   end
+
+
+
+
+
 
 end
