@@ -32,7 +32,7 @@ $(document).on('ready page:load', function () {
 
   $('#intro-projected-by').delay( 2000 ).fadeOut( 1000 );
 
-  $('#intro-start').delay( 12000 ).fadeIn('slow');
+  $('#intro-start').delay( 10000 ).fadeIn('slow');
   $('#intro-start').on('click', function(){
     bgAudio.pause();
   })
