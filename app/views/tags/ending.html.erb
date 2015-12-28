@@ -1,0 +1,70 @@
+    <div id="dialogue-container" class="row">
+  	<div class="col-md-8 col-md-offset-2 col-xs-12 ">
+    <div class="modal-content-unique">
+      <div class="modal-header">
+        <!--<button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i></button>-->
+        <h4 class="modal-title nanum-font prismy-modal-title" style="font-weight:600;">대화가 끝났습니다</h4>
+      </div>
+      <div class="modal-body nanum-font" style="padding-bottom:40px;">
+
+        <h4 class="nanum-font prismy-modal-sub-title" style="margin: 0 0 10px 0;">"<%= @tag.name %>" </h4>
+        <div class="row">
+        <% @tag.scenes.each do |scene| %>
+        <div class="col-sm-6 col-xs-12" style="padding-left:0px !important!; padding-right:0px !important; margin-bottom:30px;">
+          <blockquote class="prsimy-blockquote">
+            <%= scene.lines.first.content %>
+            <footer><%= scene.interviewee.name %></footer>
+
+
+
+          </blockquote>
+          <% if(scene.lines.first.is_question?) %>
+          <div style="font-size: 12px; font-style: italic; font-color: gray; margin: 10px 0 10px 15px;">
+            <span>
+              <strong>"<%= scene.lines.first.user_answers.where(user: current_user).last.choice.content %>"</strong> 라고 답하셨습니다.
+            </span>
+          </div>
+          <% end %>
+        </div>
+        <% end %>
+        </div>
+        <br>
+
+      <div class="row">
+        <%= link_to start_path() do %>
+        <div class="col-md-4 col-xs-12" style="margin-top:20px;">
+        	<div class="prismy-modal-choices prismy-modal-choice-morechat">
+          		<p class="prismy-modal-choice-title">다른 대화하기</p>
+          		<p class="prismy-modal-choice-content">다른 주제로 또 한번 대화를 나누고 싶으시다면!</p>
+      		</div>
+        </div>
+        <% end %>
+        <%= link_to asking_path() do %>
+        <div class="col-md-4 col-xs-12" style="margin-top:20px;">
+        	<div class="prismy-modal-choices prismy-modal-choice-ask">
+          		<p class="prismy-modal-choice-title">직접 물어보기</p>
+          		<p class="prismy-modal-choice-content">대화를 나누다보니 직접 물어보고 싶은 것이 생기셨나요?</p>
+          	</div>
+        </div>
+        <% end %>
+        <a id="fb-share" href="#">
+          <div class="col-md-4 col-xs-12" style="margin-top:20px;">
+          	<div class="prismy-modal-choices prismy-modal-choice-share">
+            	<p class="prismy-modal-choice-title">공유하기</p>
+            	<p class="prismy-modal-choice-content">유익한 대화를 나누셨나요? 친구와 지인들에게 공유해보세요!</p>
+        	</div>
+          </div>
+        </a>
+
+      </div>
+
+
+
+
+      </div>
+
+    </div>
+          </div>
+
+    </div>
+    <!-- /.modal-content -->

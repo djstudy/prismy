@@ -150,8 +150,11 @@ $(document).on('ready page:load', function () {
         {
 
           // Should show the ending modal
-          $('#modal-ending-wrapper').html(data);
-          $('#modal-ending').modal();
+          
+
+          var go_to_ending_url = "/tags/" + getTagID() + "/ending";
+          window.location.pathname = go_to_ending_url;
+
           $('#fb-share').on("click",function(){
             FB.ui({
               method: 'share',

@@ -3,9 +3,9 @@ class TagsController < ApplicationController
   include AutoHtml
 
   before_action :get_tag, only: [:edit, :update, :destroy]
-  before_action :authenticate!, only: [:dialogue, :get_next_scene]
+  before_action :authenticate!, only: [:dialogue, :get_next_scene, :ending]
 
-  http_basic_authenticate_with name: "djstudy", password: ENV['BASIC_AUTH_SECRET'], except:[:dialogue, :get_next_scene]
+  http_basic_authenticate_with name: "djstudy", password: ENV['BASIC_AUTH_SECRET'], except:[:dialogue, :get_next_scene, :ending]
   def index
     @tags = Tag.all;
   end
@@ -67,6 +67,10 @@ class TagsController < ApplicationController
     @first_choices = @first_scene_lines.first.choices
   end
 
+  def ending
+    @tag = Tag.find(params[:id])
+  end
+
   def get_next_scene
     @tag = Tag.find(params[:tag_id])
     @scenes = @tag.scenes.order(:id)
@@ -120,5 +124,10 @@ private
       SubjectTagMapper.create(subject_id: subject_id, tag_id: @tag.id)
     end if params[:subject_ids]
   end
+
+
+
+
+
 
 end
