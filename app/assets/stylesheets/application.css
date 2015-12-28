@@ -28,7 +28,7 @@
 .user-answer-btn {
   word-break: keep-all;
   line-height: 1.5em !important;
-  font-family: 'Nanum Barun Gothic', sans-serif;
+  font-family: 'NanumBarunGothicWeb', 'Nanum Barun Gothic', sans-serif;
   font-weight: 500;
   white-space: normal;
 }

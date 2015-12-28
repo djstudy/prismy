@@ -629,7 +629,7 @@ address {
   line-height: 1.42857143;
 }
 body {
-  font-family: 'Open Sans', 'Nanum Barun Gothic', sans-serif;
+  font-family: 'Open Sans','NanumBarunGothicWeb', 'Nanum Barun Gothic', sans-serif;
   overflow-x: hidden;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -18024,7 +18024,7 @@ html#ecwid_html body#ecwid_body .ecwid-productBrowser.ecwid-productBrowser-Searc
 .post--table .post__heading {
   padding: 10px 0 11px;
   margin: 0;
-  font: 14px 'Nanum Barun Gothic',sans-serif;
+  font: 14px 'NanumBarunGothicWeb', sans-serif;
   font-weight: 400;
   -webkit-font-smoothing : subpixel-antialiased;
   line-height: 22px;

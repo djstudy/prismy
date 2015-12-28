@@ -1,5 +1,6 @@
 
- @import url(https://cdn.rawgit.com/openhiun/hangul/14c0f6faa2941116bb53001d6a7dcd5e82300c3f/nanumbarungothic.css);
+ /*@import url(https://cdn.rawgit.com/openhiun/hangul/14c0f6faa2941116bb53001d6a7dcd5e82300c3f/nanumbarungothic.css);*/
+@import url('http://api.mobilis.co.kr/webfonts/v2/css/NanumBarunGothicWeb');
 
 body {
 padding-right: 0px !important;
@@ -65,7 +66,7 @@ padding-right: 0px !important;
 }
 
 .nanum-font{
-  font-family: 'Nanum Barun Gothic',sans-serif;
+  font-family:  'NanumBarunGothicWeb', 'Nanum Barun Gothic', sans-serif;
   font-weight: 300;
   -webkit-font-smoothing : subpixel-antialiased;
   word-wrap: break-word;
