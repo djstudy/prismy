@@ -81,7 +81,8 @@ padding-right: 0px !important;
 
 .main-message{
   color: #34495e;
-  font-size:60px;
+  font-size:50px;
+  line-height: 72px;
 }
  .header--thin{
   min-height: 158px;
