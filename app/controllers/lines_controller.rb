@@ -41,7 +41,7 @@ class LinesController < ApplicationController
         if @line.choices && @line.choices.count > 0
           #do nothing.
         else
-          new_choice = Choice.create(content: "선택지", line_id: @line.id, sequence: 1, correct: true)
+          new_choice = Choice.create(content: "이야기 잘 들었어요!", line_id: @line.id, sequence: 1, correct: true)
           new_choice.save         
         end
 
