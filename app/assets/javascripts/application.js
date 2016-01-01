@@ -42,6 +42,13 @@ $(document).on('ready page:load', function () {
     $('body').css('cursor','pointer');
   }
 
+  $('#fb-share').on("click",function(){
+    FB.ui({
+      method: 'share',
+      href: window.location.hostname,
+    }, function(response){});
+  });
+
 });
 
 

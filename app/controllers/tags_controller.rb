@@ -31,7 +31,7 @@ class TagsController < ApplicationController
   def show
     @tag = Tag.find(params[:id])
     @scenes = @tag.scenes
-    
+
   end
 
   def edit
