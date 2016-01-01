@@ -42,7 +42,7 @@ class LinesController < ApplicationController
           #do nothing.
         else
           new_choice = Choice.create(content: "이야기 잘 들었어요!", line_id: @line.id, sequence: 1, correct: true)
-          new_choice.save         
+          new_choice.save
         end
 
       end
