@@ -6,7 +6,7 @@ function isEmpty( el ){
 
 
 $(document).on('ready page:load', function () {
-  
+
 
   var bgAudio;
 
@@ -14,10 +14,10 @@ $(document).on('ready page:load', function () {
     bgAudio = SC.Widget('sc_background');
     bgAudio.play();
   }
-    
-    
-    
-  
+
+
+
+
 
   // $('#intro-title').hide();
   $('#intro-projected-by').hide();
@@ -54,10 +54,10 @@ $(document).on('ready page:load', function () {
       backDelay: 1000,
       //callback for every typed string
       onStringTyped: function() {
-        
+
         this.backSpeed = this.strings[i].length*100;
         i+=1;
-        
+
       },
       // call when done callback function
       callback: function() {
