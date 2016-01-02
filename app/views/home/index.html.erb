@@ -31,9 +31,12 @@
           </div>
         </article><!-- end article for about page-->
 
+        <% talked_tags = current_user.talked_tags %>
         <% @tags.shuffle.each do |tag| %>
+
           <!-- Standart arcticle with image -->
-          <article class="post post--table">
+
+          <article class="post post--table <%= talked?(talked_tags, tag) %>">
             <%= link_to dialogue_tag_path(tag), class: "image-container image-container--max post__link-area" do %>
             <%= image_tag image_path("photos/#{tag.cover_img}"), class: "post__link" %>
             <% end %>

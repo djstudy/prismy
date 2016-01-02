@@ -208,3 +208,11 @@ padding-right: 0px !important;
 .tooltip{
   min-width: 150px;
 }
+
+
+.talked-tag img{
+  opacity: 0.4;
+}
+.talked-tag h3{
+  color: #aaa;
+}
